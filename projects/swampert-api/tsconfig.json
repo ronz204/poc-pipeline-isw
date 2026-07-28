@@ -39,12 +39,9 @@
 
     // Module resolution - Support for absolute imports
     "paths": {
-      "@drizzle/*": ["./drizzle/*"],
-      
       "@secrets": ["./source/secrets.ts"],
-
-      "@context/*": ["./source/context/*"],
-      "@features/*": ["./source/features/*"],
+      "@database/*": ["./drizzle/database/*"],
+      "@elements/*": ["./drizzle/elements/*"],
     },
   },
 }
