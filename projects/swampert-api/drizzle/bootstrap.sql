@@ -1,0 +1,34 @@
+CREATE SCHEMA IF NOT EXISTS "extensions";
+CREATE EXTENSION IF NOT EXISTS pgcrypto  SCHEMA extensions;
+
+
+DO $$
+BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'sampler') THEN
+    CREATE ROLE sampler WITH LOGIN PASSWORD 'REPLACE_WITH_USER_PASSWORD' NOBYPASSRLS;
+  END IF;
+END
+$$;
+
+DO $$
+BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'runner') THEN
+    CREATE ROLE runner WITH LOGIN PASSWORD 'REPLACE_WITH_USER_PASSWORD' NOBYPASSRLS;
+  END IF;
+END
+$$;
+
+DO $$
+BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'backuper') THEN
+    CREATE ROLE backuper WITH LOGIN PASSWORD 'REPLACE_WITH_USER_PASSWORD' NOBYPASSRLS;
+  END IF;
+END
+$$;
+
+
+GRANT USAGE ON SCHEMA extensions TO sampler, runner, backuper;
+
+GRANT CONNECT ON DATABASE swampert TO sampler, runner, backuper;
+
+GRANT CREATE ON DATABASE swampert TO sampler;
