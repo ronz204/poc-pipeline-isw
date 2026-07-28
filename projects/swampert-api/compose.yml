@@ -1,0 +1,24 @@
+name: swampert
+
+services:
+  postgres:
+    env_file: .env.local
+    container_name: postgres
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432"
+    networks:
+      - swampert-network
+    volumes:
+      - swampert-data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  swampert-data:
+    driver: local
+    name: swampert-data
+
+networks:
+  swampert-network:
+    driver: bridge
+    name: swampert-network
