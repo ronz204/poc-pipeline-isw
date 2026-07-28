@@ -1,0 +1,27 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "include": [
+    "source/**/*.ts",
+    "source/**/*.tsx",
+    "source/**/*.vue",
+  ],
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "types": ["vite/client"],
+    "allowArbitraryExtensions": true,
+
+    /* Linting */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* Resolution */
+    "paths": {
+      "@assets/*": ["./source/assets/*"],
+      "@shared/*": ["./source/shared/*"],
+      "@designs/*": ["./source/designs/*"],
+      "@features/*": ["./source/features/*"],
+    },
+  },
+}
