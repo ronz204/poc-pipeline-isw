@@ -1,0 +1,50 @@
+{
+  "include": [
+    "source/**/*",
+    "drizzle/**/*",
+    "testing/**/*",
+    "**.config.ts",
+  ],
+  "compilerOptions": {
+    // Environment - Latest JavaScript features
+    "lib": ["ESNext"],
+    "target": "ESNext",
+    "module": "ESNext",
+
+    // Bundler mode - Modern module resolution for Bun
+    "moduleDetection": "force",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "noEmit": true,
+
+    // Type checking - Strict mode enabled
+    "strict": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // Bun runtime types
+    "types": ["@types/bun"],
+
+    // Best practices - Additional safety checks
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+
+    // Some stricter flags (disabled by default)
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noPropertyAccessFromIndexSignature": false,
+
+    // Module resolution - Support for absolute imports
+    "paths": {
+      "@drizzle/*": ["./drizzle/*"],
+      
+      "@secrets": ["./source/secrets.ts"],
+
+      "@context/*": ["./source/context/*"],
+      "@features/*": ["./source/features/*"],
+    },
+  },
+}
