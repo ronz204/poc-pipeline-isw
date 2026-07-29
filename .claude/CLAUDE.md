@@ -11,8 +11,8 @@ Swampert is a platform that orchestrates and audits swarms of AI agents: it fait
 
 | File | Purpose | Consult when touching |
 |---|---|---|
-| `contexts/overview.md` | What Swampert is, what the product is about (multi-tenant: companies, swarms, agents, tasks, executions, steps, costs, errors, auditing) | Scope questions, "why does this entity exist" questions |
-| `contexts/problems.md` | The real problem it solves (observability, auditing, multi-company governance) and what's deliberately out of scope (no agent execution, no LLM calls) | Prioritization, justifying what each component is for during the oral review |
+| `contexts/overview.md` | What Swampert is, what the product is about (multi-tenant: tenants, swarms, agents, tasks, executions, steps, costs, errors, auditing) | Scope questions, "why does this entity exist" questions |
+| `contexts/problems.md` | The real problem it solves (observability, auditing, multi-tenant governance) and what's deliberately out of scope (no agent execution, no LLM calls) | Prioritization, justifying what each component is for during the oral review |
 | `contexts/concepts.md` | Theory behind the modeling: multi-tenancy, Row-Level Security, advanced types (JSONB/ARRAY/ENUM/UUID), `pgcrypto`, normalization, partitioning, indexing, auditing/traceability | Before justifying why the model is designed the way it is — key for the oral review |
 | `contexts/database.md` | Provisioning: the three schemas (`auth`/`core`/`trace`), column conventions, the `pgcrypto` extension, the three Postgres roles (`sampler`/`runner`/`backuper`), the `FORCE` RLS pattern, and the split between modeling (DDL) and granting (DCL) migrations | Any migration, new table, role/permission, RLS policy |
 | `contexts/approach.md` | Requirements and constraints from the official Project II assignment: point distribution (100 pts), what each component demands (procedures, functions, triggers, auditing, summary tables, dashboard, documentation, oral review), milestone schedule | Deciding whether a task satisfies the rubric, sequencing work against weeks 9-14 |
