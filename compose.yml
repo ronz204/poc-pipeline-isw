@@ -1,0 +1,14 @@
+name: swampert
+
+include:
+  - services/postgres/compose.yml
+
+volumes:
+  swampert-data:
+    driver: local
+    name: swampert-data
+
+networks:
+  swampert-network:
+    driver: bridge
+    name: swampert-network

@@ -1,0 +1,7 @@
+# environment variable files
+.env
+.env.dev
+.env.test
+.env.prod
+.env.local
+.env.stage
