@@ -12,4 +12,8 @@ export class TenantScope {
       return work(tx);
     });
   };
+
+  public async setActor(tx: TenantTx, userId: string) {
+    await tx.execute(sql`SELECT set_config('app.current_user_id', ${userId}, true)`);
+  };
 };
