@@ -62,7 +62,7 @@ export class CoreSeeder {
       },
     }));
 
-    const swarmRows = await tx.select({ id: swarms.id }).from(swarms).where(eq(swarms.tenantId, tenant.id));
+    const swarmRows = await tx.select({ id: swarms.id, status: swarms.status }).from(swarms).where(eq(swarms.tenantId, tenant.id));
     const agentRows = await tx.select({ id: agents.id }).from(agents).where(eq(agents.tenantId, tenant.id));
     const agentIds = agentRows.map((row) => row.id);
 
@@ -71,14 +71,16 @@ export class CoreSeeder {
     
     if (pairs.length > 0) await tx.insert(swarmAgents).values(pairs);
 
-    const swarmIds = swarmRows.map((row) => row.id);
-    const taskCount = swarmIds.length * 2;
+    // trg_tasks_validate_swarm_active rechaza tareas sobre swarms 'archived' — solo los
+    // swarms activos/pausados son candidatos válidos para recibir tareas nuevas.
+    const activeSwarmIds = swarmRows.filter((row) => row.status !== "archived").map((row) => row.id);
+    const taskCount = activeSwarmIds.length * 2;
     await seed(tx, { tasks }, { count: taskCount, seed: tenantSeed + 2 }).refine((f) => ({
       tasks: {
         columns: {
           id: f.uuid(),
           tenantId: f.default({ defaultValue: tenant.id }),
-          swarmId: f.valuesFromArray({ values: swarmIds }),
+          swarmId: f.valuesFromArray({ values: activeSwarmIds }),
           status: f.valuesFromArray({
             values: [
               { weight: 0.3, values: ["pending"] },
