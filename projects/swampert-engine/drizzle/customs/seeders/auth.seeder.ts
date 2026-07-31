@@ -1,3 +1,4 @@
+import { eq } from "drizzle-orm";
 import { seed } from "drizzle-seed";
 import { hashSeed } from "@helpers/random.helper";
 import { tenants, users } from "@elements/auth.element";
@@ -63,5 +64,7 @@ export class AuthSeeder {
         },
       },
     }));
+
+    return tx.select().from(users).where(eq(users.tenantId, tenant.id));
   }
 }

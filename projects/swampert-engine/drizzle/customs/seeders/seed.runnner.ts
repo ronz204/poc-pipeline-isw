@@ -18,7 +18,10 @@ const tenants = await authSeeder.seedTenants({ count: SEED_TENANT_COUNT, seed: S
 
 for (const tenant of tenants) {
   await tenantScope.run(tenant.id, async (tx) => {
-    await authSeeder.seedUsers(tx, tenant, { seed: SEED_NUMBER });
+    const tenantUsers = await authSeeder.seedUsers(tx, tenant, { seed: SEED_NUMBER });
+    const actor = tenantUsers.find((user) => user.role === "admin") ?? tenantUsers[0]!;
+    await tenantScope.setActor(tx, actor.id);
+
     await coreSeeder.seedAll(tx, tenant, { seed: SEED_NUMBER });
     await traceSeeder.seedAll(tx, tenant, { seed: SEED_NUMBER });
   });

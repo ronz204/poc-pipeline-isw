@@ -1,5 +1,6 @@
+import { eq } from "drizzle-orm";
 import { seed } from "drizzle-seed";
-import { eq, sql } from "drizzle-orm";
+import { generateId } from "@database/drizzler.client";
 import { hashSeed, SeededRandom } from "@helpers/random.helper";
 import { agents, executions, swarmAgents, swarms, tasks } from "@elements/core.element";
 
@@ -13,6 +14,17 @@ export const TOOLS_CATALOG = [
 const DEFAULT_AGENT_CONFIG = { temperature: 0.7, maxTokens: 2048 };
 
 const DAY_MS = 24 * 60 * 60 * 1000;
+
+const EXECUTION_STATUS_POOL = [
+  ...Array(11).fill("completed" as const),
+  ...Array(3).fill("failed" as const),
+  ...Array(3).fill("running" as const),
+  ...Array(3).fill("pending" as const),
+]; // pesos aproximados: 55% completed, 15% failed, 15% running, 15% pending
+
+const ATTEMPT_COUNT_POOL = [1, 2, 2, 2, 3]; // promedio ~2 intentos por tarea
+const START_GAP_MINUTES_POOL = Array.from({ length: 24 }, (_, i) => (i + 1) * 60); // 1-24h entre reintentos
+const DURATION_MINUTES_POOL = Array.from({ length: 36 }, (_, i) => 5 + i * 5); // 5-180min de duración
 
 export class CoreSeeder {
   async seedAll(tx: TenantTx, tenant: { id: string }, { seed: seedNumber }: { seed: number }) {
@@ -88,39 +100,40 @@ export class CoreSeeder {
     }));
 
     const taskRows = await tx.select({ id: tasks.id }).from(tasks).where(eq(tasks.tenantId, tenant.id));
-    const taskIds = taskRows.map((row) => row.id);
 
     const now = new Date();
     const ninetyDaysAgo = new Date(now.getTime() - 90 * DAY_MS);
 
-    const executionCount = taskIds.length * 2;
-    await seed(tx, { executions }, { count: executionCount, seed: tenantSeed + 3 }).refine((f) => ({
-      executions: {
-        columns: {
-          id: f.uuid(),
-          tenantId: f.default({ defaultValue: tenant.id }),
-          taskId: f.valuesFromArray({ values: taskIds }),
-          attemptNumber: f.int({ minValue: 1, maxValue: 3 }),
-          status: f.valuesFromArray({
-            values: [
-              { weight: 0.55, values: ["completed"] },
-              { weight: 0.15, values: ["failed"] },
-              { weight: 0.15, values: ["running"] },
-              { weight: 0.15, values: ["pending"] },
-            ],
-          }),
-          startedAt: f.date({ minDate: ninetyDaysAgo, maxDate: now }),
-          deletedAt: f.default({ defaultValue: null }),
-        },
-      },
-    }));
+    // attemptNumber tiene que ser consecutivo por taskId (lo exige trg_executions_validate_attempt_number)
+    // y finishedAt solo aplica a estados terminales, siempre después de startedAt (trg_executions_validate_transition)
+    // — son tres columnas correlacionadas que drizzle-seed no puede generar juntas, así que se arma a mano.
+    const executionRows = taskRows.flatMap((task) => {
+      const attemptCount = rng.pick(ATTEMPT_COUNT_POOL);
+      let startedAt = ninetyDaysAgo;
 
-    await tx.execute(sql`
-      UPDATE core.executions
-      SET finished_at = started_at + make_interval(mins => 5 + (random() * 180)::int)
-      WHERE tenant_id = ${tenant.id}
-        AND status IN ('completed', 'failed')
-        AND finished_at IS NULL
-    `);
+      return Array.from({ length: attemptCount }, (_, index) => {
+        if (index > 0) {
+          const gapMs = rng.pick(START_GAP_MINUTES_POOL) * 60_000;
+          startedAt = new Date(Math.min(startedAt.getTime() + gapMs, now.getTime()));
+        }
+
+        const status = rng.pick(EXECUTION_STATUS_POOL);
+        const finishedAt = status === "completed" || status === "failed"
+          ? new Date(startedAt.getTime() + rng.pick(DURATION_MINUTES_POOL) * 60_000)
+          : null;
+
+        return {
+          id: generateId(),
+          tenantId: tenant.id,
+          taskId: task.id,
+          attemptNumber: index + 1,
+          status,
+          startedAt,
+          finishedAt,
+        };
+      });
+    });
+
+    if (executionRows.length > 0) await tx.insert(executions).values(executionRows);
   };
 };
