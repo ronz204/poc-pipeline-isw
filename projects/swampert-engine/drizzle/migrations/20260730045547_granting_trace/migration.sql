@@ -6,5 +6,13 @@ GRANT SELECT
 ON ALL TABLES IN SCHEMA "trace" TO runner, backuper;
 
 --> statement-breakpoint
+GRANT INSERT, UPDATE, DELETE
+ON ALL TABLES IN SCHEMA "trace" TO runner;
+
+--> statement-breakpoint
 ALTER DEFAULT PRIVILEGES FOR ROLE sampler IN SCHEMA "trace"
 GRANT SELECT ON TABLES TO runner, backuper;
+
+--> statement-breakpoint
+ALTER DEFAULT PRIVILEGES FOR ROLE sampler IN SCHEMA "trace"
+GRANT INSERT, UPDATE, DELETE ON TABLES TO runner;
