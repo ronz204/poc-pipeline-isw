@@ -45,7 +45,11 @@
       "@database/*": ["./drizzle/database/*"],
       "@elements/*": ["./drizzle/elements/*"],
 
+      "@features/*": ["./source/app/features/*"],
+      "@security/*": ["./source/app/security/*"],
+
       "@helpers/*": ["./source/infra/helpers/*"],
+      "@plugins/*": ["./source/infra/plugins/*"],
     },
   },
 }
