@@ -37,7 +37,9 @@ Swampert necesita una única extensión, habilitada en la primera migración ant
 
 | Extensión | Para qué | Disponibilidad |
 |---|---|---|
-| `pgcrypto` | Funciones criptográficas: `crypt()`/`gen_salt('bf')` para el hash bcrypt de `auth.users.password_hash` (ver `concepts.md` § Cifrado de datos sensibles), y `gen_random_uuid()` como `DEFAULT` de toda PK. | Parte de `contrib`, incluida en la imagen oficial `postgres` — sin pasos adicionales, sin imagen custom ni `Dockerfile` propio. |
+| `pgcrypto` | Provee `gen_random_uuid()`, pensada como `DEFAULT` de toda PK `uuid`. | Parte de `contrib`, incluida en la imagen oficial `postgres` — sin pasos adicionales, sin imagen custom ni `Dockerfile` propio. |
+
+> **Nota:** el hash de `auth.users.password` se mueve a la aplicación (`Bun.password`, ver `concepts.md` § Hash de contraseñas) — ya no usa `crypt()`/`gen_salt('bf')` de `pgcrypto`. Además, ninguna columna `id` de `drizzle/elements/*.ts` declara hoy `.default(sql\`gen_random_uuid()\`)` — los ids se generan en la aplicación (`uuidv7`, ver `drizzler.client.ts`) o vía el propio seeder. Con las dos cosas juntas, `pgcrypto` está habilitada pero ningún camino de código la ejercita todavía. No se tocó la migración que la habilita — es una nota para decidir a propósito, no un llamado a removerla en silencio: mantenerla igual (queda disponible si el modelo la necesita más adelante) o dejar de declararla como requisito son ambas opciones razonables.
 
 ```sql
 CREATE SCHEMA IF NOT EXISTS extensions;
@@ -63,9 +65,9 @@ CREATE TABLE "core"."agents" ( ... );
 
 -- 0005-granting-core.sql: solo permisos, sobre lo que ya existe
 GRANT USAGE ON SCHEMA core TO runner;
-GRANT SELECT ON ALL TABLES IN SCHEMA core TO runner;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA core TO runner;
 ALTER DEFAULT PRIVILEGES FOR ROLE sampler IN SCHEMA core
-  GRANT SELECT ON TABLES TO runner;
+  GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO runner;
 ```
 
 **Por qué separarlo:** deja el cambio estructural (qué existe) y el cambio de permisos (quién puede tocarlo) como dos unidades revisables por separado, con el historial de grants auditable por sí mismo — un cambio que solo ajusta privilegios no se mezcla con uno que agrega una columna. Es una convención de trabajo, no una regla rígida: el nombre exacto (`modeling-<feature>` / `granting-<feature>`) puede ajustarse, lo que se mantiene es la idea de fondo — **DDL y DCL no comparten migración.**
@@ -79,7 +81,7 @@ Swampert usa tres roles, cada uno con un propósito y un privilegio distinto:
 | Rol | Propósito | Privilegios | Dónde corre |
 |---|---|---|---|
 | `sampler` | Dueño de los tres schemas de Swampert y de todos sus objetos. Aplica todas las migraciones, modelado y permisos por igual. | Único rol con `CREATE` sobre la base `swampert` — todo lo que crea (schemas, tablas, funciones) queda automáticamente de su propiedad. Bypassea RLS por ser owner — precisamente por eso nunca sirve tráfico. | Exclusivamente el runner de migraciones, nunca en el proceso de aplicación. |
-| `runner` | El único rol con el que corre el backend. | `SELECT` sobre las tablas de los tres schemas, más `EXECUTE` sobre los procedimientos y funciones de `core`/`trace` — nunca `INSERT`/`UPDATE`/`DELETE` directo. `NOBYPASSRLS` explícito. | El backend (ElysiaJS), en cualquier ambiente. |
+| `runner` | El único rol con el que corre el backend. | **Fase actual** (antes de que existan procedimientos): `SELECT`/`INSERT`/`UPDATE`/`DELETE` directo sobre las tablas de los tres schemas. `NOBYPASSRLS` explícito — cada escritura sigue pasando por las políticas de RLS igual, ver más abajo. | El backend (ElysiaJS), en cualquier ambiente. |
 | `backuper` | Respaldo periódico de la base completa. | Únicamente `CONNECT` + los privilegios que exige `pg_dump` para leer el esquema y los datos. Sin `INSERT`/`UPDATE`/`DELETE`, sin `EXECUTE`. `NOBYPASSRLS` explícito. | El proceso de backup, nunca el backend ni un humano interactivo. |
 
 ### Provisioning en dos capas: bootstrap manual + migraciones de granting
@@ -107,7 +109,11 @@ Notar lo que `bootstrap.sql` **no** hace: no crea `auth`/`core`/`trace`, ni le d
 
 En otras palabras: **el ownership es todo de `sampler` desde el bootstrap, y el acceso de los demás roles se construye migración a migración, nunca de una sola vez.**
 
-**Por qué `runner` no tiene `INSERT`/`UPDATE`/`DELETE` directo:** Proyecto II exige que toda escritura de negocio pase por un procedimiento almacenado que valida y transacciona — no por una sentencia suelta del backend. En vez de otorgarle a `runner` privilegios de escritura directa sobre las tablas (que le permitirían saltarse esa validación desde cualquier endpoint), los procedimientos y funciones de `core`/`trace` se definen como `SECURITY DEFINER`, propiedad de `sampler`. `runner` solo necesita `EXECUTE` sobre ellos: la única forma de escribir en la base, desde el backend, es invocando un procedimiento — nunca un `INSERT` directo. Esto no es solo un detalle de seguridad, es lo que hace que el requisito académico ("todo el flujo pasa por un procedimiento") sea estructuralmente cierto y no solo una convención que alguien podría no respetar.
+**Por qué `runner` tiene `INSERT`/`UPDATE`/`DELETE` directo hoy, y por qué eso va a cambiar:** Proyecto II exige que toda escritura de negocio termine pasando por un procedimiento almacenado que valide y transaccione — no por una sentencia suelta del backend. Esa es la meta estructural, pero los procedimientos y funciones todavía no existen (llegan recién en los hitos de las semanas 9-11, ver `approach.md`), y el backend necesita poder escribir mientras tanto para poder desarrollarse y probarse. Por eso, en esta fase, `runner` recibe `SELECT`/`INSERT`/`UPDATE`/`DELETE` directo sobre las tablas de los tres schemas — una concesión deliberada y temporal, no la arquitectura final.
+
+Cuando los procedimientos y funciones de `core`/`trace` se definan como `SECURITY DEFINER` (propiedad de `sampler`), el plan es **revocarle a `runner` el `INSERT`/`UPDATE`/`DELETE` directo** y dejarlo únicamente con `SELECT` + `EXECUTE` sobre esos procedimientos — recién ahí el requisito académico ("todo el flujo pasa por un procedimiento") queda estructuralmente garantizado por la base, y no solo por convención. Hasta que eso pase, nada impide que un endpoint escriba con una sentencia suelta; es una brecha conocida y aceptada mientras no exista la capa procedural, no un descuido.
+
+Importante: esta concesión **no debilita el aislamiento multi-tenant**. RLS vía `ENABLE ROW LEVEL SECURITY` ya rige para cualquier rol que no sea el dueño de la tabla — `runner` nunca es owner (`sampler` lo es), así que la política `tenant_isolation` se evalúa igual en cada `INSERT`/`UPDATE`/`DELETE` de `runner`, con o sin `FORCE`. `FORCE` solo importa el día que el código que escribe corra como `sampler` (los futuros procedimientos `SECURITY DEFINER`) — ver el llamado en la sección de RLS más abajo.
 
 **Reglas de uso, no negociables:**
 
@@ -122,6 +128,8 @@ En otras palabras: **el ownership es todo de `sampler` desde el bootstrap, y el 
 ## 🛡️ Row-Level Security: patrón de aplicación
 
 RLS con `FORCE` es, acá, el mecanismo central de aislamiento — no una segunda capa redundante. Como los procedimientos y funciones corren `SECURITY DEFINER` con `sampler` como owner (sección anterior), sin `FORCE ROW LEVEL SECURITY` el propio owner bypassearía la política al ejecutar la lógica de negocio, y el aislamiento entre empresas dejaría de existir en la práctica aunque la política exista en el catálogo.
+
+> **Estado real hoy:** las migraciones de modelado generadas solo tienen `ENABLE ROW LEVEL SECURITY` — ni `drizzle-orm@1.0.0-rc.4` ni `drizzle-kit` emiten `FORCE` todavía desde el DSL (`table.withRLS(...)`). No es un problema mientras el único que escribe sea `runner` (no-owner, ya cubierto por `ENABLE`) — pasa a ser necesario recién cuando existan los procedimientos `SECURITY DEFINER` de `sampler` mencionados arriba. Agregarlo entonces va a requerir una sentencia SQL cruda (`ALTER TABLE ... FORCE ROW LEVEL SECURITY`) fuera del DSL de Drizzle.
 
 Cada una de las 9 tablas tenant-scoped (`auth.users`, las 4 de `core`, las 4 de `trace`) sigue el mismo patrón de tres pasos:
 
