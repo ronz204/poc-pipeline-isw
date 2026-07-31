@@ -1,15 +1,11 @@
 import { eq } from "drizzle-orm";
 import { seed } from "drizzle-seed";
-import { users } from "@elements/auth.element";
-import { generateId } from "@database/drizzler.client";
+import { hashSeed } from "@helpers/random.helper";
+import { agents, executions } from "@elements/core.element";
 import { TOOLS_CATALOG } from "@customs/seeders/core.seeder";
-import { hashSeed, SeededRandom } from "@helpers/random.helper";
-import { agents, executions, swarms, tasks } from "@elements/core.element";
-import { auditLog, executionErrors, executionSteps, tokenCosts } from "@elements/trace.element";
+import { executionErrors, executionSteps, tokenCosts } from "@elements/trace.element";
 
 import type { TenantTx } from "@helpers/tenant.helper";
-
-const AUDIT_ACTIONS = ["created", "updated", "archived"] as const;
 
 export class TraceSeeder {
   async seedAll(tx: TenantTx, tenant: { id: string }, { seed: seedNumber }: { seed: number }) {
@@ -76,39 +72,5 @@ export class TraceSeeder {
         },
       }));
     }
-
-    await this.seedAuditLog(tx, tenant);
   }
-
-  private async seedAuditLog(tx: TenantTx, tenant: { id: string }) {
-    const userRows = await tx.select({ id: users.id }).from(users).where(eq(users.tenantId, tenant.id));
-    const swarmRows = await tx.select({ id: swarms.id }).from(swarms).where(eq(swarms.tenantId, tenant.id));
-    const agentRows = await tx.select({ id: agents.id }).from(agents).where(eq(agents.tenantId, tenant.id));
-    const taskRows = await tx.select({ id: tasks.id }).from(tasks).where(eq(tasks.tenantId, tenant.id));
-
-    const entities = [
-      ...swarmRows.map((row) => ({ entityType: "swarm" as const, entityId: row.id })),
-      ...agentRows.map((row) => ({ entityType: "agent" as const, entityId: row.id })),
-      ...taskRows.map((row) => ({ entityType: "task" as const, entityId: row.id })),
-    ];
-
-    if (userRows.length === 0 || entities.length === 0) return;
-
-    const rng = new SeededRandom(userRows.length + entities.length);
-    const rows = userRows.flatMap((user) =>
-      Array.from({ length: 3 }, () => {
-        const entity = rng.pick(entities);
-        return {
-          id: generateId(),
-          tenantId: tenant.id,
-          userId: user.id,
-          action: rng.pick(AUDIT_ACTIONS),
-          entityType: entity.entityType,
-          entityId: entity.entityId,
-        };
-      }),
-    );
-
-    await tx.insert(auditLog).values(rows);
-  };
-};
+}
