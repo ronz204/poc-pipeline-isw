@@ -1,6 +1,6 @@
-# Swampert — Proyecto II: Requerimientos y restricciones técnicas
+# Swampert — Proyecto II: Requerimientos y Restricciones Técnicas
 
-> Criterio teórico contra el que se evalúa si Proyecto II está completo, según el enunciado oficial (ISW-522, Proyecto II). No propone implementación — eso vive en otro documento. Los puntos de rúbrica se citan entre paréntesis (100 pts = 20% de la nota final) porque ayudan a calibrar cuánto rigor se espera de cada componente.
+> Criterio teórico contra el que se evalúa si Proyecto II está completo, según el enunciado oficial (ISW-522, Proyecto II). No propone implementación — eso vive en un `*.plan.md` por tarea (ver `planning.md`). Los puntos de rúbrica se citan entre paréntesis (100 pts = 20% de la nota final) porque ayudan a calibrar cuánto rigor se espera de cada componente.
 
 ---
 
@@ -53,7 +53,7 @@ Mínimo **8 funciones**, pensadas como piezas de lógica reutilizable.
 - **Mix de tipos:**
   - *Escalares* — reciben parámetros y devuelven un único valor (número, fecha, booleano).
   - *Retornan tabla* — encapsulan consultas de lectura que se repiten en distintos contextos del sistema.
-  
+
   No alcanza con tener solo un tipo de los dos.
 - **Documentación:** qué recibe, qué retorna, y un ejemplo de uso.
 
