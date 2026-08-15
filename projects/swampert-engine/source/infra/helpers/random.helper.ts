@@ -13,6 +13,10 @@ export class SeededRandom {
     return this.state / 0x7fffffff;
   };
 
+  public float(): number {
+    return this.next();
+  };
+
   public pick<T>(items: readonly T[]): T {
     return items[Math.floor(this.next() * items.length)]!;
   };
