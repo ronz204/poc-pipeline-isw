@@ -26,6 +26,9 @@ const envSchema = z.object({
   CORS_METHODS: z.string()
     .transform((val) => val.split(",").map((method) => method.trim()))
     .pipe(z.array(z.string().min(1)).min(1)),
+
+  JWT_SECRET: z.string().min(32),
+  JWT_EXPIRES_IN: z.string().min(1).default("1h"),
 });
 
 export const env = envSchema.parse(process.env);
