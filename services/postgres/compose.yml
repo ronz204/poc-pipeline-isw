@@ -1,7 +1,7 @@
 services:
-  postgres:
+  swampert-postgres:
     env_file: .env.local
-    container_name: postgres
+    container_name: swampert-postgres
     image: postgres:16-alpine
     ports:
       - "5432:5432"
