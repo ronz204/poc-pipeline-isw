@@ -1,0 +1,27 @@
+meta {
+  name: Refresh
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/reports/refresh
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "period": "2026-08-01"
+  }
+}
+
+docs {
+  Backs reports.sp_refresh_reports. Recalculates that calendar month for
+  EVERY tenant in one call, not just the caller's — run this once, then read
+  it back per-tenant with the 3 requests below.
+}

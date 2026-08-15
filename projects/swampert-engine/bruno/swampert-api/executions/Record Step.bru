@@ -1,0 +1,36 @@
+meta {
+  name: Record Step
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/executions/{{executionId}}/steps
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "agentId": "{{agentId}}",
+    "reasoning": { "summary": "searched the docs" },
+    "toolsUsed": ["web_search"],
+    "inputTokens": 480,
+    "outputTokens": 210,
+    "costPer1kInput": 0.0010,
+    "costPer1kOutput": 0.0030
+  }
+}
+
+docs {
+  Backs trace.sp_record_execution_step. executionId comes from "Launch
+  Execution"'s response. agentId must already be on the roster of that
+  execution's swarm — use "Provision Roster" first if it isn't.
+
+  400 if the execution is already terminal, or if this step would push the
+  execution's running cost over the tenant's plan budget.
+}

@@ -1,0 +1,33 @@
+meta {
+  name: Launch Execution
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/executions/launch
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "taskId": "{{taskId}}",
+    "maxAttempts": 3
+  }
+}
+
+docs {
+  Backs core.sp_launch_execution. Requires a real, non-completed taskId from
+  core.tasks for the logged-in tenant. maxAttempts is optional (default 3).
+
+  Copy the returned execution's "id" into the executionId environment
+  variable to chain into "Record Step" / "Complete Execution".
+
+  400 if the task is already completed or its swarm isn't active.
+  404 if the taskId doesn't exist.
+}

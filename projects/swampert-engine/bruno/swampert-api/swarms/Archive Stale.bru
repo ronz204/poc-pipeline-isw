@@ -1,0 +1,30 @@
+meta {
+  name: Archive Stale
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/swarms/archive-stale
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "inactiveSince": "2026-06-01T00:00:00Z"
+  }
+}
+
+docs {
+  Backs core.sp_archive_stale_swarms. Archives every swarm of the logged-in
+  tenant with no task created after inactiveSince and no pending/running
+  execution, and fails their still-open tasks.
+
+  Returns { archivedCount }. inactiveSince in the future is rejected (400) —
+  that would archive everything.
+}

@@ -1,0 +1,38 @@
+meta {
+  name: Login
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/auth/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "tenantSlug": "{{tenantSlug}}",
+    "email": "{{email}}",
+    "password": "{{password}}"
+  }
+}
+
+script:post-response {
+  if (res.body.token) {
+    bru.setVar("token", res.body.token);
+    bru.setVar("tenantId", res.body.tenantId);
+    bru.setVar("userId", res.body.userId);
+  }
+}
+
+docs {
+  Run this first. On success it stores `token`/`tenantId`/`userId` as
+  collection variables, so every other request's Bearer auth picks the token
+  up automatically — no manual copy/paste.
+
+  Seeded users all share the password `swampert-dev-password`
+  (drizzle/customs/seeders/auth.seeder.ts). `active` is randomized per user —
+  an inactive one gets a 401 the same as a wrong password (uniform on
+  purpose, deltas/restful.spec.md § Risks #5).
+}

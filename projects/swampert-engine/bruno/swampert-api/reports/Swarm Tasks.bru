@@ -1,0 +1,25 @@
+meta {
+  name: Swarm Tasks
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/reports/swarm-tasks
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+params:query {
+  ~swarmId: {{swarmId}}
+}
+
+docs {
+  Reads reports.swarm_task_summary for the logged-in tenant — current-state
+  counts, not period-bucketed. `swarmId` query param is optional (disabled by
+  default here — enable it to filter to one swarm).
+}

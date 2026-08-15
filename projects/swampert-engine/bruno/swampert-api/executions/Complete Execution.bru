@@ -1,0 +1,30 @@
+meta {
+  name: Complete Execution
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/executions/{{executionId}}/complete
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "status": "completed"
+  }
+}
+
+docs {
+  Backs core.sp_complete_execution. status must be "completed" or "failed".
+  Completing requires at least one step already recorded ("Record Step").
+
+  On "failed" with attempts remaining, the procedure auto-launches a retry in
+  the same call — the response you get back is still the execution you just
+  closed, not the new attempt.
+}

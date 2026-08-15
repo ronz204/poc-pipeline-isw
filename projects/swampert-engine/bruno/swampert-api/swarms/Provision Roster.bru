@@ -1,0 +1,31 @@
+meta {
+  name: Provision Roster
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/swarms/{{swarmId}}/roster
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "agentIds": ["{{agentId}}"]
+  }
+}
+
+docs {
+  Backs core.sp_provision_swarm_roster. Returns { swarmId, rosterSize } — the
+  roster's real size after the call, not an added/skipped breakdown (the
+  procedure only reports that via a RAISE NOTICE this API can't retrieve,
+  deltas/restful.spec.md § Risks #2).
+
+  Invalid/foreign agent ids are silently skipped by the procedure, not
+  rejected — re-running with the same ids is safe and idempotent.
+}
