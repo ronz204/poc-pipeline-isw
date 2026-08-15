@@ -104,14 +104,21 @@ export class CoreSeeder {
     const taskRows = await tx.select({ id: tasks.id }).from(tasks).where(eq(tasks.tenantId, tenant.id));
 
     const now = new Date();
-    const ninetyDaysAgo = new Date(now.getTime() - 90 * DAY_MS);
+    // 12 meses, no 90 días: reports.sp_refresh_reports necesita ejecuciones repartidas
+    // en el año completo para que el trend de 12 meses del dashboard (approach.md §6)
+    // tenga algo real que mostrar en cada mes, no solo en los últimos ~3.
+    const seedWindowStart = new Date(now.getTime() - 365 * DAY_MS);
 
     // attemptNumber tiene que ser consecutivo por taskId (lo exige trg_executions_validate_attempt_number)
     // y finishedAt solo aplica a estados terminales, siempre después de startedAt (trg_executions_validate_transition)
     // — son tres columnas correlacionadas que drizzle-seed no puede generar juntas, así que se arma a mano.
     const executionRows = taskRows.flatMap((task) => {
       const attemptCount = rng.pick(ATTEMPT_COUNT_POOL);
-      let startedAt = ninetyDaysAgo;
+      // Cada tarea arranca en un punto aleatorio de la ventana, no siempre al inicio —
+      // si no, los intentos se amontonan cerca de "ahora" y los meses viejos del trend
+      // igual quedan vacíos.
+      let startedAt = new Date(seedWindowStart.getTime()
+        + rng.float() * (now.getTime() - seedWindowStart.getTime()));
 
       return Array.from({ length: attemptCount }, (_, index) => {
         if (index > 0) {
