@@ -84,23 +84,30 @@ Swampert uses three roles, each with a distinct purpose and privilege set:
 | `runner` | The only role the backend runs as. | **Current phase** (before procedures exist): direct `SELECT`/`INSERT`/`UPDATE`/`DELETE` on the tables of all three schemas. Explicit `NOBYPASSRLS` — every write still goes through RLS policies regardless, see below. | The backend (ElysiaJS), in any environment. |
 | `backuper` | Periodic backup of the whole database. | Only `CONNECT` plus whatever `pg_dump` needs to read schema and data. No `INSERT`/`UPDATE`/`DELETE`, no `EXECUTE`. Explicit `NOBYPASSRLS`. | The backup process, never the backend or an interactive human. |
 
-### Two-layer provisioning: manual bootstrap + granting migrations
+### Two-layer provisioning: automated bootstrap + granting migrations
 
-The three roles are **not** created by a migration — there's a chicken-and-egg problem: the migration runner connects as `sampler`, so `sampler` has to exist *before* the first migration can run. That's why they're created once, by hand, against the fresh instance, with [`projects/swampert-engine/drizzle/bootstrap.sql`](../../projects/swampert-engine/drizzle/bootstrap.sql) — applied with a superuser (or instance-admin) connection, never with the runner or any of the three roles it creates:
+The three roles are **not** created by a migration — there's a chicken-and-egg problem: the migration runner connects as `sampler`, so `sampler` has to exist *before* the first migration can run. That's why they're created by [`services/postgres/scripts/database/bootstrap.sql`](../../services/postgres/scripts/database/bootstrap.sql), which runs automatically as the Postgres image's own superuser — applied with a superuser (or instance-admin) connection, never with the runner or any of the three roles it creates:
 
 ```sql
--- Roles, created idempotently (safe to re-run the script)
-CREATE ROLE sampler  WITH LOGIN PASSWORD '...' NOBYPASSRLS;
-CREATE ROLE runner   WITH LOGIN PASSWORD '...' NOBYPASSRLS;
-CREATE ROLE backuper WITH LOGIN PASSWORD '...' NOBYPASSRLS;
+-- Roles, created idempotently (safe to re-run the script) via \gexec:
+-- the SELECT only produces a CREATE ROLE statement when the role is
+-- missing, and \gexec executes whatever rows come back (zero or one).
+SELECT 'CREATE ROLE sampler WITH LOGIN PASSWORD ' || quote_literal(:'sampler_password') || ' NOBYPASSRLS'
+WHERE NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'sampler')
+\gexec
+-- ...repeated for runner and backuper
 
 -- All three can connect and use pgcrypto...
 GRANT USAGE ON SCHEMA extensions TO sampler, runner, backuper;
-GRANT CONNECT ON DATABASE swampert TO sampler, runner, backuper;
+GRANT CONNECT ON DATABASE :"db_name" TO sampler, runner, backuper;
 
 -- ...but only sampler can create new objects
-GRANT CREATE ON DATABASE swampert TO sampler;
+GRANT CREATE ON DATABASE :"db_name" TO sampler;
 ```
+
+The passwords and database name are never hardcoded in the SQL file itself — they arrive as `psql` variables (`:'sampler_password'`, `:"db_name"`, ...) supplied by [`services/postgres/scripts/00-bootstrap.sh`](../../services/postgres/scripts/00-bootstrap.sh), a wrapper script that reads them from `POSTGRES_SAMPLER_PASSWORD` / `POSTGRES_RUNNER_PASSWORD` / `POSTGRES_BACKUPER_PASSWORD` / `POSTGRES_DB`. The role-creation statements go through `SELECT ... \gexec` rather than a `DO $$ ... $$` block specifically because `psql` does not perform `:'var'` interpolation inside a dollar-quoted string — a `CREATE ROLE ... PASSWORD :'sampler_password'` written inside `DO $$ BEGIN ... END $$;` reaches the server with the literal, unsubstituted text `:'sampler_password'` and fails with a syntax error. `\gexec` keeps the variable reference at the top level, where substitution does apply. Both files are mounted read-only into the Postgres container at `/docker-entrypoint-initdb.d` (`services/postgres/compose.yml`, `./scripts:/docker-entrypoint-initdb.d:ro`) — the official `postgres` image runs every `*.sh`/`*.sql` file there, in name order, the first time it starts against an empty data volume. `00-bootstrap.sh` sorts before nothing else today, but the `NN-` prefix exists so a future init script has an explicit place in the order. That first-start-only behavior is the same idempotency guarantee the old by-hand version relied on ("safe to re-run the script" against roles that already exist) — it just no longer depends on a human remembering to run it once; a fresh `swampert-data` volume is what triggers it, an existing one is what skips it.
+
+The env vars themselves live in `services/postgres/.env.local` (gitignored, one instance per environment) alongside `POSTGRES_USER`/`POSTGRES_PASSWORD`/`POSTGRES_DB` — the image's own superuser bootstrap vars, which `docker-entrypoint.sh` consumes before any `/docker-entrypoint-initdb.d` script runs. `services/postgres/.env.local.example` documents the shape for a new environment to copy from.
 
 Notice what `bootstrap.sql` does **not** do: it doesn't create `auth`/`core`/`trace`, and it doesn't give `runner` or `backuper` a single privilege on those schemas. That's intentional — the bootstrap only solves cold start (that the roles exist, and that `sampler` can create things). Everything else happens afterward, once migrations are running:
 

@@ -10,6 +10,7 @@
       "Bash(git diff *)",
       "Bash(git log *)",
       "Bash(git show *)",
+      "Bash(curl *)",
       "Bash(powershell *)",
       "Bash(docker compose up *)",
       "Bash(docker compose down*)",
@@ -17,9 +18,6 @@
       "Bash(docker compose logs *)"
     ],
     "deny": [
-      "Read(**/.env)",
-      "Read(**/.env.*)",
-      "Read(**/secrets/**)",
       "Bash(git push *)",
       "Bash(git pull *)"
     ]

@@ -9,4 +9,5 @@ services:
       - swampert-network
     volumes:
       - swampert-data:/var/lib/postgresql/data
+      - ./scripts:/docker-entrypoint-initdb.d:ro
     restart: unless-stopped
