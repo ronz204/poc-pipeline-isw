@@ -65,7 +65,9 @@ Use the declared aliases instead of relative imports across a boundary — `@ass
 
 ## State management
 
-Default to composables for state shared across a few related components (a filter, a fetch-with-loading-state pattern) — nothing beyond Vue's own reactivity is installed yet (no Pinia, no Vue Query), and that's deliberate for the project's current size, not an oversight to "fix" preemptively. Reach for a dedicated state library only once composables genuinely stop being enough (state needed across unrelated parts of the tree with no natural parent/child relationship) — introducing one before that point is the speculative-generality smell from `coding.md`.
+Default to composables for state shared across a few related components (a filter, a fetch-with-loading-state pattern) — that's still the rule for everything except one deliberate exception below. Reach for a dedicated state library only once composables genuinely stop being enough (state needed across unrelated parts of the tree with no natural parent/child relationship) — introducing one before that point is the speculative-generality smell from `coding.md`.
+
+**Pinia is installed, scoped to session/auth state only.** `package.json` carries `pinia` as a real dependency, used for exactly one store: the logged-in user's JWT/`tenantId`/`userId`/`role` (`projects/swampert-client/deltas/analytics-dashboard.spec.md` § Contexto técnico). Session state is the textbook case the paragraph above already describes as the threshold — it's read by the router guard, by every HTTP call's `Authorization` header, and by any view that needs the current user, none of which share a parent/child relationship. This is that threshold being crossed for one specific, narrow case, not a green light to reach for Pinia by default: a new dashboard filter, a new fetch-with-loading-state pattern, anything scoped to one feature area still starts as a composable. Only promote something to Pinia when it clears the same bar the session state did — cross-tree, no natural parent/child relationship to lean on instead.
 
 ## Strict mode is already on — write to it, don't suppress it
 

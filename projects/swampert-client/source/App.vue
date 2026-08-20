@@ -3,5 +3,5 @@
 </script>
 
 <template>
-  <p>hello world from swampert</p>
+  <RouterView />
 </template>
