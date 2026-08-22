@@ -1,1 +1,65 @@
 @import "tailwindcss";
+
+/*
+ * Swampert design tokens — dirección "consola de auditoría" (swampert-dashboard-ui-skill.md §3).
+ * Se definen una sola vez bajo --color-* para que Tailwind v4 genere utilidades (bg-ink,
+ * text-muted, border-line, bg-signal, ...). Los alias planos --ink/--panel/... de abajo existen
+ * para que CSS crudo y JS (getComputedStyle, p. ej. useChart.ts resolviendo colores para
+ * chart.js) puedan leerlos bajo los nombres exactos de la tabla del skill, sin un segundo hex
+ * hardcodeado en ningún lado.
+ */
+@theme {
+  --color-ink: #0f1420;
+  --color-panel: #161d2e;
+  --color-line: #26304a;
+  --color-text: #e8ebf3;
+  --color-muted: #8891a8;
+  --color-signal: #7c5cff;
+  --color-trace: #22d3ee;
+  --color-ok: #34d399;
+  --color-warn: #fbbf24;
+  --color-critical: #f87171;
+
+  --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", monospace;
+}
+
+:root {
+  --ink: var(--color-ink);
+  --panel: var(--color-panel);
+  --border: var(--color-line);
+  --text: var(--color-text);
+  --text-muted: var(--color-muted);
+  --signal: var(--color-signal);
+  --trace: var(--color-trace);
+  --ok: var(--color-ok);
+  --warn: var(--color-warn);
+  --critical: var(--color-critical);
+}
+
+body {
+  background-color: var(--ink);
+  color: var(--text);
+  font-family: var(--font-sans);
+}
+
+/*
+ * Destello de una sola vez para una fila de MonthlyLogbook.vue que se acaba de
+ * recalcular — se dispara re-creando el elemento (Vue :key ligada a refreshedAt),
+ * nunca en loop. color-mix() mezcla --trace con --panel para no depender de un
+ * hex nuevo hardcodeado (misma técnica que statusColors.ts usa para "severity: high").
+ */
+@keyframes row-flash {
+  0% {
+    background-color: color-mix(in srgb, var(--trace) 30%, var(--panel));
+    box-shadow: 0 0 0 1px var(--trace);
+  }
+  100% {
+    background-color: var(--panel);
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+.animate-row-flash {
+  animation: row-flash 1.5s ease-out;
+}

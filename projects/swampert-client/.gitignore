@@ -12,6 +12,16 @@ dist
 dist-ssr
 *.local
 
+# dotenv environment variable files (same list as projects/swampert-engine/.gitignore
+# — this file was missing them entirely, meaning a careless `git add .` could commit
+# whatever secret ends up in a local .env here)
+.env
+.env.dev
+.env.test
+.env.prod
+.env.local
+.env.stage
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

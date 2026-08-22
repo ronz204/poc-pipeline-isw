@@ -1,0 +1,9 @@
+# Shell scripts must always use LF, regardless of the checking-out machine's
+# core.autocrlf. A CRLF-terminated shebang line ("#!/bin/sh\r") fails inside a
+# Linux container with "bad interpreter: No such file or directory" — this is
+# exactly what broke services/postgres/scripts/00-bootstrap.sh the first time
+# it ran (docker-entrypoint.sh executes it literally, no shell to reinterpret
+# the line ending). Without this file, a Windows git config with
+# core.autocrlf=true (a common default) silently re-converts the script back
+# to CRLF on the next checkout, even though it's stored correctly in the repo.
+*.sh text eol=lf
