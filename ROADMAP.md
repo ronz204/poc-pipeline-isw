@@ -6,14 +6,14 @@ Linear build progress of the Piper ETL pipeline, from project skeleton to delive
 
 ## Overview
 
-**Overall progress: 17 / 39 tasks — 43%**
+**Overall progress: 20 / 39 tasks — 51%**
 
 | # | Step | Status | Progress |
 |---|---|---|---|
 | 1 | [Knowledge base and project skeleton](#1--knowledge-base-and-project-skeleton) | ✅ Done | 4/4 — 100% |
 | 2 | [Specify the pipeline run slice](#2--specify-the-pipeline-run-slice) | ✅ Done | 3/3 — 100% |
 | 3 | [Dependencies, schema, and configuration](#3--dependencies-schema-and-configuration) | ✅ Done | 5/5 — 100% |
-| 4 | [Validation and transformation](#4--validation-and-transformation) | 🔄 In progress | 5/8 — 62% |
+| 4 | [Validation and transformation](#4--validation-and-transformation) | ✅ Done | 8/8 — 100% |
 | 5 | [Load, reconciliation, and orchestration](#5--load-reconciliation-and-orchestration) | 🔲 Not started | 0/8 — 0% |
 | 6 | [Containers and CI](#6--containers-and-ci) | 🔲 Not started | 0/5 — 0% |
 | 7 | [Evidence and delivery](#7--evidence-and-delivery) | 🔲 Not started | 0/6 — 0% |
@@ -54,9 +54,9 @@ One contract for the whole run: validate, quarantine, load, reconcile, audit.
 - [x] Duplicate detection: first occurrence wins, identifier normalized without leading zeros
 - [x] Transformation with exact decimal arithmetic and whitespace-only title casing
 - [x] Deterministic dataset generator: clean file and defective file with planted defects
-- [ ] Unit tests: one per rule and per boundary case
-- [ ] Property test: valid plus rejected equals input for any input
-- [ ] Confirm the defective dataset yields exactly 12 rejections and 988 valid rows
+- [x] Unit tests: one per rule and per boundary case
+- [x] Property test: valid plus rejected equals input for any input
+- [x] Confirm the defective dataset yields exactly 12 rejections and 988 valid rows
 
 ## 5 — Load, reconciliation, and orchestration
 
