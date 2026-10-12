@@ -1,0 +1,1001 @@
+transaction_id,product,category,quantity,unit_price,transaction_date,country
+1,Toy Car,Toys,7,10.09,2025-02-21,Colombia
+2,Webcam HD,Electronics,17,46.91,2025-01-16,Peru
+3,Desk Lamp,Home,19,27.45,2025-05-28,France
+4,Coffee Maker,Home,4,81.88,2025-05-26,Germany
+5,Wireless Mouse,Electronics,19,24.65,2025-05-20,Chile
+6,Wireless Mouse,Electronics,19,24.40,2025-05-26,France
+7,Throw Pillow,Home,7,15.28,2025-04-24,Spain
+8,Board Game,Toys,12,35.34,2025-10-22,France
+9,Desk Organizer,Office,15,15.91,2025-12-29,Argentina
+10,Wireless Mouse,Electronics,12,27.39,2025-06-09,Brazil
+11,Water Bottle,Sports,20,12.15,2025-07-30,Brazil
+12,Ballpoint Pens,Office,10,4.99,2025-06-10,Brazil
+13,Bluetooth Speaker,Electronics,7,64.19,2025-11-08,Peru
+14,Yoga Mat,Sports,18,20.70,2025-03-16,Colombia
+15,Whiteboard Markers,Office,19,6.70,2025-11-16,Argentina
+16,Ballpoint Pens,Office,3,4.83,2025-11-09,Spain
+17,USB-C Cable,Electronics,5,9.98,2025-10-02,Spain
+18,Water Bottle,Sports,8,11.14,2025-01-21,Germany
+19,Bluetooth Speaker,Electronics,2,54.59,2025-11-19,Mexico
+20,Laptop Stand,Electronics,17,31.62,2025-03-12,Spain
+21,Notebook A5,Office,2,3.57,2025-10-25,Argentina
+22,Bluetooth Speaker,Electronics,17,65.39,2025-03-05,United States
+23,Coffee Maker,Home,19,96.12,2025-09-26,Mexico
+24,Storage Box,Home,5,11.69,2025-09-30,United States
+25,Bluetooth Speaker,Electronics,15,56.39,2025-03-05,Colombia
+26,Dumbbell Set,Sports,13,62.72,2025-09-17,Chile
+27,Yoga Mat,Sports,11,19.10,2025-05-27,United States
+28,Yoga Mat,Sports,2,20.10,2025-11-03,Argentina
+29,Desk Organizer,Office,8,15.42,2025-12-14,United States
+30,Ballpoint Pens,Office,13,4.88,2025-09-17,United States
+31,Coffee Maker,Home,10,97.90,2025-12-10,Colombia
+32,Coffee Maker,Home,11,95.23,2025-07-18,Peru
+33,Webcam HD,Electronics,17,49.90,2025-10-23,Argentina
+34,Wall Clock,Home,1,19.38,2025-02-02,Brazil
+35,USB-C Cable,Electronics,17,9.31,2025-05-16,Mexico
+36,Puzzle 500,Toys,1,12.96,2025-03-10,Chile
+37,Building Blocks,Toys,11,27.59,2025-08-20,Argentina
+38,Bluetooth Speaker,Electronics,4,65.39,2025-05-20,Brazil
+39,Puzzle 500,Toys,6,14.58,2025-08-26,Germany
+40,Jump   Rope,sports,20,8.65,2025-04-01,  United States 
+41,Wall Clock,Home,17,20.45,2025-06-04,United States
+42,Board Game,Toys,19,37.62,2025-05-28,Mexico
+43,Stapler,Office,19,7.16,2025-01-18,United States
+44,  Ballpoint Pens ,office,16,5.14,2025-01-23,  Chile 
+45,Dumbbell Set,Sports,13,70.40,2025-11-12,Spain
+46,Ballpoint Pens,Office,11,5.14,2025-11-10,Chile
+47,Board Game,Toys,13,37.24,2025-09-02,France
+48,Stapler,Office,18,7.23,2025-03-03,United States
+49,Building Blocks,Toys,3,32.09,2025-10-01,Spain
+50,Wireless Mouse,Electronics,3,22.41,2025-01-06,Spain
+51,Wall Clock,Home,11,19.17,2025-07-15,Argentina
+52,Wall Clock,Home,19,20.24,2025-03-27,Peru
+53,Bluetooth Speaker,Electronics,8,62.99,2025-12-10,Peru
+54,Whiteboard Markers,Office,14,6.43,2025-03-20,Spain
+55,TOY CAR,  Toys ,7,9.19,2025-02-12, mexico
+56,Throw Pillow,Home,15,15.44,2025-10-11,Spain
+57,Ballpoint Pens,Office,11,5.56,2025-11-01,France
+58,Whiteboard Markers,Office,10,6.90,2025-03-02,Germany
+59,Plush Bear,Toys,20,16.61,2025-01-03,United States
+60,Stapler,Office,3,7.47,2025-01-04,Germany
+61,Desk Organizer,Office,12,18.04,2025-09-04,Germany
+62,Coffee Maker,Home,8,94.34,2025-09-04,Brazil
+63,USB-C Cable,Electronics,10,10.36,2025-11-13,United States
+64,Webcam HD,Electronics,18,46.91,2025-03-10,Brazil
+65,Board Game,Toys,2,36.48,2025-11-18,Peru
+66,Building Blocks,Toys,14,30.89,2025-04-03,Mexico
+67,Storage Box,Home,5,13.77,2025-09-07,Chile
+68,Bluetooth   Speaker,electronics,13,60.59,2025-06-18,  Argentina 
+69,Water Bottle,Sports,19,12.26,2025-04-07,Argentina
+70,Bluetooth Speaker,Electronics,1,61.19,2025-11-14,Brazil
+71,Running Belt,Sports,18,19.36,2025-02-02,United States
+72,Desk Organizer,Office,18,14.92,2025-07-24,Colombia
+73,Desk Lamp,Home,14,29.37,2025-09-29,United States
+74,Jump Rope,Sports,13,8.15,2025-04-18,Brazil
+75,Wireless Mouse,Electronics,11,26.64,2025-08-14,Germany
+76,Dumbbell Set,Sports,8,63.36,2025-10-30,Chile
+77,Throw Pillow,Home,14,14.65,2025-03-23,Chile
+78,Jump Rope,Sports,16,9.07,2025-04-14,Brazil
+79,Webcam HD,Electronics,6,49.40,2025-07-04,Peru
+80,USB-C Cable,Electronics,14,9.31,2025-10-04,Argentina
+81,BLUETOOTH SPEAKER,ELECTRONICS,3,64.79,2025-07-11,MEXICO
+82,Board Game,Toys,16,35.72,2025-08-18,Germany
+83,NOTEBOOK A5,OFFICE,20,3.50,2025-07-14, spain
+84,Coffee Maker,Home,6,96.12,2025-01-20,Argentina
+85,Wall Clock,Home,6,21.73,2025-11-01,Peru
+86,Ballpoint Pens,Office,1,5.36,2025-02-11,Germany
+87,Coffee Maker,Home,19,87.22,2025-06-07,Colombia
+88,Yoga Mat,Sports,3,18.31,2025-07-30,Brazil
+89,Running Belt,Sports,2,19.18,2025-01-03,France
+90,Building Blocks,Toys,15,31.79,2025-04-02,Brazil
+91,Throw Pillow,Home,17,14.33,2025-09-30,Brazil
+92,Plush Bear,Toys,17,18.62,2025-03-06,France
+93,Throw Pillow,Home,12,17.17,2025-10-29,Mexico
+94,Storage Box,Home,6,12.21,2025-03-02,Colombia
+95,Notebook A5,Office,15,4.10,2025-07-11,Argentina
+96,Water Bottle,Sports,5,12.26,2025-12-17,United States
+97,Building Blocks,Toys,9,26.99,2025-05-19,Colombia
+98,USB-C Cable,Electronics,8,9.31,2025-10-27,Brazil
+99,Wall Clock,Home,14,22.15,2025-03-11,Brazil
+100,Board Game,Toys,3,36.10,2025-09-09,Spain
+101,Laptop Stand,Electronics,16,32.98,2025-04-18,Peru
+102,Jump Rope,Sports,2,9.16,2025-07-31,Spain
+103,Desk Lamp,Home,13,26.35,2025-01-06,Peru
+104,Water Bottle,Sports,2,11.02,2025-10-19,Peru
+105,USB-C Cable,Electronics,7,9.69,2025-04-26,Colombia
+106,Desk   Lamp,home,10,26.08,2025-09-18,PERU
+107,Laptop Stand,Electronics,15,34.00,2025-11-12,Brazil
+108,Whiteboard Markers,Office,20,6.43,2025-05-12,Colombia
+109,Desk Lamp,Home,19,26.08,2025-03-23,Germany
+110,Stapler,Office,18,7.55,2025-05-15,Chile
+111,Board Game,Toys,1,40.66,2025-11-05,Spain
+112,Yoga Mat,Sports,8,18.90,2025-02-18,Colombia
+113,Ballpoint   Pens, office,10,4.78,2025-04-06, germany
+114,Webcam HD,Electronics,3,49.90,2025-10-28,Peru
+115,Storage Box,Home,10,11.95,2025-02-26,Germany
+116,Puzzle 500,Toys,20,12.42,2025-11-12,Germany
+117,Storage Box,Home,10,12.73,2025-12-01,United States
+118,Yoga Mat,Sports,12,21.49,2025-06-14,United States
+119,Jump Rope,Sports,18,8.06,2025-01-07,France
+120,Throw Pillow,Home,4,16.38,2025-09-01,Germany
+121,  Webcam HD ,ELECTRONICS,6,51.40,2025-05-22,  Mexico 
+122,Water Bottle,Sports,2,12.15,2025-06-09,Peru
+123,Whiteboard Markers,Office,12,6.10,2025-03-03,France
+124,Desk Lamp,Home,1,29.65,2025-09-23,Argentina
+125,Throw Pillow,Home,18,16.85,2025-08-05,Brazil
+126,Plush Bear,Toys,17,19.71,2025-11-11,France
+127,Webcam HD,Electronics,3,48.40,2025-12-13,France
+128,Webcam HD,Electronics,10,54.39,2025-08-24,Colombia
+129,Jump Rope,Sports,10,8.82,2025-01-04,Argentina
+130,Building Blocks,Toys,7,29.99,2025-06-17,Germany
+131,Running Belt,Sports,16,17.25,2025-02-06,Peru
+132,Notebook A5,Office,9,3.91,2025-03-18,Peru
+133,Jump Rope,Sports,17,8.57,2025-03-13,United States
+134,Bluetooth Speaker,Electronics,1,57.59,2025-08-14,Germany
+135,laptop stand, electronics,16,37.40,2025-05-13,GERMANY
+136,Stapler,Office,16,7.39,2025-10-09,United States
+137,Storage Box,Home,17,14.16,2025-01-26,Mexico
+138,Bluetooth Speaker,Electronics,14,53.99,2025-06-15,France
+139,Building Blocks,Toys,5,29.99,2025-07-27,United States
+140,Laptop Stand,Electronics,6,30.94,2025-01-10,United States
+141,Laptop Stand,Electronics,9,35.02,2025-07-18,France
+142,Desk Organizer,Office,10,16.24,2025-08-30,Mexico
+143,Desk Organizer,Office,1,15.91,2025-04-04,Colombia
+144,Building Blocks,Toys,14,31.79,2025-05-18,Argentina
+145,Toy Car,Toys,8,10.09,2025-09-08,Spain
+146,Desk Organizer,Office,18,17.22,2025-07-23,Chile
+147,Storage Box,Home,14,12.86,2025-04-07,Germany
+148,Puzzle 500,Toys,12,12.28,2025-04-15,Brazil
+149,board game, toys,17,34.96,2025-09-01, spain
+150,Webcam HD,Electronics,11,49.40,2025-04-30,Germany
+151,Wall Clock,Home,7,21.51,2025-06-03,Argentina
+152,Puzzle 500,Toys,4,12.28,2025-03-23,United States
+153,Puzzle 500,Toys,16,14.58,2025-07-20,Spain
+154,Building Blocks,Toys,17,32.39,2025-09-14,Spain
+155,Stapler,Office,9,8.03,2025-02-17,Brazil
+156,BLUETOOTH SPEAKER, electronics,20,59.39,2025-01-06,  Colombia 
+157,Yoga Mat,Sports,16,21.29,2025-02-14,Chile
+158,Building Blocks,Toys,10,30.89,2025-12-15,Brazil
+159,Dumbbell Set,Sports,4,58.24,2025-05-24,United States
+160,Webcam HD,Electronics,7,47.40,2025-07-30,Spain
+161,Laptop Stand,Electronics,8,36.38,2025-04-06,Peru
+162,Jump Rope,Sports,4,8.15,2025-11-30,Germany
+163,Bluetooth Speaker,Electronics,20,53.99,2025-03-02,Spain
+164,Ballpoint Pens,Office,18,4.94,2025-06-19,Spain
+165,PUZZLE 500, toys,1,13.77,2025-12-06,united states
+166,DESK ORGANIZER, office,8,17.88,2025-02-27, germany
+167,Plush Bear,Toys,11,17.34,2025-07-10,Germany
+168,storage box,  Home ,17,13.90,2025-11-12,  Colombia 
+169,Plush Bear,Toys,20,18.62,2025-10-05,Chile
+170,Webcam HD,Electronics,15,51.40,2025-03-17,United States
+171,Webcam HD,Electronics,7,52.40,2025-08-07,Spain
+172,Running Belt,Sports,3,16.90,2025-07-07,Colombia
+173,Desk Organizer,Office,6,16.40,2025-12-10,Chile
+174,Stapler,Office,16,7.95,2025-06-27,Colombia
+175,Stapler,Office,19,7.16,2025-10-11,Germany
+176,Throw Pillow,Home,2,17.01,2025-04-19,Chile
+177,Running Belt,Sports,10,19.01,2025-01-17,France
+178,Plush Bear,Toys,5,17.16,2025-08-31,Mexico
+179,Bluetooth Speaker,Electronics,18,56.39,2025-07-05,Germany
+180,Stapler,Office,18,8.43,2025-05-10,Chile
+181,Bluetooth   Speaker, electronics,7,56.39,2025-06-14,france
+182,Webcam HD,Electronics,11,45.41,2025-09-09,Brazil
+183,USB-C Cable,Electronics,5,9.40,2025-04-21,Brazil
+184,Wall Clock,Home,20,19.17,2025-08-13,Peru
+185,Bluetooth Speaker,Electronics,11,59.39,2025-12-16,Argentina
+186,USB-C Cable,Electronics,16,10.36,2025-07-09,United States
+187,USB-C Cable,Electronics,6,9.69,2025-01-21,United States
+188,Toy Car,Toys,2,10.39,2025-11-17,Brazil
+189,Running Belt,Sports,11,18.30,2025-04-22,France
+190,Jump Rope,Sports,19,8.74,2025-11-21,Spain
+191,USB-C Cable,Electronics,16,10.16,2025-04-06,Spain
+192,Toy Car,Toys,7,10.29,2025-07-24,Brazil
+193,Toy Car,Toys,17,9.69,2025-11-14,Peru
+194,Wall Clock,Home,14,20.02,2025-01-27,Chile
+195,Whiteboard Markers,Office,17,6.36,2025-09-15,Argentina
+196,Desk Lamp,Home,11,26.90,2025-10-18,Germany
+197,Desk Lamp,Home,7,24.98,2025-06-06,Germany
+198,Running Belt,Sports,20,18.83,2025-07-23,France
+199,Desk Lamp,Home,9,27.72,2025-09-24,France
+200,Jump Rope,Sports,6,8.32,2025-09-11,Spain
+201,Water Bottle,Sports,13,11.81,2025-11-25,France
+202,Dumbbell Set,Sports,16,63.36,2025-07-27,Germany
+203,Stapler,Office,18,7.23,2025-09-10,Germany
+204,WIRELESS MOUSE,electronics,2,22.41,2025-02-10,brazil
+205,Water Bottle,Sports,19,10.35,2025-06-16,France
+206,Wall Clock,Home,9,22.36,2025-03-23,Brazil
+207,Toy Car,Toys,1,10.09,2025-09-06,Colombia
+208,Bluetooth Speaker,Electronics,17,64.79,2025-06-09,France
+209,Yoga Mat,Sports,6,19.50,2025-04-26,Brazil
+210,Storage Box,Home,13,14.29,2025-11-29,Chile
+211,Wireless Mouse,Electronics,12,26.14,2025-08-10,Brazil
+212,Throw Pillow,Home,1,17.17,2025-10-17,Colombia
+213,Ballpoint Pens,Office,1,5.30,2025-11-02,Chile
+214,Jump Rope,Sports,8,8.48,2025-04-06,Chile
+215,Jump Rope,Sports,20,8.15,2025-09-18,France
+216,Stapler,Office,2,8.74,2025-10-27,Mexico
+217,Coffee Maker,Home,17,90.78,2025-06-07,Colombia
+218,USB-C Cable,Electronics,10,8.74,2025-10-13,France
+219,USB-C Cable,Electronics,15,9.60,2025-11-03,France
+220,Puzzle 500,Toys,1,13.10,2025-03-26,Colombia
+221,Desk Organizer,Office,5,17.38,2025-08-27,Spain
+222,USB-C Cable,Electronics,10,9.22,2025-11-12,Mexico
+223,Building Blocks,Toys,16,27.59,2025-07-11,Brazil
+224,Laptop Stand,Electronics,19,31.96,2025-01-13,Mexico
+225,Dumbbell Set,Sports,1,58.88,2025-08-29,Peru
+226,Whiteboard Markers,Office,20,7.24,2025-06-11,Spain
+227,Ballpoint Pens,Office,4,5.56,2025-05-21,France
+228,Plush Bear,Toys,19,17.70,2025-09-10,United States
+229,Ballpoint Pens,Office,4,5.36,2025-05-26,Brazil
+230,Desk Organizer,Office,18,17.55,2025-03-05,Spain
+231,Coffee Maker,Home,11,86.33,2025-03-31,Colombia
+232,Notebook A5,Office,20,3.88,2025-04-18,France
+233,Running Belt,Sports,15,16.72,2025-12-05,United States
+234,Throw Pillow,Home,10,14.80,2025-12-22,Colombia
+235,Desk Organizer,Office,9,15.74,2025-07-13,Peru
+236,Plush Bear,Toys,2,16.61,2025-09-16,Argentina
+237,  Stapler , office,15,8.59,2025-04-20,  Germany 
+238,desk organizer,  Office ,10,15.91,2025-01-12,colombia
+239,desk lamp,  Home ,12,30.20,2025-08-28, argentina
+240,Toy Car,Toys,14,9.79,2025-12-12,Spain
+241,Jump Rope,Sports,18,7.90,2025-03-15,Spain
+242,Wireless Mouse,Electronics,2,26.39,2025-04-25,Colombia
+243,Desk Organizer,Office,12,16.40,2025-05-21,Brazil
+244,Coffee Maker,Home,18,87.22,2025-12-28,Colombia
+245,Desk Lamp,Home,7,27.72,2025-08-10,Brazil
+246,Board Game,Toys,4,34.96,2025-06-06,Peru
+247,Desk Lamp,Home,19,25.25,2025-06-17,Colombia
+248,Jump Rope,Sports,16,8.40,2025-03-05,Brazil
+249,Water Bottle,Sports,1,11.81,2025-02-25,France
+250,building blocks, toys,13,29.39,2025-06-12, colombia
+251,  Ballpoint Pens ,OFFICE,2,4.72,2025-08-01, germany
+252,LAPTOP STAND,  Electronics ,6,31.62,2025-09-30,  Chile 
+253,Water Bottle,Sports,1,10.12,2025-04-03,Chile
+254,Webcam HD,Electronics,9,44.91,2025-04-25,Chile
+255,Running Belt,Sports,2,17.25,2025-11-17,Spain
+256,Webcam HD,Electronics,7,48.90,2025-04-01,Spain
+257,Bluetooth Speaker,Electronics,5,57.59,2025-05-24,Peru
+258,Whiteboard Markers,Office,20,7.37,2025-07-18,France
+259,jump rope,  Sports ,9,7.98,2025-09-10,argentina
+260,Running Belt,Sports,3,19.18,2025-02-20,Mexico
+261,Whiteboard Markers,Office,4,7.30,2025-12-20,Chile
+262,Water Bottle,Sports,2,12.15,2025-12-08,United States
+263,Throw Pillow,Home,14,14.80,2025-02-23,Argentina
+264,Coffee Maker,Home,7,91.67,2025-02-28,Mexico
+265,Puzzle 500,Toys,4,12.96,2025-09-23,Chile
+266,Storage Box,Home,4,13.51,2025-07-13,Brazil
+267,Desk Lamp,Home,20,28.00,2025-12-13,France
+268,Whiteboard Markers,Office,2,6.16,2025-06-24,Argentina
+269,Desk Lamp,Home,10,28.00,2025-01-07,Spain
+270,Building Blocks,Toys,11,29.09,2025-12-24,France
+271,Jump Rope,Sports,9,7.90,2025-10-30,Germany
+272,Notebook A5,Office,10,3.99,2025-12-27,Spain
+273,Building Blocks,Toys,8,28.79,2025-05-07,Germany
+274,Laptop Stand,Electronics,3,33.32,2025-07-20,Argentina
+275,Storage Box,Home,7,11.95,2025-10-17,Spain
+276,Storage Box,Home,11,12.73,2025-04-20,France
+277,Yoga Mat,Sports,9,21.29,2025-12-22,Argentina
+278,Board Game,Toys,6,41.04,2025-04-23,United States
+279,Ballpoint Pens,Office,18,4.78,2025-04-09,United States
+280,Running Belt,Sports,16,17.78,2025-05-26,Argentina
+281,Water Bottle,Sports,12,10.24,2025-02-28,Argentina
+282,USB-C Cable,Electronics,15,10.36,2025-08-12,Peru
+283,Toy Car,Toys,14,9.69,2025-08-31,Chile
+284,Dumbbell Set,Sports,10,65.28,2025-05-28,Argentina
+285,Whiteboard Markers,Office,13,6.57,2025-12-15,Peru
+286,USB-C Cable,Electronics,1,8.84,2025-10-25,Brazil
+287,Stapler,Office,7,7.71,2025-08-25,Brazil
+288,USB-C Cable,Electronics,19,9.40,2025-11-27,Chile
+289,Running Belt,Sports,4,15.84,2025-01-03,Colombia
+290,Building Blocks,Toys,5,30.29,2025-02-03,Germany
+291,Ballpoint Pens,Office,1,5.20,2025-04-01,Mexico
+292,USB-C Cable,Electronics,3,9.22,2025-10-19,France
+293,Board Game,Toys,10,36.48,2025-04-19,Spain
+294,Running Belt,Sports,2,18.66,2025-08-19,Colombia
+295,Webcam HD,Electronics,5,49.40,2025-02-27,Peru
+296,Wireless Mouse,Electronics,9,27.39,2025-08-08,Brazil
+297,Bluetooth Speaker,Electronics,15,55.19,2025-05-02,Chile
+298,Whiteboard Markers,Office,20,6.36,2025-01-17,Chile
+299,Storage Box,Home,15,13.38,2025-05-01,Germany
+300,Desk Lamp,Home,6,26.90,2025-09-08,Colombia
+301,Stapler,Office,9,8.11,2025-01-11,Colombia
+302,Toy Car,Toys,4,9.99,2025-05-20,Chile
+303,Throw Pillow,Home,8,16.06,2025-11-05,Mexico
+304,Wall Clock,Home,10,23.43,2025-07-11,Argentina
+305,Wireless Mouse,Electronics,11,25.90,2025-05-17,Mexico
+306,Desk Lamp,Home,20,26.63,2025-07-25,France
+307,Board Game,Toys,20,35.72,2025-11-23,Mexico
+308,Water Bottle,Sports,18,11.14,2025-04-26,Chile
+309,Desk Lamp,Home,16,25.25,2025-10-10,Germany
+310,Running Belt,Sports,5,17.78,2025-06-08,Mexico
+311,Jump Rope,Sports,20,9.24,2025-09-21,Argentina
+312,notebook a5,  Office ,10,3.95,2025-02-12,PERU
+313,Plush Bear,Toys,5,19.71,2025-06-18,Germany
+314,Wall Clock,Home,2,19.60,2025-10-30,Chile
+315,Toy Car,Toys,10,9.89,2025-09-06,United States
+316,Desk Lamp,Home,19,27.18,2025-07-11,Germany
+317,USB-C Cable,Electronics,19,8.55,2025-02-21,Brazil
+318,Water Bottle,Sports,3,11.14,2025-12-17,Colombia
+319,Plush Bear,Toys,13,17.70,2025-08-17,Mexico
+320,Wall Clock,Home,20,19.81,2025-03-18,Argentina
+321,Ballpoint Pens,Office,3,5.09,2025-03-08,Colombia
+322,Desk Organizer,Office,7,17.88,2025-08-02,Colombia
+323,Ballpoint Pens,Office,6,5.46,2025-08-23,Brazil
+324,USB-C Cable,Electronics,9,9.40,2025-11-20,Argentina
+325,Jump Rope,Sports,5,7.64,2025-08-10,Mexico
+326,Plush Bear,Toys,1,17.34,2025-03-28,Peru
+327,Water Bottle,Sports,14,10.46,2025-01-26,Mexico
+328,Desk Organizer,Office,6,16.89,2025-05-15,United States
+329,Wall Clock,Home,2,23.00,2025-10-22,Brazil
+330,Stapler,Office,15,8.74,2025-09-09,Argentina
+331,Throw Pillow,Home,16,17.32,2025-05-30,Argentina
+332,Laptop Stand,Electronics,7,37.40,2025-06-25,Spain
+333,  Desk Organizer ,office,1,16.24,2025-09-03,argentina
+334,Whiteboard Markers,Office,1,7.04,2025-12-28,United States
+335,Notebook A5,Office,7,3.72,2025-11-24,Colombia
+336,Stapler,Office,10,7.95,2025-02-01,Colombia
+337,USB-C Cable,Electronics,6,9.02,2025-11-15,Peru
+338,Water Bottle,Sports,12,11.02,2025-01-18,Germany
+339,Storage Box,Home,9,14.16,2025-02-27,France
+340,Running Belt,Sports,14,16.90,2025-11-20,Colombia
+341,  Running Belt ,SPORTS,10,18.48,2025-01-29,BRAZIL
+342,Building Blocks,Toys,12,32.39,2025-07-01,Brazil
+343,Webcam HD,Electronics,12,49.40,2025-09-06,France
+344,Notebook A5,Office,6,4.18,2025-06-26,Chile
+345,Webcam HD,Electronics,9,49.90,2025-08-06,Germany
+346,Stapler,Office,9,8.19,2025-12-14,Mexico
+347,Bluetooth Speaker,Electronics,3,62.39,2025-04-25,Colombia
+348,Throw Pillow,Home,12,16.54,2025-05-10,Spain
+349,Building Blocks,Toys,9,27.59,2025-11-04,Chile
+350,Running Belt,Sports,9,19.01,2025-05-06,Mexico
+351,Coffee Maker,Home,17,84.55,2025-02-06,Spain
+352,Wall Clock,Home,9,20.24,2025-02-18,Colombia
+353,Plush Bear,Toys,12,18.62,2025-05-28,Brazil
+354,Coffee Maker,Home,2,90.78,2025-06-14,Brazil
+355,Notebook A5,Office,6,4.07,2025-07-25,Chile
+356,Jump Rope,Sports,8,8.82,2025-10-01,Mexico
+357,Whiteboard Markers,Office,1,6.77,2025-04-14,United States
+358,Bluetooth Speaker,Electronics,6,61.79,2025-03-03,United States
+359,Bluetooth Speaker,Electronics,14,55.19,2025-04-13,Mexico
+360,Wall Clock,Home,10,23.00,2025-11-27,France
+361,Notebook A5,Office,14,4.18,2025-07-16,Mexico
+362,Notebook A5,Office,13,3.53,2025-07-28,France
+363,Wall Clock,Home,12,20.02,2025-04-24,Chile
+364,Notebook A5,Office,3,3.88,2025-09-19,United States
+365,Dumbbell Set,Sports,18,59.52,2025-04-27,Spain
+366,Bluetooth Speaker,Electronics,2,58.19,2025-10-24,Mexico
+367,Water Bottle,Sports,10,10.69,2025-01-08,Chile
+368,Desk Lamp,Home,4,26.63,2025-01-07,Argentina
+369,Desk Lamp,Home,20,25.25,2025-10-22,Mexico
+370,USB-C Cable,Electronics,7,8.55,2025-06-21,Germany
+371,Bluetooth Speaker,Electronics,1,58.79,2025-10-13,Chile
+372,Desk Lamp,Home,11,26.90,2025-12-04,Brazil
+373,Throw Pillow,Home,18,15.59,2025-11-25,Mexico
+374,Stapler,Office,11,8.43,2025-09-09,Chile
+375,Dumbbell Set,Sports,4,58.88,2025-02-04,Colombia
+376,Wireless Mouse,Electronics,13,26.89,2025-09-17,Spain
+377,BLUETOOTH SPEAKER,  Electronics ,11,61.79,2025-01-27,france
+378,Laptop Stand,Electronics,19,37.40,2025-04-10,Chile
+379,Running Belt,Sports,7,19.01,2025-04-22,France
+380,Ballpoint Pens,Office,8,5.72,2025-10-02,Brazil
+381,Notebook A5,Office,15,4.07,2025-11-09,France
+382,Jump Rope,Sports,18,8.65,2025-01-09,Argentina
+383,plush bear,toys,17,19.89,2025-02-15, chile
+384,BALLPOINT PENS, office,10,5.14,2025-07-20, chile
+385,Webcam HD,Electronics,5,52.89,2025-05-04,Brazil
+386,Running Belt,Sports,5,16.72,2025-12-01,Germany
+387,Whiteboard Markers,Office,5,6.36,2025-12-19,France
+388,Desk Organizer,Office,19,15.09,2025-05-16,Germany
+389,USB-C Cable,Electronics,18,10.26,2025-03-29,France
+390,Stapler,Office,2,8.11,2025-07-14,United States
+391,Wireless Mouse,Electronics,19,23.41,2025-09-09,France
+392,Running Belt,Sports,11,19.18,2025-10-23,United States
+393,Coffee Maker,Home,11,95.23,2025-11-24,Chile
+394,Yoga Mat,Sports,19,19.50,2025-10-01,Chile
+395,Desk Organizer,Office,2,15.09,2025-04-01,Colombia
+396,Whiteboard Markers,Office,10,6.36,2025-09-20,Argentina
+397,ballpoint pens, office,17,5.56,2025-09-22,MEXICO
+398,Throw Pillow,Home,15,16.85,2025-11-17,Spain
+399,Toy Car,Toys,16,10.89,2025-04-23,Peru
+400,Desk Organizer,Office,4,16.89,2025-06-25,Spain
+401,Desk Organizer,Office,12,15.42,2025-09-18,Germany
+402,Dumbbell Set,Sports,4,68.48,2025-03-14,Spain
+403,Coffee Maker,Home,12,89.00,2025-01-04,United States
+404,Running Belt,Sports,5,17.07,2025-12-30,Chile
+405,Desk Organizer,Office,14,15.42,2025-01-03,Chile
+406,Water Bottle,Sports,9,11.02,2025-03-24,Colombia
+407,Whiteboard Markers,Office,3,6.63,2025-11-27,Argentina
+408,Whiteboard Markers,Office,3,7.17,2025-03-24,Spain
+409,Desk Organizer,Office,15,15.42,2025-09-21,Peru
+410,plush bear,TOYS,4,16.42,2025-01-11, argentina
+411,Webcam HD,Electronics,18,53.89,2025-04-16,United States
+412,Coffee Maker,Home,6,90.78,2025-09-05,Spain
+413,Laptop Stand,Electronics,8,31.62,2025-12-25,Mexico
+414,Notebook A5,Office,7,3.42,2025-07-06,Mexico
+415,Coffee Maker,Home,16,80.10,2025-05-19,Brazil
+416,  Notebook A5 , office,15,3.72,2025-06-05,  France 
+417,Storage Box,Home,6,11.69,2025-12-14,United States
+418,Running Belt,Sports,7,17.78,2025-12-02,Spain
+419,Jump Rope,Sports,17,8.40,2025-01-13,Chile
+420,Puzzle 500,Toys,5,13.36,2025-01-21,France
+421,Water Bottle,Sports,2,11.59,2025-09-21,Chile
+422,Coffee Maker,Home,1,83.66,2025-05-20,Argentina
+423,Desk Lamp,Home,6,28.27,2025-02-20,Germany
+424,Board Game,Toys,11,39.14,2025-12-24,Argentina
+425,YOGA MAT,  Sports ,2,21.69,2025-06-03,UNITED STATES
+426,Jump   Rope,sports,19,9.24,2025-08-04,argentina
+427,Water Bottle,Sports,13,12.04,2025-01-23,Brazil
+428,Laptop Stand,Electronics,8,32.64,2025-09-04,Mexico
+429,Throw Pillow,Home,5,15.75,2025-02-25,United States
+430,Whiteboard Markers,Office,8,7.10,2025-08-02,Argentina
+431,Jump Rope,Sports,9,8.99,2025-03-26,Colombia
+432,Board Game,Toys,4,39.14,2025-10-07,Peru
+433,Throw Pillow,Home,2,16.54,2025-02-22,Brazil
+434,ballpoint pens, office,18,5.41,2025-03-06,  Colombia 
+435,Plush Bear,Toys,12,16.97,2025-01-25,Brazil
+436,Stapler,Office,8,8.27,2025-11-28,Chile
+437,Ballpoint Pens,Office,16,5.25,2025-01-05,Spain
+438,Running Belt,Sports,7,16.19,2025-02-16,France
+439,Stapler,Office,9,8.67,2025-12-05,Spain
+440,Whiteboard Markers,Office,9,6.63,2025-05-05,United States
+441,Stapler,Office,1,7.16,2025-02-22,Chile
+442,Wall Clock,Home,12,19.60,2025-03-17,France
+443,Webcam HD,Electronics,19,49.40,2025-11-30,Germany
+444,Coffee Maker,Home,4,92.56,2025-08-14,Germany
+445,Coffee Maker,Home,20,88.11,2025-05-27,Peru
+446,Whiteboard Markers,Office,18,6.57,2025-01-17,Argentina
+447,Desk Lamp,Home,8,27.72,2025-07-23,France
+448,Notebook A5,Office,19,3.65,2025-02-10,Peru
+449,Desk Lamp,Home,6,27.72,2025-04-04,Mexico
+450,Storage Box,Home,4,11.95,2025-07-18,Brazil
+451,Notebook A5,Office,9,3.72,2025-07-23,Germany
+452,USB-C Cable,Electronics,12,10.07,2025-01-17,Chile
+453,Desk Lamp,Home,15,28.82,2025-01-08,Spain
+454,Laptop Stand,Electronics,20,35.70,2025-09-29,Germany
+455,Yoga Mat,Sports,15,18.90,2025-05-01,Mexico
+456,Wireless Mouse,Electronics,17,24.15,2025-09-20,Germany
+457,Laptop Stand,Electronics,5,34.00,2025-01-12,Argentina
+458,Storage Box,Home,15,12.21,2025-08-23,Mexico
+459,Bluetooth Speaker,Electronics,3,55.19,2025-05-17,Spain
+460,Water   Bottle,sports,17,11.70,2025-02-03,  Germany 
+461,wall clock,  Home ,13,21.73,2025-10-13,PERU
+462,Wall Clock,Home,8,21.30,2025-02-07,Chile
+463,Desk Lamp,Home,2,28.00,2025-09-09,Germany
+464,Storage Box,Home,9,12.34,2025-03-15,United States
+465,Dumbbell Set,Sports,14,62.72,2025-02-12,Chile
+466,Throw Pillow,Home,2,14.18,2025-03-24,Chile
+467,Desk   Organizer,  Office ,14,16.73,2025-01-04,mexico
+468,Plush Bear,Toys,2,18.07,2025-09-29,Peru
+469,Plush Bear,Toys,6,17.70,2025-12-06,Chile
+470,  Desk Organizer ,office,6,15.58,2025-01-04,mexico
+471,Whiteboard Markers,Office,5,6.36,2025-08-12,Colombia
+472,Ballpoint   Pens,office,18,5.30,2025-10-09,COLOMBIA
+473,Throw   Pillow,  Home ,11,14.33,2025-11-10,brazil
+474,Toy Car,Toys,4,10.89,2025-01-16,Chile
+475,Building Blocks,Toys,12,31.19,2025-07-20,Brazil
+476,Toy Car,Toys,17,9.69,2025-01-31,United States
+477,Bluetooth Speaker,Electronics,20,57.59,2025-12-06,Germany
+478,Board Game,Toys,2,39.52,2025-01-25,United States
+479,Whiteboard Markers,Office,10,7.17,2025-05-25,Peru
+480,Yoga Mat,Sports,1,19.70,2025-03-09,Germany
+481,Building Blocks,Toys,20,32.69,2025-11-21,Brazil
+482,Wall Clock,Home,17,19.17,2025-02-09,Germany
+483,Desk Lamp,Home,15,28.27,2025-09-28,Germany
+484,USB-C Cable,Electronics,1,10.26,2025-11-27,Colombia
+485,Plush Bear,Toys,14,17.16,2025-05-28,Chile
+486,Running Belt,Sports,11,16.02,2025-05-11,Chile
+487,Storage Box,Home,13,12.08,2025-08-13,Argentina
+488,Webcam HD,Electronics,18,45.91,2025-06-17,France
+489,Jump Rope,Sports,5,7.81,2025-10-15,United States
+490,Desk Organizer,Office,9,14.76,2025-03-28,Chile
+491,Board Game,Toys,7,41.04,2025-12-03,Germany
+492,Running Belt,Sports,6,16.02,2025-10-11,Spain
+493,Throw Pillow,Home,3,17.01,2025-05-01,United States
+494,Yoga Mat,Sports,11,18.31,2025-09-18,Peru
+495,Coffee Maker,Home,4,85.44,2025-03-03,Germany
+496,Stapler,Office,20,7.71,2025-05-14,United States
+497,board game,toys,9,34.20,2025-05-16,  Colombia 
+498,Yoga Mat,Sports,5,21.89,2025-07-29,Chile
+499,Whiteboard Markers,Office,1,6.36,2025-10-08,United States
+500,Plush Bear,Toys,14,18.43,2025-06-05,Germany
+501,USB-C Cable,Electronics,18,8.93,2025-03-09,Brazil
+502,Water Bottle,Sports,2,11.36,2025-10-23,Colombia
+503,Jump Rope,Sports,9,9.16,2025-10-14,Colombia
+504,Jump Rope,Sports,18,7.81,2025-05-20,Germany
+505,Wall Clock,Home,6,20.02,2025-02-26,Germany
+506,Whiteboard Markers,Office,4,7.24,2025-07-27,Colombia
+507,Coffee Maker,Home,14,85.44,2025-12-27,Germany
+508,Plush Bear,Toys,12,18.43,2025-06-30,Argentina
+509,Ballpoint Pens,Office,5,4.83,2025-02-10,Mexico
+510,Notebook A5,Office,17,3.99,2025-03-22,France
+511,Bluetooth Speaker,Electronics,12,60.59,2025-01-10,Colombia
+512,Water Bottle,Sports,2,11.81,2025-10-01,France
+513,Water Bottle,Sports,5,10.35,2025-03-30,Mexico
+514,Whiteboard Markers,Office,15,6.23,2025-10-09,Germany
+515,Water Bottle,Sports,10,11.48,2025-11-30,Brazil
+516,Running Belt,Sports,20,19.01,2025-06-22,Spain
+517,Wireless Mouse,Electronics,7,23.66,2025-02-11,Mexico
+518,Desk Lamp,Home,14,29.65,2025-01-16,Colombia
+519,Desk Lamp,Home,11,25.80,2025-12-28,Germany
+520,Desk Organizer,Office,20,15.25,2025-08-22,Germany
+521,Wall Clock,Home,10,20.45,2025-11-19,Chile
+522,Puzzle 500,Toys,3,14.04,2025-08-08,Brazil
+523,Stapler,Office,8,7.63,2025-05-20,Chile
+524,Desk Organizer,Office,15,15.09,2025-10-23,Peru
+525,Throw Pillow,Home,12,16.22,2025-09-25,Germany
+526,Desk Organizer,Office,6,17.22,2025-08-10,Spain
+527,Notebook A5,Office,17,3.99,2025-08-29,Germany
+528,Bluetooth Speaker,Electronics,20,60.59,2025-11-05,Spain
+529,Water Bottle,Sports,16,10.80,2025-01-15,Argentina
+530,Bluetooth Speaker,Electronics,15,53.99,2025-11-22,Brazil
+531,Laptop Stand,Electronics,1,34.68,2025-08-25,Chile
+532,Throw Pillow,Home,16,15.28,2025-05-19,United States
+533,Jump Rope,Sports,8,8.90,2025-02-25,United States
+534,Puzzle 500,Toys,8,12.56,2025-06-26,Brazil
+535,Puzzle 500,Toys,12,13.50,2025-05-17,France
+536,Desk Organizer,Office,5,16.07,2025-10-07,Peru
+537,Jump Rope,Sports,18,9.24,2025-08-23,France
+538,Dumbbell Set,Sports,14,64.00,2025-12-02,Chile
+539,Wall Clock,Home,4,20.66,2025-03-11,Colombia
+540,Running Belt,Sports,16,16.02,2025-12-23,Mexico
+541,Storage Box,Home,12,13.12,2025-12-05,Germany
+542,WALL CLOCK,  Home ,16,23.00,2025-02-22, germany
+543,Puzzle 500,Toys,7,13.50,2025-01-03,France
+544,Whiteboard Markers,Office,11,6.43,2025-10-18,Spain
+545,Coffee   Maker,home,4,95.23,2025-07-17,  Mexico 
+546,Wireless Mouse,Electronics,11,24.15,2025-04-21,Chile
+547,Jump Rope,Sports,10,7.90,2025-03-04,Brazil
+548,Desk Organizer,Office,12,17.55,2025-01-07,Spain
+549,Building Blocks,Toys,19,31.79,2025-09-19,Chile
+550,Whiteboard Markers,Office,6,7.10,2025-03-07,Spain
+551,Desk Lamp,Home,12,28.00,2025-03-06,Chile
+552,Board Game,Toys,13,37.24,2025-08-04,Peru
+553,Dumbbell Set,Sports,20,59.52,2025-11-29,Chile
+554,Toy Car,Toys,2,9.69,2025-07-26,Brazil
+555,Puzzle 500,Toys,5,14.58,2025-03-08,Germany
+556,Yoga Mat,Sports,2,19.70,2025-05-15,Spain
+557,Dumbbell Set,Sports,2,58.24,2025-05-29,Germany
+558,Laptop   Stand,ELECTRONICS,16,37.40,2025-01-18,peru
+559,Stapler,Office,17,8.43,2025-08-14,Argentina
+560,Wireless Mouse,Electronics,12,26.39,2025-08-22,United States
+561,Desk Lamp,Home,5,28.82,2025-08-17,Spain
+562,Laptop Stand,Electronics,5,35.36,2025-09-13,Chile
+563,Throw Pillow,Home,2,17.01,2025-07-22,Chile
+564,Notebook A5,Office,11,3.69,2025-10-31,France
+565,Puzzle 500,Toys,6,12.28,2025-10-31,Spain
+566,Building Blocks,Toys,14,29.99,2025-07-01,Mexico
+567,Board Game,Toys,15,40.28,2025-04-26,Brazil
+568,Coffee Maker,Home,18,84.55,2025-05-08,Chile
+569,Puzzle 500,Toys,16,14.72,2025-11-04,Spain
+570,Water Bottle,Sports,20,11.81,2025-11-20,United States
+571,Jump Rope,Sports,10,7.56,2025-11-30,France
+572,WALL CLOCK, home,4,22.15,2025-06-18,spain
+573,Yoga Mat,Sports,13,21.09,2025-07-02,Mexico
+574,Coffee Maker,Home,8,80.10,2025-02-04,United States
+575,Desk Lamp,Home,1,24.70,2025-12-14,Colombia
+576,BALLPOINT PENS, office,6,4.94,2025-02-11,chile
+577,Plush Bear,Toys,18,19.16,2025-08-11,Colombia
+578,Water Bottle,Sports,14,10.12,2025-11-01,Mexico
+579,wireless mouse, electronics,14,23.66,2025-05-01,BRAZIL
+580,Wall Clock,Home,1,22.15,2025-05-15,Chile
+581,TOY CAR,TOYS,11,9.99,2025-03-15,PERU
+582,dumbbell set,sports,8,58.88,2025-06-06, argentina
+583,  Jump Rope ,  Sports ,20,8.06,2025-04-07, mexico
+584,Plush Bear,Toys,20,18.25,2025-04-20,United States
+585,Desk Lamp,Home,16,29.65,2025-08-20,Chile
+586,Desk Lamp,Home,16,28.27,2025-11-19,United States
+587,Yoga Mat,Sports,9,20.70,2025-09-22,Germany
+588,Wireless Mouse,Electronics,7,27.39,2025-05-10,Colombia
+589,Yoga Mat,Sports,7,21.89,2025-03-28,United States
+590,Wall Clock,Home,20,19.17,2025-06-25,Brazil
+591,Plush Bear,Toys,20,19.71,2025-07-21,United States
+592,Wireless Mouse,Electronics,7,22.91,2025-06-13,Mexico
+593,Laptop Stand,Electronics,8,36.72,2025-12-16,Mexico
+594,Stapler,Office,14,7.47,2025-07-26,France
+595,USB-C Cable,Electronics,16,8.93,2025-08-21,Spain
+596,Throw Pillow,Home,6,15.91,2025-01-17,Peru
+597,Bluetooth Speaker,Electronics,13,53.99,2025-07-07,Argentina
+598,Storage Box,Home,16,11.82,2025-08-10,Chile
+599,Yoga Mat,Sports,1,21.29,2025-06-07,Spain
+600,Dumbbell Set,Sports,18,69.76,2025-03-07,France
+601,Jump Rope,Sports,20,8.90,2025-08-18,France
+602,Ballpoint Pens,Office,9,5.41,2025-07-31,Chile
+603,Plush Bear,Toys,2,18.07,2025-05-25,Chile
+604,Webcam HD,Electronics,16,53.39,2025-03-08,Brazil
+605,Bluetooth Speaker,Electronics,8,64.79,2025-09-04,Brazil
+606,Storage Box,Home,5,14.16,2025-04-02,Chile
+607,Storage Box,Home,3,12.99,2025-07-14,France
+608,Whiteboard Markers,Office,9,7.10,2025-05-31,Spain
+609,Webcam HD,Electronics,10,53.89,2025-09-09,France
+610,Toy Car,Toys,15,9.79,2025-06-26,Mexico
+611,Plush Bear,Toys,18,19.16,2025-11-10,Argentina
+612,Storage Box,Home,10,13.12,2025-10-06,United States
+613,Throw Pillow,Home,19,17.17,2025-06-17,France
+614,Stapler,Office,9,7.63,2025-05-27,Colombia
+615,Coffee Maker,Home,11,87.22,2025-09-11,Peru
+616,plush bear,  Toys ,6,19.34,2025-09-22,  Peru 
+617,Ballpoint Pens,Office,2,5.25,2025-01-22,Germany
+618,Yoga Mat,Sports,19,20.10,2025-01-22,Mexico
+619,Toy Car,Toys,1,10.49,2025-02-15,United States
+620,Yoga Mat,Sports,10,21.49,2025-02-01,Colombia
+621,Stapler,Office,12,7.23,2025-03-07,Chile
+622,Desk Organizer,Office,20,15.42,2025-03-27,Brazil
+623,Wireless Mouse,Electronics,13,25.15,2025-09-12,Germany
+624,wireless mouse,  Electronics ,7,24.15,2025-12-18, argentina
+625,Running Belt,Sports,4,19.18,2025-05-02,Colombia
+626,Wireless Mouse,Electronics,17,26.14,2025-10-08,Mexico
+627,Toy Car,Toys,18,9.19,2025-07-18,Germany
+628,Puzzle 500,Toys,18,12.28,2025-09-04,France
+629,Yoga Mat,Sports,8,18.31,2025-06-16,Mexico
+630,Running Belt,Sports,13,19.01,2025-09-02,Chile
+631,Throw Pillow,Home,6,14.96,2025-10-20,Chile
+632,Webcam HD,Electronics,8,47.90,2025-12-17,Chile
+633,Jump Rope,Sports,4,8.40,2025-04-02,Brazil
+634,Building Blocks,Toys,9,31.79,2025-06-06,Brazil
+635,Webcam HD,Electronics,19,46.41,2025-02-02,United States
+636,Toy Car,Toys,6,10.39,2025-03-16,France
+637,Storage Box,Home,7,12.08,2025-11-30,Argentina
+638,Desk Organizer,Office,19,15.25,2025-05-02,United States
+639,Dumbbell Set,Sports,12,70.40,2025-10-08,Chile
+640,Jump Rope,Sports,4,8.23,2025-02-13,Spain
+641,Throw Pillow,Home,11,15.28,2025-04-04,United States
+642,Bluetooth Speaker,Electronics,15,64.79,2025-02-25,France
+643,Desk Lamp,Home,4,26.35,2025-06-08,Spain
+644,Coffee Maker,Home,13,97.90,2025-11-03,Argentina
+645,Throw Pillow,Home,9,15.44,2025-07-23,Peru
+646,Laptop Stand,Electronics,20,30.60,2025-09-06,Spain
+647,USB-C Cable,Electronics,4,9.31,2025-06-27,Mexico
+648,Notebook A5,Office,4,3.84,2025-04-01,Chile
+649,Wall Clock,Home,9,22.15,2025-11-22,France
+650,Running Belt,Sports,4,18.83,2025-02-25,Brazil
+651,Yoga Mat,Sports,10,18.11,2025-12-21,Peru
+652,Bluetooth Speaker,Electronics,9,60.59,2025-04-28,Peru
+653,Wireless Mouse,Electronics,13,26.64,2025-11-01,Spain
+654,Running Belt,Sports,19,17.78,2025-12-31,Colombia
+655,Wireless Mouse,Electronics,2,23.90,2025-10-29,Germany
+656,Board Game,Toys,19,37.62,2025-07-15,Germany
+657,Ballpoint Pens,Office,19,5.30,2025-04-24,Mexico
+658,Throw Pillow,Home,7,16.38,2025-08-16,Argentina
+659,Plush Bear,Toys,12,18.07,2025-08-09,Chile
+660,Stapler,Office,2,8.51,2025-01-19,Brazil
+661,Yoga   Mat,SPORTS,8,20.30,2025-07-07, france
+662,Plush Bear,Toys,5,19.71,2025-07-29,Spain
+663,Board Game,Toys,10,35.34,2025-11-04,Brazil
+664,ballpoint pens,OFFICE,18,5.25,2025-12-14,FRANCE
+665,Building Blocks,Toys,12,32.99,2025-09-10,Chile
+666,Bluetooth Speaker,Electronics,3,54.59,2025-11-02,Mexico
+667,Running Belt,Sports,14,18.13,2025-10-05,Peru
+668,Wireless Mouse,Electronics,19,22.91,2025-05-08,Chile
+669,Wireless Mouse,Electronics,8,24.40,2025-09-27,United States
+670,Throw Pillow,Home,7,15.12,2025-04-04,Mexico
+671,Desk Organizer,Office,2,16.89,2025-04-21,Brazil
+672,USB-C Cable,Electronics,10,9.31,2025-01-01,Germany
+673,Plush Bear,Toys,4,18.98,2025-07-08,Spain
+674,Bluetooth Speaker,Electronics,11,59.39,2025-04-01,Mexico
+675,Storage Box,Home,7,13.77,2025-04-30,Peru
+676,Running Belt,Sports,1,18.83,2025-05-17,Brazil
+677,Puzzle 500,Toys,6,13.23,2025-05-04,Peru
+678,Plush Bear,Toys,3,19.34,2025-07-17,Brazil
+679,Coffee Maker,Home,1,97.01,2025-04-10,Germany
+680,Notebook A5,Office,3,3.46,2025-11-07,Colombia
+681,Plush Bear,Toys,10,18.98,2025-05-08,Chile
+682,Toy Car,Toys,17,10.59,2025-12-27,France
+683,Board Game,Toys,7,34.58,2025-08-07,Argentina
+684,Board Game,Toys,17,38.38,2025-12-28,Peru
+685,Desk Lamp,Home,10,28.82,2025-12-09,Germany
+686,Desk Lamp,Home,8,27.72,2025-06-10,Mexico
+687,NOTEBOOK A5,  Office ,10,3.57,2025-12-31,  United States 
+688,Dumbbell Set,Sports,7,64.00,2025-06-25,Peru
+689,Laptop Stand,Electronics,8,37.40,2025-03-17,United States
+690,Storage Box,Home,4,12.99,2025-10-24,Brazil
+691,USB-C Cable,Electronics,14,10.16,2025-01-11,United States
+692,Puzzle 500,Toys,15,12.42,2025-11-21,Colombia
+693,Wireless Mouse,Electronics,4,25.65,2025-03-05,Chile
+694,Board Game,Toys,15,38.76,2025-10-08,Colombia
+695,Desk Lamp,Home,7,27.72,2025-08-29,United States
+696,Whiteboard Markers,Office,19,6.16,2025-06-13,Peru
+697,Toy Car,Toys,1,9.09,2025-10-05,Colombia
+698,USB-C Cable,Electronics,3,8.64,2025-07-14,Spain
+699,Dumbbell Set,Sports,6,59.52,2025-06-18,Colombia
+700,Water Bottle,Sports,10,10.91,2025-09-11,France
+701,Plush Bear,Toys,7,17.70,2025-10-23,Brazil
+702,Building Blocks,Toys,18,28.49,2025-02-05,Argentina
+703,USB-C Cable,Electronics,18,10.36,2025-05-09,Colombia
+704,Puzzle 500,Toys,8,13.36,2025-07-17,Argentina
+705,Plush Bear,Toys,20,18.25,2025-06-25,Argentina
+706,Ballpoint Pens,Office,18,5.67,2025-04-04,Colombia
+707,Water Bottle,Sports,7,10.24,2025-03-17,Colombia
+708,Jump Rope,Sports,2,7.64,2025-01-13,Spain
+709,Laptop Stand,Electronics,17,34.00,2025-10-10,Brazil
+710,jump rope,  Sports ,15,7.98,2025-08-18,france
+711,Jump Rope,Sports,3,7.73,2025-02-09,Brazil
+712,USB-C Cable,Electronics,7,8.93,2025-04-21,Peru
+713,Whiteboard Markers,Office,17,6.90,2025-02-09,Argentina
+714,Ballpoint Pens,Office,13,4.78,2025-10-05,United States
+715,Wall Clock,Home,16,19.81,2025-09-16,Germany
+716,Throw Pillow,Home,20,16.06,2025-04-27,Mexico
+717,Coffee Maker,Home,5,87.22,2025-08-27,Mexico
+718,Storage Box,Home,8,12.34,2025-09-26,Brazil
+719,Yoga Mat,Sports,7,18.71,2025-09-07,Germany
+720,Storage Box,Home,4,12.99,2025-03-13,Spain
+721,Coffee Maker,Home,16,92.56,2025-06-04,Spain
+722,Running Belt,Sports,12,15.84,2025-01-21,Chile
+723,Toy Car,Toys,5,9.69,2025-04-17,Spain
+724,Notebook A5,Office,8,3.84,2025-09-28,Spain
+725,Stapler,Office,17,8.43,2025-10-25,Colombia
+726,Dumbbell Set,Sports,14,62.08,2025-06-03,United States
+727,Stapler,Office,6,8.43,2025-09-02,Mexico
+728,Notebook A5,Office,9,3.88,2025-12-18,Chile
+729,Desk Lamp,Home,6,28.55,2025-04-21,Argentina
+730,Storage Box,Home,4,14.03,2025-09-18,Argentina
+731,Water Bottle,Sports,6,11.25,2025-11-21,Spain
+732,Desk Organizer,Office,18,17.88,2025-10-03,Brazil
+733,Yoga Mat,Sports,8,17.91,2025-01-27,Peru
+734,Laptop Stand,Electronics,1,31.62,2025-04-10,Argentina
+735,Toy Car,Toys,2,10.99,2025-04-03,Germany
+736,Stapler,Office,8,7.79,2025-11-19,Spain
+737,Puzzle 500,Toys,12,13.10,2025-03-28,Colombia
+738,Coffee Maker,Home,6,82.77,2025-09-07,United States
+739,Storage Box,Home,20,13.90,2025-05-13,Spain
+740,Ballpoint Pens,Office,12,5.30,2025-10-05,Mexico
+741,Coffee Maker,Home,7,89.89,2025-12-13,Brazil
+742,Storage Box,Home,7,14.03,2025-09-10,Brazil
+743,Puzzle 500,Toys,1,14.04,2025-10-25,Mexico
+744,Notebook A5,Office,3,3.61,2025-12-25,France
+745,Laptop Stand,Electronics,9,32.98,2025-03-18,United States
+746,Toy Car,Toys,12,10.09,2025-02-28,Peru
+747,Desk Lamp,Home,3,25.80,2025-03-08,Argentina
+748,Wall Clock,Home,20,23.43,2025-04-05,France
+749,Whiteboard Markers,Office,12,7.04,2025-02-03,Argentina
+750,Ballpoint Pens,Office,11,5.36,2025-12-29,Brazil
+751,Notebook A5,Office,6,3.95,2025-03-28,France
+752,desk organizer, office,7,16.40,2025-09-28, mexico
+753,Laptop Stand,Electronics,1,34.34,2025-02-09,Chile
+754,  Webcam HD ,  Electronics ,17,54.39,2025-01-13,  Germany 
+755,Ballpoint Pens,Office,18,5.25,2025-12-01,France
+756,Yoga Mat,Sports,17,19.10,2025-04-26,Argentina
+757,Webcam HD,Electronics,2,54.89,2025-05-20,Brazil
+758,Webcam HD,Electronics,11,48.40,2025-08-15,Peru
+759,Throw Pillow,Home,10,15.28,2025-05-15,Mexico
+760,Plush Bear,Toys,17,17.34,2025-02-15,Peru
+761,Storage Box,Home,18,12.99,2025-03-06,United States
+762,Wireless Mouse,Electronics,6,27.39,2025-10-28,Peru
+763,Yoga Mat,Sports,4,20.10,2025-02-21,Germany
+764,USB-C Cable,Electronics,8,8.93,2025-07-02,Argentina
+765,Throw Pillow,Home,10,17.17,2025-04-12,Chile
+766,Jump Rope,Sports,6,7.73,2025-01-10,Mexico
+767,Building Blocks,Toys,1,32.39,2025-07-22,Spain
+768,Running Belt,Sports,10,16.90,2025-06-08,Colombia
+769,Desk   Lamp, home,16,30.20,2025-10-29,PERU
+770,board game,  Toys ,20,34.96,2025-04-17,United   States
+771,Board Game,Toys,1,41.42,2025-05-08,Germany
+772,Ballpoint Pens,Office,7,5.30,2025-09-25,Spain
+773,Throw Pillow,Home,15,17.01,2025-05-12,Chile
+774,Notebook A5,Office,10,4.10,2025-05-19,Spain
+775,Stapler,Office,10,7.87,2025-07-30,Germany
+776,Toy Car,Toys,11,9.49,2025-03-10,Peru
+777,Whiteboard Markers,Office,2,6.43,2025-01-03,Spain
+778,Storage Box,Home,19,12.99,2025-01-25,United States
+779,Stapler,Office,20,8.51,2025-11-19,Chile
+780,Notebook A5,Office,4,3.42,2025-08-09,United States
+781,Ballpoint Pens,Office,4,4.83,2025-05-01,Chile
+782,Desk Organizer,Office,8,17.06,2025-04-11,Brazil
+783,USB-C Cable,Electronics,5,10.26,2025-01-02,Brazil
+784,Desk Organizer,Office,17,17.38,2025-04-04,Argentina
+785,Yoga Mat,Sports,6,18.11,2025-08-01,Colombia
+786,Toy Car,Toys,18,9.59,2025-04-30,Mexico
+787,Bluetooth Speaker,Electronics,16,56.39,2025-07-28,Spain
+788,Building Blocks,Toys,5,27.29,2025-06-12,Argentina
+789,Laptop Stand,Electronics,16,32.98,2025-11-19,Brazil
+790,Whiteboard Markers,Office,19,6.50,2025-08-03,United States
+791,Jump Rope,Sports,10,8.06,2025-08-16,United States
+792,Laptop Stand,Electronics,1,33.66,2025-08-10,Colombia
+793,Stapler,Office,6,8.11,2025-06-19,Colombia
+794,Wall Clock,Home,12,19.38,2025-12-11,France
+795,Bluetooth Speaker,Electronics,8,59.99,2025-01-11,United States
+796,Whiteboard Markers,Office,17,6.16,2025-05-02,Mexico
+797,Board Game,Toys,7,39.14,2025-07-27,Chile
+798,Running Belt,Sports,19,17.78,2025-08-02,Germany
+799,Puzzle 500,Toys,19,13.36,2025-11-16,Mexico
+800,Yoga Mat,Sports,16,21.89,2025-11-06,Mexico
+801,Laptop Stand,Electronics,1,35.70,2025-02-13,Chile
+802,Puzzle 500,Toys,16,12.82,2025-03-13,United States
+803,Plush Bear,Toys,19,18.98,2025-09-02,Peru
+804,Wireless Mouse,Electronics,20,25.15,2025-01-08,Brazil
+805,Yoga Mat,Sports,19,18.90,2025-08-04,Mexico
+806,Storage Box,Home,2,12.86,2025-11-09,United States
+807,Toy Car,Toys,16,10.29,2025-12-23,United States
+808,Laptop Stand,Electronics,18,35.36,2025-03-16,Peru
+809,Wall Clock,Home,13,21.94,2025-06-04,Spain
+810,Webcam HD,Electronics,19,52.40,2025-09-20,France
+811,Bluetooth Speaker,Electronics,5,62.99,2025-06-02,France
+812,Running Belt,Sports,15,16.02,2025-10-28,France
+813,Jump Rope,Sports,5,8.06,2025-11-09,Brazil
+814,Wireless Mouse,Electronics,9,24.90,2025-07-27,Spain
+815,Running Belt,Sports,8,17.42,2025-05-26,France
+816,Storage Box,Home,11,12.47,2025-01-21,Argentina
+817,Yoga Mat,Sports,14,20.50,2025-06-11,United States
+818,Whiteboard Markers,Office,2,7.10,2025-09-10,Argentina
+819,USB-C Cable,Electronics,14,9.40,2025-05-17,Peru
+820,wall clock,HOME,3,19.17,2025-10-29,  Brazil 
+821,Desk Lamp,Home,20,25.25,2025-06-29,Peru
+822,Stapler,Office,13,7.55,2025-05-28,Argentina
+823,Stapler,Office,10,8.19,2025-12-09,Chile
+824,Desk Organizer,Office,6,16.40,2025-08-12,Peru
+825,Dumbbell   Set,  Sports ,9,69.12,2025-07-12,UNITED STATES
+826,Yoga Mat,Sports,20,19.10,2025-06-10,France
+827,Running Belt,Sports,2,16.72,2025-06-20,United States
+828,Building Blocks,Toys,10,30.59,2025-12-19,Brazil
+829,Ballpoint Pens,Office,10,5.72,2025-02-15,Brazil
+830,Building Blocks,Toys,13,29.69,2025-04-12,Colombia
+831,Puzzle 500,Toys,20,13.36,2025-09-10,Spain
+832,Notebook A5,Office,2,3.76,2025-12-08,Chile
+833,Building Blocks,Toys,9,32.09,2025-12-04,Spain
+834,USB-C Cable,Electronics,14,8.64,2025-08-14,Brazil
+835,Running Belt,Sports,6,18.30,2025-12-20,Peru
+836,Building Blocks,Toys,9,30.59,2025-05-29,Germany
+837,Water Bottle,Sports,11,11.81,2025-08-31,United States
+838,Puzzle 500,Toys,7,13.50,2025-08-08,Spain
+839,  Puzzle 500 ,  Toys ,8,14.72,2025-10-08,CHILE
+840,Desk Organizer,Office,5,15.42,2025-11-17,Colombia
+841,Coffee Maker,Home,6,96.12,2025-07-29,Mexico
+842,Board Game,Toys,3,36.48,2025-11-27,Colombia
+843,Bluetooth Speaker,Electronics,18,54.59,2025-03-25,Mexico
+844,Puzzle 500,Toys,4,13.36,2025-01-18,Germany
+845,Dumbbell Set,Sports,6,65.92,2025-09-27,Argentina
+846,Laptop Stand,Electronics,16,35.70,2025-05-13,Peru
+847,Jump Rope,Sports,15,7.56,2025-05-07,Germany
+848,Coffee Maker,Home,6,94.34,2025-04-07,Colombia
+849,Whiteboard   Markers,OFFICE,5,6.10,2025-10-25, germany
+850,Ballpoint Pens,Office,10,4.88,2025-11-25,United States
+851,Desk Organizer,Office,1,16.56,2025-12-09,France
+852,Ballpoint Pens,Office,13,5.51,2025-06-25,Colombia
+853,Toy Car,Toys,1,9.29,2025-03-10,Germany
+854,Notebook   A5, office,14,3.50,2025-03-31,brazil
+855,Storage Box,Home,17,13.64,2025-10-16,Argentina
+856,Ballpoint Pens,Office,12,5.46,2025-05-29,Colombia
+857,Bluetooth Speaker,Electronics,5,55.79,2025-11-28,Peru
+858,Ballpoint Pens,Office,20,4.94,2025-08-05,France
+859,Yoga Mat,Sports,16,21.09,2025-08-06,Colombia
+860,Whiteboard Markers,Office,20,6.90,2025-11-11,Peru
+861,Yoga Mat,Sports,1,21.09,2025-09-17,Germany
+862,Desk Organizer,Office,4,15.42,2025-05-29,Spain
+863,Stapler,Office,9,8.59,2025-01-15,Argentina
+864,Wireless Mouse,Electronics,16,23.90,2025-05-31,Germany
+865,Whiteboard Markers,Office,2,6.16,2025-05-25,Mexico
+866,Plush Bear,Toys,16,17.88,2025-01-07,Mexico
+867,Storage Box,Home,15,14.16,2025-06-26,France
+868,Notebook A5,Office,12,3.46,2025-03-23,France
+869,Dumbbell Set,Sports,12,61.44,2025-07-17,Germany
+870,BOARD GAME,  Toys ,20,41.42,2025-01-11,united states
+871,Running Belt,Sports,5,16.72,2025-06-09,Colombia
+872,Yoga Mat,Sports,1,18.90,2025-11-20,Argentina
+873,Laptop Stand,Electronics,13,33.32,2025-09-18,Peru
+874,Dumbbell Set,Sports,13,62.72,2025-02-17,France
+875,Water Bottle,Sports,15,10.35,2025-11-17,Brazil
+876,Plush Bear,Toys,10,19.16,2025-01-22,France
+877,notebook a5,OFFICE,1,3.53,2025-03-18,United   States
+878,Dumbbell Set,Sports,6,69.12,2025-11-17,Germany
+879,building blocks,TOYS,14,31.79,2025-03-13,United   States
+880,Storage Box,Home,17,13.77,2025-04-04,Mexico
+881,Notebook A5,Office,5,3.99,2025-08-10,United States
+882,Running Belt,Sports,18,17.78,2025-11-07,Peru
+883,Running Belt,Sports,5,19.36,2025-02-15,Colombia
+884,Running Belt,Sports,9,16.72,2025-10-03,Brazil
+885,Desk Lamp,Home,13,25.25,2025-01-13,France
+886,Ballpoint Pens,Office,20,5.14,2025-04-25,Spain
+887,Water Bottle,Sports,2,11.81,2025-04-24,Colombia
+888,Building Blocks,Toys,9,28.19,2025-09-11,Germany
+889,Jump Rope,Sports,8,9.16,2025-08-25,Brazil
+890,Stapler,Office,10,7.39,2025-09-28,Spain
+891,Desk Lamp,Home,15,30.20,2025-11-28,Colombia
+892,USB-C Cable,Electronics,5,10.07,2025-01-29,Germany
+893,Dumbbell Set,Sports,17,62.72,2025-05-17,Mexico
+894,Jump Rope,Sports,5,9.16,2025-06-08,Chile
+895,Laptop Stand,Electronics,9,31.62,2025-10-04,France
+896,Wireless Mouse,Electronics,3,22.41,2025-06-20,Germany
+897,Wall Clock,Home,15,20.02,2025-04-27,Brazil
+898,Wireless Mouse,Electronics,5,25.90,2025-07-07,Germany
+899,Desk Lamp,Home,7,27.45,2025-04-16,Peru
+900,  Building Blocks ,TOYS,4,28.49,2025-05-16,  Peru 
+901,Board Game,Toys,20,35.34,2025-09-15,Peru
+902,Ballpoint   Pens,office,12,5.67,2025-10-08,  Spain 
+903,Wall   Clock,home,13,20.66,2025-10-25,FRANCE
+904,Yoga Mat,Sports,17,18.31,2025-02-09,Germany
+905,Yoga Mat,Sports,17,18.11,2025-02-09,Germany
+906,PLUSH BEAR,toys,12,17.34,2025-08-14,mexico
+907,Throw Pillow,Home,2,15.28,2025-09-19,Brazil
+908,COFFEE MAKER,  Home ,20,81.88,2025-09-30,  Germany 
+909,Water Bottle,Sports,17,11.14,2025-06-16,Spain
+910,Water Bottle,Sports,13,12.04,2025-10-20,France
+911,Webcam HD,Electronics,10,53.39,2025-11-07,Argentina
+912,Plush Bear,Toys,11,19.71,2025-09-23,Colombia
+913,Wall Clock,Home,2,23.22,2025-04-21,Colombia
+914,Laptop Stand,Electronics,16,35.02,2025-04-17,Chile
+915,Toy Car,Toys,11,10.29,2025-11-06,Germany
+916,Building Blocks,Toys,5,32.09,2025-11-16,Germany
+917,Stapler,Office,1,8.03,2025-09-12,United States
+918,Running Belt,Sports,5,16.19,2025-06-02,Chile
+919,Building Blocks,Toys,12,29.39,2025-05-06,Chile
+920,Dumbbell Set,Sports,11,68.48,2025-07-14,Germany
+921,Water Bottle,Sports,19,11.25,2025-05-07,Spain
+922,Whiteboard Markers,Office,3,7.17,2025-12-07,Peru
+923,Yoga Mat,Sports,3,20.30,2025-01-02,Mexico
+924,Whiteboard Markers,Office,2,6.63,2025-10-11,Chile
+925,Wireless Mouse,Electronics,2,27.14,2025-08-04,Mexico
+926,Board Game,Toys,14,37.24,2025-01-20,Peru
+927,Yoga Mat,Sports,2,20.50,2025-01-25,United States
+928,Board Game,Toys,20,38.76,2025-03-02,Mexico
+929,USB-C Cable,Electronics,5,9.02,2025-07-19,Peru
+930,Webcam HD,Electronics,18,49.40,2025-03-04,Chile
+931,Plush   Bear,TOYS,5,18.25,2025-06-20, argentina
+932,Yoga Mat,Sports,12,18.90,2025-04-24,Germany
+933,whiteboard markers,OFFICE,2,6.16,2025-02-14,  United States 
+934,TOY CAR,  Toys ,10,10.09,2025-09-27,  Argentina 
+935,Coffee Maker,Home,10,80.99,2025-07-10,Argentina
+936,Wall   Clock,home,5,20.02,2025-02-21, germany
+937,Board Game,Toys,18,36.48,2025-01-08,Chile
+938,Yoga Mat,Sports,8,20.70,2025-02-22,Brazil
+939,Water Bottle,Sports,6,12.15,2025-09-25,France
+940,Plush Bear,Toys,11,18.07,2025-08-13,Chile
+941,Ballpoint Pens,Office,12,5.51,2025-09-25,Chile
+942,Jump Rope,Sports,7,9.24,2025-12-07,Spain
+943,Jump Rope,Sports,15,8.06,2025-07-18,Germany
+944,USB-C Cable,Electronics,14,9.50,2025-10-11,Spain
+945,Storage Box,Home,19,13.64,2025-05-30,France
+946,Water Bottle,Sports,14,10.80,2025-02-16,Brazil
+947,Yoga Mat,Sports,7,18.71,2025-02-03,Peru
+948,Board Game,Toys,16,35.72,2025-07-05,Mexico
+949,Stapler,Office,9,8.67,2025-04-16,Mexico
+950,Toy Car,Toys,6,10.59,2025-06-27,United States
+951,Toy Car,Toys,8,9.69,2025-09-17,United States
+952,Coffee Maker,Home,7,82.77,2025-06-02,United States
+953,Notebook A5,Office,19,3.95,2025-11-13,Peru
+954,Stapler,Office,19,7.63,2025-02-12,Argentina
+955,Jump Rope,Sports,19,7.56,2025-11-15,Chile
+956,Yoga Mat,Sports,15,21.89,2025-01-05,Mexico
+957,Board Game,Toys,1,35.34,2025-10-22,United States
+958,Yoga Mat,Sports,6,21.89,2025-05-09,Mexico
+959,Ballpoint Pens,Office,12,4.88,2025-06-13,France
+960,Wireless Mouse,Electronics,4,25.90,2025-06-08,Brazil
+961,Plush Bear,Toys,16,18.98,2025-04-14,Mexico
+962,Laptop Stand,Electronics,13,31.28,2025-06-05,Argentina
+963,Wireless Mouse,Electronics,4,23.66,2025-06-10,Chile
+964,Coffee Maker,Home,2,96.12,2025-04-13,Chile
+965,Jump Rope,Sports,20,7.98,2025-01-27,Chile
+966,Laptop Stand,Electronics,6,32.64,2025-09-05,Peru
+967,Desk Lamp,Home,5,26.08,2025-09-01,Colombia
+968,Stapler,Office,18,8.51,2025-08-20,Argentina
+969,Webcam HD,Electronics,18,49.40,2025-01-09,Brazil
+970,Throw Pillow,Home,6,16.54,2025-06-30,Germany
+971,Jump Rope,Sports,18,8.40,2025-05-27,Argentina
+972,Wall Clock,Home,9,21.09,2025-01-22,Spain
+973,webcam hd,  Electronics ,4,52.89,2025-12-13,UNITED STATES
+974,Webcam HD,Electronics,18,45.41,2025-07-29,Brazil
+975,Wireless Mouse,Electronics,8,25.90,2025-02-11,Brazil
+976,Storage Box,Home,20,13.12,2025-11-18,Argentina
+977,Laptop Stand,Electronics,1,35.02,2025-05-31,Argentina
+978,Whiteboard Markers,Office,15,7.24,2025-09-19,Peru
+979,Ballpoint Pens,Office,20,5.09,2025-12-15,Colombia
+980,Jump Rope,Sports,8,8.48,2025-06-13,Germany
+981,STAPLER,  Office ,20,8.43,2025-08-10,  Germany 
+982,Wireless Mouse,Electronics,16,26.14,2025-12-13,United States
+983,Bluetooth Speaker,Electronics,10,58.79,2025-02-28,Argentina
+984,USB-C Cable,Electronics,3,8.64,2025-10-18,Brazil
+985,Storage Box,Home,12,13.77,2025-11-13,Mexico
+986,Toy Car,Toys,16,10.09,2025-03-30,Spain
+987,Desk Lamp,Home,15,27.45,2025-07-25,Spain
+988,Building Blocks,Toys,16,28.19,2025-07-09,United States
+989,Running Belt,Sports,15,18.83,2025-03-14,Argentina
+990,Board Game,Toys,9,39.52,2025-06-23,Mexico
+991,Running Belt,Sports,12,15.84,2025-01-27,Brazil
+992,Stapler,Office,13,7.55,2025-04-04,Mexico
+993,Wireless Mouse,Electronics,16,22.91,2025-04-13,Germany
+994,Desk Organizer,Office,1,16.56,2025-12-05,Brazil
+995,Running Belt,Sports,6,19.36,2025-09-15,Peru
+996,Dumbbell Set,Sports,16,58.88,2025-08-16,Peru
+997,Board Game,Toys,7,40.28,2025-10-05,France
+998,Jump Rope,Sports,17,7.73,2025-12-19,Chile
+999,Notebook A5,Office,4,3.88,2025-02-28,France
+1000,Water Bottle,Sports,20,10.24,2025-09-20,Peru
