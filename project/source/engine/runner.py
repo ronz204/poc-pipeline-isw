@@ -17,10 +17,11 @@ from source.engine.verify import reconcile
 from source.ingest.reader import ExtractError, extract
 from source.ingest.rules import validate
 from source.ingest.shaper import transform
+from source.output.exports import write_rejected_csv
 from source.output.logger import run_logger
 from source.output.report import Report
 from source.storage.connect import connect, ensure_schema
-from source.storage.rejects import persist_rejections, write_rejected_csv
+from source.storage.rejects import persist_rejections
 from source.storage.sales import insert_sales
 
 

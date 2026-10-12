@@ -26,6 +26,10 @@ class Rejection:
   reasons: tuple[str, ...]
   values: tuple[str, ...]
 
+  @property
+  def unmapped(self) -> bool:
+    return WRONG_COLUMN_COUNT in self.reasons
+
 
 @dataclass(frozen=True)
 class Validation:
