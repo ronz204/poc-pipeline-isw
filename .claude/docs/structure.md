@@ -10,8 +10,9 @@ Stack, runtime topology, infrastructure, and cross-cutting patterns. The data mo
 |---|---|---|
 | Language / packaging | Python 3.12 managed with uv (`pyproject.toml` + `uv.lock`) | The lockfile pins exact versions; a locked sync fails when it is stale. No exported requirements file is maintained. |
 | Build backend | `uv_build`, configured for a namespace package named `source` with the module root at the project root | Allows packages with no `__init__.py` files. The importable package is `source`; the installed command is `piper`. |
-| Tabular processing | pandas 3.x (below 4), everything read as strings | Natural ETL tool; text-only reading prevents silent coercion before validation. |
-| Data quality | pandera | Rules are a declared schema of named checks; the check name is the rejection code and lazy validation reports every failure at once. |
+| CSV reading | Python standard CSV reader, every cell kept as text | Text-only reading prevents silent coercion before validation, and rows with a wrong column count can be isolated instead of aborting the run. |
+| Tabular container | pandas 3.x (below 4) | Holds the table of text rows that validation runs over; it does not parse the file or judge values. Money never goes through a pandas numeric conversion. |
+| Data quality | pandera | Rules are a declared schema of named checks, each a plain predicate over one text value; the check name is the rejection code and lazy validation reports every failure at once. |
 | Logging | structlog | Binds the run identifier once; JSON Lines plus a readable console renderer without a custom logging class. |
 | Database driver | psycopg 3 (binary) | Parameterized queries, explicit transactions, per-statement affected-row counts. |
 | Database | PostgreSQL 17 (alpine image) | Constraints, `ON CONFLICT`, JSONB, array columns, and transactional loads. |

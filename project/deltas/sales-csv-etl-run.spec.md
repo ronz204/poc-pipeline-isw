@@ -64,6 +64,9 @@ Rules are named checks; the check name is the reason code. All failures of a row
 | `duplicate_transaction_id` | Identifier already appeared earlier in the file |
 
 - Numeric patterns use ASCII digits only. The bounds guarantee `total` fits its column.
+- Identifier, quantity, price, and date are judged on the original text, without trimming: a value with surrounding whitespace is invalid.
+- Leading zeros are allowed in identifiers and quantities (`0007`, `0001`), but an identifier is still at most 18 characters.
+- A price needs digits on both sides of the decimal point: `.5` and `5.` are invalid, and `+5.00` is valid.
 - Duplicate detection compares identifiers normalized without leading zeros, considers only format-valid identifiers, and keeps the first occurrence whether or not that first row is itself valid.
 - A row with no failures is valid; every other row is rejected.
 
