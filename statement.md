@@ -344,7 +344,7 @@ services:
 ```
 **Verificado:** esta composición (con `include` + `env_file`, y con los `.env` presentes) resuelve sin errores con `docker compose --profile etl config` en un directorio de prueba. **No ejecutado:** `up`, `build` ni `run`.
 
-`project/.dockerignore`: `.venv`, `.git`, `.env`, `docker/database/.env`, `reports`, `logs`, `testing`, `deltas`, `docker`, `__pycache__`. Los `.env` quedan fuera de la imagen (las variables llegan por `env_file` en tiempo de ejecución). `reports/` y `logs/` viven en `project/` y están en `.gitignore`, igual que los `.env`.
+`project/.dockerignore`: `**/.env`, `.git`, `.venv`, `reports`, `logs`, `testing`, `deltas`, `docker`, `data`, los archivos de configuración de Docker/Git y cachés de Python. Los `.env` quedan fuera de la imagen (las variables llegan por `env_file` en tiempo de ejecución). `reports/` y `logs/` viven en `project/` y están en `.gitignore`, igual que los `.env`.
 
 Si 5432 está ocupado: `DB_PORT=5433` en `.env` (solo cambia el puerto hacia afuera). En Linux, un usuario no root puede no tener permiso de escritura en los directorios montados (riesgo §15).
 
