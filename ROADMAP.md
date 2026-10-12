@@ -6,12 +6,12 @@ Linear build progress of the Piper ETL pipeline, from project skeleton to delive
 
 ## Overview
 
-**Overall progress: 4 / 39 tasks — 10%**
+**Overall progress: 7 / 39 tasks — 18%**
 
 | # | Step | Status | Progress |
 |---|---|---|---|
 | 1 | [Knowledge base and project skeleton](#1--knowledge-base-and-project-skeleton) | ✅ Done | 4/4 — 100% |
-| 2 | [Specify the pipeline run slice](#2--specify-the-pipeline-run-slice) | 🔲 Not started | 0/3 — 0% |
+| 2 | [Specify the pipeline run slice](#2--specify-the-pipeline-run-slice) | ✅ Done | 3/3 — 100% |
 | 3 | [Dependencies, schema, and configuration](#3--dependencies-schema-and-configuration) | 🔲 Not started | 0/5 — 0% |
 | 4 | [Validation and transformation](#4--validation-and-transformation) | 🔲 Not started | 0/8 — 0% |
 | 5 | [Load, reconciliation, and orchestration](#5--load-reconciliation-and-orchestration) | 🔲 Not started | 0/8 — 0% |
@@ -35,9 +35,9 @@ Requirements and decisions captured, knowledge base bootstrapped, and the projec
 
 One contract for the whole run: validate, quarantine, load, reconcile, audit.
 
-- [ ] Interview and write the `etl-run` spec (intent, scope, invariants)
-- [ ] Record the open questions and deferred decisions in the spec
-- [ ] Check the spec against the reference docs and resolve any conflict
+- [x] Interview and write the `sales-csv-etl-run` spec (intent, scope, invariants)
+- [x] Record the open questions and deferred decisions in the spec
+- [x] Check the spec against the reference docs and resolve any conflict
 
 ## 3 — Dependencies, schema, and configuration
 
