@@ -3,7 +3,7 @@ from dataclasses import dataclass
 
 import psycopg
 
-from source.transform import Sale
+from source.ingest.shaper import Sale
 
 INSERT_SALE = """
   INSERT INTO sales (transaction_id, product, category, quantity, unit_price, total,

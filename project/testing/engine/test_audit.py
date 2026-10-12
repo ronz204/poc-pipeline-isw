@@ -3,9 +3,9 @@ import uuid
 import psycopg
 import pytest
 
-from source.audit import FAILED, RUNNING, SUCCESS_WITH_REJECTS, RunError, audited_run
-from source.database import connect, ensure_schema
-from source.settings import load_settings
+from source.config.settings import load_settings
+from source.engine.audit import FAILED, RUNNING, SUCCESS_WITH_REJECTS, RunError, audited_run
+from source.storage.connect import connect, ensure_schema
 
 SELECT_RUN = """
   SELECT status, finished_at, duration_ms, rows_in, rows_valid, rows_rejected,

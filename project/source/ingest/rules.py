@@ -7,7 +7,7 @@ from decimal import Decimal
 import pandas as pd
 import pandera.pandas as pa
 
-from source.extract import REQUIRED_COLUMNS, Extracted
+from source.ingest.reader import REQUIRED_COLUMNS, Extracted
 
 WRONG_COLUMN_COUNT = "wrong_column_count"
 DUPLICATE_ID = "duplicate_transaction_id"

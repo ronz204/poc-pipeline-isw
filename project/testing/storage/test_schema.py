@@ -1,7 +1,7 @@
 import pytest
 
-from source.database import connect, ensure_schema
-from source.settings import load_settings
+from source.config.settings import load_settings
+from source.storage.connect import connect, ensure_schema
 
 TABLES = {"etl_runs", "sales", "rejected_records"}
 

@@ -2,8 +2,8 @@ import uuid
 
 import pytest
 
-from source.database import connect, ensure_schema
-from source.settings import load_settings
+from source.config.settings import load_settings
+from source.storage.connect import connect, ensure_schema
 
 
 @pytest.fixture

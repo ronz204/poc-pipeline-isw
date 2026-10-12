@@ -4,7 +4,7 @@ from datetime import date, timedelta
 from decimal import Decimal
 from pathlib import Path
 
-from source.extract import REQUIRED_COLUMNS
+from source.ingest.reader import REQUIRED_COLUMNS
 
 CLEAN_FILE = "sales_valid.csv"
 DEFECTIVE_FILE = "sales_defective.csv"

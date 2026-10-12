@@ -5,8 +5,8 @@ from pathlib import Path
 import psycopg
 from psycopg.types.json import Jsonb
 
-from source.extract import REQUIRED_COLUMNS
-from source.validate import WRONG_COLUMN_COUNT, Rejection
+from source.ingest.reader import REQUIRED_COLUMNS
+from source.ingest.rules import WRONG_COLUMN_COUNT, Rejection
 
 FORMULA_PREFIXES = ("=", "+", "-", "@", "\t", "\r")
 UNMAPPED_COLUMN = "unmapped_values"

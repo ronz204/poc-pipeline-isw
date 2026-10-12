@@ -3,8 +3,8 @@ from decimal import Decimal
 
 import pytest
 
-from source.load import LoadCounts, insert_sales
-from source.transform import Sale
+from source.ingest.shaper import Sale
+from source.storage.sales import LoadCounts, insert_sales
 
 BASE_ID = 900_000_000_000
 

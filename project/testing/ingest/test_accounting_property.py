@@ -5,9 +5,9 @@ from pathlib import Path
 from hypothesis import HealthCheck, given, settings
 from hypothesis import strategies as st
 
-from source.extract import REQUIRED_COLUMNS, extract
-from source.transform import transform
-from source.validate import REASON_CODES, validate
+from source.ingest.reader import REQUIRED_COLUMNS, extract
+from source.ingest.rules import REASON_CODES, validate
+from source.ingest.shaper import transform
 
 LIMIT = 50 * 1024 * 1024
 TEXT = st.text(alphabet=st.characters(blacklist_categories=("Cs",)), max_size=12)

@@ -3,9 +3,9 @@ from decimal import Decimal
 
 import pytest
 
-from source.load import LoadCounts, insert_sales
-from source.reconcile import ReconciliationError, reconcile
-from source.transform import Sale
+from source.engine.verify import ReconciliationError, reconcile
+from source.ingest.shaper import Sale
+from source.storage.sales import LoadCounts, insert_sales
 
 BASE_ID = 800_000_000_000
 

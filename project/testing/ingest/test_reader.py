@@ -2,12 +2,12 @@ from pathlib import Path
 
 import pytest
 
-from source.extract import REQUIRED_COLUMNS, ExtractError, extract
+from source.ingest.reader import REQUIRED_COLUMNS, ExtractError, extract
 
 HEADER = ",".join(REQUIRED_COLUMNS)
 ROW = "1,Toy Car,Toys,7,10.09,2025-02-21,Colombia"
 LIMIT = 1024 * 1024
-DATA_DIR = Path(__file__).parents[1] / "data"
+DATA_DIR = Path(__file__).parents[2] / "data"
 
 
 def write(tmp_path, content: str | bytes, name="in.csv") -> Path:

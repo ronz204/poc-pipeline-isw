@@ -3,10 +3,10 @@ import sys
 from collections.abc import Sequence
 from pathlib import Path
 
-from source.audit import FAILED
-from source.generator import generate_datasets
-from source.pipeline import run_pipeline
-from source.settings import ConfigError, load_settings
+from source.config.settings import ConfigError, load_settings
+from source.engine.audit import FAILED
+from source.engine.runner import run_pipeline
+from source.tools.dataset import generate_datasets
 
 DEFAULT_DATA_DIR = Path("data")
 

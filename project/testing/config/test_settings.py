@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pytest
 
-from source.settings import ConfigError, load_settings
+from source.config.settings import ConfigError, load_settings
 
 CREDENTIALS = {"POSTGRES_USER": "u", "POSTGRES_PASSWORD": "p", "POSTGRES_DB": "d"}
 

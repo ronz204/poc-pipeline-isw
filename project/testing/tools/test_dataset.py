@@ -4,17 +4,17 @@ from pathlib import Path
 
 import pytest
 
-from source.extract import extract
-from source.generator import (
+from source.ingest.reader import extract
+from source.ingest.rules import validate
+from source.tools.dataset import (
   CLEAN_FILE,
   DEFECTIVE_FILE,
   clean_rows,
   defective_rows,
   generate_datasets,
 )
-from source.validate import validate
 
-DATA_DIR = Path(__file__).parents[1] / "data"
+DATA_DIR = Path(__file__).parents[2] / "data"
 LIMIT = 50 * 1024 * 1024
 
 

@@ -2,7 +2,7 @@ from pathlib import Path
 
 import psycopg
 
-from source.settings import Settings
+from source.config.settings import Settings
 
 CONNECT_TIMEOUT_SECONDS = 5
 SCHEMA_FILE = Path(__file__).with_name("schema.sql")

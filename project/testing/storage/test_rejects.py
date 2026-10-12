@@ -3,10 +3,10 @@ import csv
 import psycopg
 import pytest
 
-from source.extract import REQUIRED_COLUMNS
-from source.quarantine import neutralize, persist_rejections, write_rejected_csv
-from source.settings import load_settings
-from source.validate import Rejection
+from source.config.settings import load_settings
+from source.ingest.reader import REQUIRED_COLUMNS
+from source.ingest.rules import Rejection
+from source.storage.rejects import neutralize, persist_rejections, write_rejected_csv
 
 FIELDS = ("7", "Widget", "tools", "0", "2.50", "2025-01-01", "peru")
 REJECTED = Rejection(3, ("invalid_quantity",), FIELDS)

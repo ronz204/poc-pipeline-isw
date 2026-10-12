@@ -1,7 +1,7 @@
 import pytest
 
-from source.cli import main
-from source.generator import CLEAN_FILE, DEFECTIVE_FILE
+from source.cli.main import main
+from source.tools.dataset import CLEAN_FILE, DEFECTIVE_FILE
 
 
 def test_generate_writes_both_datasets(tmp_path, capsys):

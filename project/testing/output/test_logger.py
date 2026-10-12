@@ -1,7 +1,7 @@
 import io
 import json
 
-from source.logs import run_logger
+from source.output.logger import run_logger
 
 RUN_ID = "20250101T120000-a1b2c3"
 

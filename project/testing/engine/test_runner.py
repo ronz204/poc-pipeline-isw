@@ -3,10 +3,10 @@ from dataclasses import replace
 
 import pytest
 
-import source.pipeline as pipeline_module
-from source.load import LoadCounts
-from source.pipeline import reject_rate_exceeded, run_pipeline
-from source.settings import load_settings
+import source.engine.runner as runner_module
+from source.config.settings import load_settings
+from source.engine.runner import reject_rate_exceeded, run_pipeline
+from source.storage.sales import LoadCounts
 
 BASE_ID = 700_000_000_000
 HEADER = "transaction_id,product,category,quantity,unit_price,transaction_date,country"
@@ -224,13 +224,13 @@ def test_unwritable_logs_directory_fails_with_a_clear_error(env, write_csv, tmp_
 
 @pytest.mark.integration
 def test_reconciliation_mismatch_rolls_back_every_insert_of_the_run(conn, env, write_csv, monkeypatch):
-  real_insert = pipeline_module.insert_sales
+  real_insert = runner_module.insert_sales
 
   def lying_insert(connection, run_id, sales):
     counts = real_insert(connection, run_id, sales)
     return LoadCounts(counts.loaded + 1, counts.skipped_existing)
 
-  monkeypatch.setattr(pipeline_module, "insert_sales", lying_insert)
+  monkeypatch.setattr(runner_module, "insert_sales", lying_insert)
 
   report = run_pipeline(write_csv([good_row(i) for i in range(1, 4)]), env)
 

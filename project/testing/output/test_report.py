@@ -1,7 +1,7 @@
 import json
 
-from source.audit import FAILED, SUCCESS, RunResult
-from source.report import Report
+from source.engine.audit import FAILED, SUCCESS, RunResult
+from source.output.report import Report
 
 RUN_ID = "20250101T120000-a1b2c3"
 

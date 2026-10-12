@@ -5,11 +5,11 @@ from pathlib import Path
 import pandas as pd
 import pytest
 
-from source.extract import REQUIRED_COLUMNS, extract
-from source.transform import Sale, transform
-from source.validate import validate
+from source.ingest.reader import REQUIRED_COLUMNS, extract
+from source.ingest.rules import validate
+from source.ingest.shaper import Sale, transform
 
-DATA_DIR = Path(__file__).parents[1] / "data"
+DATA_DIR = Path(__file__).parents[2] / "data"
 GOOD = {
   "transaction_id": "1",
   "product": "Toy Car",
