@@ -4,8 +4,8 @@ from collections.abc import Sequence
 from pathlib import Path
 
 from source.config.settings import ConfigError, load_settings
-from source.engine.audit import FAILED
 from source.engine.runner import run_pipeline
+from source.engine.status import FAILED
 from source.tools.dataset import generate_datasets
 
 DEFAULT_DATA_DIR = Path("data")

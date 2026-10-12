@@ -2,7 +2,7 @@ from collections.abc import Sequence
 
 import psycopg
 
-from source.engine.audit import RunError
+from source.engine.status import RunError
 from source.storage.sales import LoadCounts
 
 

@@ -2,7 +2,7 @@ import json
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
-from source.engine.audit import RunResult
+from source.engine.status import RunResult
 
 
 @dataclass(frozen=True)

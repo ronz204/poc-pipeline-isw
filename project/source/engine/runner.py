@@ -11,15 +11,8 @@ import psycopg
 import structlog
 
 from source.config.settings import Settings
-from source.engine.audit import (
-  FAILED,
-  SUCCESS,
-  SUCCESS_WITH_REJECTS,
-  RunError,
-  RunResult,
-  audited_run,
-  failure_message,
-)
+from source.engine.audit import audited_run
+from source.engine.status import FAILED, SUCCESS, SUCCESS_WITH_REJECTS, RunError, RunResult, failure_message
 from source.engine.verify import reconcile
 from source.ingest.reader import ExtractError, extract
 from source.ingest.rules import validate

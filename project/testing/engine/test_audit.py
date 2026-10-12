@@ -4,7 +4,8 @@ import psycopg
 import pytest
 
 from source.config.settings import load_settings
-from source.engine.audit import FAILED, RUNNING, SUCCESS_WITH_REJECTS, RunError, audited_run
+from source.engine.audit import audited_run
+from source.engine.status import FAILED, RUNNING, SUCCESS_WITH_REJECTS, RunError
 from source.storage.connect import connect, ensure_schema
 
 SELECT_RUN = """
