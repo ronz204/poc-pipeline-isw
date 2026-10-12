@@ -79,6 +79,8 @@ Applied to valid rows only:
 3. Convert to integer, exact decimal, and date types.
 4. Compute `total = quantity × unit_price` with exact decimal arithmetic.
 
+Capitalizing a word lowercases the rest of it, so `UNITED STATES` becomes `United States` and an acronym such as `USA` becomes `Usa`. A hyphen or apostrophe does not start a new word: `guinea-bissau` becomes `Guinea-bissau`. Product text is trimmed and collapsed but keeps its case.
+
 ### Run order and load
 
 1. Create the run identifier and report, open the logger, connect, ensure the schema exists (idempotent).
