@@ -1,8 +1,31 @@
 name: piper
 
 include:
-  - path: docker/database/compose.yml
-    env_file: docker/database/.env
+  - docker/database/compose.yml
+
+services:
+  piper-etl:
+    build: .
+    profiles: ["etl"]
+    depends_on:
+      piper-database:
+        condition: service_healthy
+    env_file:
+      - docker/database/.env
+      - .env
+    environment:
+      POSTGRES_HOST: piper-database
+    volumes:
+      - ./data:/app/data
+      - ./reports:/app/reports
+      - ./logs:/app/logs
+    networks:
+      - piper-network
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
 
 volumes:
   piper-data:
