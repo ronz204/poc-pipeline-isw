@@ -6,11 +6,11 @@ Linear build progress of the Piper ETL pipeline, from project skeleton to delive
 
 ## Overview
 
-**Overall progress: 3 / 39 tasks — 8%**
+**Overall progress: 4 / 39 tasks — 10%**
 
 | # | Step | Status | Progress |
 |---|---|---|---|
-| 1 | [Knowledge base and project skeleton](#1--knowledge-base-and-project-skeleton) | 🔄 In progress | 3/4 — 75% |
+| 1 | [Knowledge base and project skeleton](#1--knowledge-base-and-project-skeleton) | ✅ Done | 4/4 — 100% |
 | 2 | [Specify the pipeline run slice](#2--specify-the-pipeline-run-slice) | 🔲 Not started | 0/3 — 0% |
 | 3 | [Dependencies, schema, and configuration](#3--dependencies-schema-and-configuration) | 🔲 Not started | 0/5 — 0% |
 | 4 | [Validation and transformation](#4--validation-and-transformation) | 🔲 Not started | 0/8 — 0% |
@@ -29,7 +29,7 @@ Requirements and decisions captured, knowledge base bootstrapped, and the projec
 - [x] Capture requirements, design decisions, and the security baseline
 - [x] Bootstrap `CLAUDE.md`, the reference docs, and the convention rules
 - [x] Rename the uv defaults in `pyproject.toml` (project name, command, build backend, tool settings)
-- [ ] Fill the ignore files and git attributes
+- [x] Fill the ignore files and git attributes
 
 ## 2 — Specify the pipeline run slice
 
