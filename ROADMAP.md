@@ -6,14 +6,14 @@ Linear build progress of the Piper ETL pipeline, from project skeleton to delive
 
 ## Overview
 
-**Overall progress: 12 / 39 tasks — 31%**
+**Overall progress: 16 / 39 tasks — 41%**
 
 | # | Step | Status | Progress |
 |---|---|---|---|
 | 1 | [Knowledge base and project skeleton](#1--knowledge-base-and-project-skeleton) | ✅ Done | 4/4 — 100% |
 | 2 | [Specify the pipeline run slice](#2--specify-the-pipeline-run-slice) | ✅ Done | 3/3 — 100% |
 | 3 | [Dependencies, schema, and configuration](#3--dependencies-schema-and-configuration) | ✅ Done | 5/5 — 100% |
-| 4 | [Validation and transformation](#4--validation-and-transformation) | 🔲 Not started | 0/8 — 0% |
+| 4 | [Validation and transformation](#4--validation-and-transformation) | 🔄 In progress | 4/8 — 50% |
 | 5 | [Load, reconciliation, and orchestration](#5--load-reconciliation-and-orchestration) | 🔲 Not started | 0/8 — 0% |
 | 6 | [Containers and CI](#6--containers-and-ci) | 🔲 Not started | 0/5 — 0% |
 | 7 | [Evidence and delivery](#7--evidence-and-delivery) | 🔲 Not started | 0/6 — 0% |
@@ -49,10 +49,10 @@ One contract for the whole run: validate, quarantine, load, reconcile, audit.
 
 ## 4 — Validation and transformation
 
-- [ ] Extract: text-only CSV reading (byte-order mark, blank lines, size cap, missing columns)
-- [ ] Validation rules as named checks covering every reason code
-- [ ] Duplicate detection: first occurrence wins, identifier normalized without leading zeros
-- [ ] Transformation with exact decimal arithmetic and whitespace-only title casing
+- [x] Extract: text-only CSV reading (byte-order mark, blank lines, size cap, missing columns)
+- [x] Validation rules as named checks covering every reason code
+- [x] Duplicate detection: first occurrence wins, identifier normalized without leading zeros
+- [x] Transformation with exact decimal arithmetic and whitespace-only title casing
 - [ ] Deterministic dataset generator: clean file and defective file with planted defects
 - [ ] Unit tests: one per rule and per boundary case
 - [ ] Property test: valid plus rejected equals input for any input
