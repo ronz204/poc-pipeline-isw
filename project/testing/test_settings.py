@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pytest
 
-from source.settings import SettingsError, load_settings
+from source.settings import ConfigError, load_settings
 
 CREDENTIALS = {"POSTGRES_USER": "u", "POSTGRES_PASSWORD": "p", "POSTGRES_DB": "d"}
 
@@ -45,7 +45,7 @@ def test_overrides_are_read_from_the_environment():
 def test_missing_credential_is_an_error_naming_the_variable(missing):
   env = {k: v for k, v in CREDENTIALS.items() if k != missing}
 
-  with pytest.raises(SettingsError, match=missing):
+  with pytest.raises(ConfigError, match=missing):
     load_settings(env)
 
 
@@ -59,5 +59,11 @@ def test_missing_credential_is_an_error_naming_the_variable(missing):
   ],
 )
 def test_invalid_numbers_are_rejected(name, value):
-  with pytest.raises(SettingsError, match=name):
+  with pytest.raises(ConfigError, match=name):
     load_settings(CREDENTIALS | {name: value})
+
+
+def test_password_is_hidden_from_repr():
+  settings = load_settings(CREDENTIALS | {"POSTGRES_PASSWORD": "s3cret"})
+
+  assert "s3cret" not in repr(settings)
