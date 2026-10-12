@@ -1,57 +1,63 @@
-<!--
-This file ships as part of the harness itself, as the fill-in skeleton for
-this doc category — copy it into a project as-is, then fill it in place
-when bootstrapping (surveyor) or updating (archivist) that project's build
-approach. Unlike structure.md, this file is always created for a
-bootstrapped project, even when the honest content is "not applicable here"
-(no meaningful build sequencing beyond "just build the thing") — state that
-explicitly rather than omitting the file. This file is never discarded once
-work lands — it stays live-edited the same way every other doc does: update
-the roadmap and status in place as phases complete, don't leave a finished
-phase's entry describing it as pending.
-Delete these guidance comments once every section holds real, grounded
-content. Ground every claim in what was actually decided/confirmed, never
-invent a phase or pillar that hasn't actually been agreed on.
--->
-
 # Approach
 
-<!-- One sentence: what this file covers — the order and philosophy behind building this project — and what it deliberately excludes (e.g. "Why the project exists lives in overview.md, not here"). -->
+The order and philosophy behind building the pipeline and its delivery practices. Why the system exists and its scope boundaries live elsewhere.
 
 ---
 
 ## Technical pillars
 
-<!-- Table: the few things this project deliberately builds together because the problem genuinely needs them at once, not because they were bolted on separately. Explain *why together*, not just list them. Omit if the project has no such deliberate combination — most don't. -->
-
 | Pillar | What it means here |
 |---|---|
-| `<pillar>` | `<why this matters and why it's tied to the others>` |
+| Reproducible environment | Container runtime, pinned dependencies (lockfile), and a locked install everywhere. The same commands work on a developer machine, in the image, and in CI. |
+| Data quality inside the pipeline | Rules are declared, enforced before load, mirrored by database constraints, and every rejection is kept with its reason. Without this the audit trail would only record failures, not prevent them. |
+| Accountability of every row | Counts are reconciled against database state and each run is audited. Tests and CI exist to keep this guarantee from regressing. |
+
+They are built together because the point is not any one of them: a reproducible run is only meaningful if its outcome can be verified, and verification is only trustworthy if the environment is the same everywhere.
 
 ## Functional scope
 
-<!-- What the system being built must actually support, as a bullet list of concrete capabilities — not a feature-marketing list, a scope boundary a build sequence can be checked against. -->
+- Load a CSV of sales into PostgreSQL after validation, normalization, and exact total computation.
+- Reject invalid rows into quarantine with all their reason codes; never load them and never drop them silently.
+- Fail a run, loading nothing, when the reject rate exceeds the threshold.
+- Make re-running the same file safe.
+- Record every run in an audit table and emit per-run evidence (JSON report, rejected CSV, structured log, Markdown summary).
+- Generate deterministic clean and defective datasets with known expected outcomes.
+- Run the database and pipeline in containers, and run lint, tests, and an end-to-end pipeline run in CI.
 
 ## Roadmap
 
-<!-- Ordered phases/stages the build proceeds through, each with what it actually establishes. Update this in place as phases complete — mark a phase done when it's done, don't leave it worded as future work after it lands. -->
-
-0. **`<phase name>`** — `<what this phase establishes and why it comes first/next>`
+1. **Knowledge base and project skeleton** — project layout, Compose layout, and decisions captured; the first slice (the pipeline run) not yet specified. Done when the docs and skeleton exist.
+2. **Specify the pipeline run slice** — contract, invariants, and open questions for validate, quarantine, load, reconcile, and audit, before implementation.
+3. **Dependencies, schema, and configuration** — declare dependencies, database schema, and settings loading; the database service starts healthy.
+4. **Validation and transformation** — declared rules with named checks, normalization, and the synthetic datasets, with the unit and property tests that pin the expected rejections.
+5. **Load, reconciliation, and orchestration** — quarantine, idempotent load, real reconciliation, run audit, reports, and logging; integration tests against a real database.
+6. **Containers and CI** — image, Compose services, workflow with a mandatory database in tests and an end-to-end run.
+7. **Evidence and delivery** — run the demo end to end, record real counts, and document limitations and manual steps honestly.
 
 ## Risks
 
-<!-- Known risks to the roadmap actually landing as planned — an unresolved external dependency, an unvalidated scaling/performance assumption, a technology bet that might not pan out. Not a generic risk register: only a risk specific and real to this roadmap. Omit entirely if there genuinely isn't one. -->
+- Several pieces are unverified until executed: the image build, the Compose run path, the CI workflow, and whether the CSV reader can surface ragged rows as rejections.
+- Translating the validation library's failure reports into per-row reason codes may prove more awkward than plain pandas masks; the fallback is to drop the library.
+- pandas 3 changed text dtype and copy behavior; the suite must run on the locked version from the first day.
+- A non-root container user may lack write permission on mounted output directories on some hosts.
 
 ## Done criteria
 
-<!-- How to tell the current scope (or a named phase of it) is actually done — specific, falsifiable conditions, not a vibe. If it can't be checked by reading the resulting code/behavior, it isn't specific enough yet. -->
+- The valid dataset loads 1000 of 1000 rows with `SUCCESS` and reconciliation passing; the defective dataset yields 988 valid, 12 rejected with the documented breakdown, `SUCCESS_WITH_REJECTS`, and 1988 sales in total.
+- Running the valid file twice loads nothing the second time (all rows skipped) and leaves the row count unchanged.
+- Lowering the reject threshold below the defective dataset's rate makes the run end `FAILED` with nothing loaded and the rejects still recorded.
+- The full test suite passes locally and in CI, with a missing database failing the integration tests instead of skipping them.
+- Breaking a validation rule on purpose makes tests fail.
+- A fresh clone follows the documented commands from scratch to a working run.
 
 ## Stretch goals
 
-<!-- Explicitly non-blocking extensions — real candidates, not blocking scope, deferred once the done criteria above are actually met. Omit if there are none. -->
+- Coverage reporting in CI.
+- Pre-commit hooks running the same lint as CI.
+- A bulk-copy load path for larger volumes.
 
 ---
 
 ## Non-goals
 
-<!-- Only include this section if a scope boundary here is easy to violate by accident. Omit entirely otherwise. -->
+- Production deployment, scheduling, or monitoring are not part of the sequence.
