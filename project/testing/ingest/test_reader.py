@@ -7,7 +7,6 @@ from source.ingest.reader import REQUIRED_COLUMNS, ExtractError, extract
 HEADER = ",".join(REQUIRED_COLUMNS)
 ROW = "1,Toy Car,Toys,7,10.09,2025-02-21,Colombia"
 LIMIT = 1024 * 1024
-DATA_DIR = Path(__file__).parents[2] / "data"
 
 
 def write(tmp_path, content: str | bytes, name="in.csv") -> Path:
@@ -162,16 +161,16 @@ def test_invalid_utf8_is_an_extract_error_that_does_not_echo_content(tmp_path):
   assert "caf" not in str(error.value)
 
 
-def test_clean_dataset_reads_all_rows():
-  result = extract(DATA_DIR / "sales_valid.csv", LIMIT)
+def test_clean_dataset_reads_all_rows(data_dir):
+  result = extract(data_dir / "sales_valid.csv", LIMIT)
 
   assert result.rows_in == 1000
   assert result.malformed == ()
   assert result.extra_columns == ()
 
 
-def test_defective_dataset_reads_all_rows_with_empty_product_kept_empty():
-  result = extract(DATA_DIR / "sales_defective.csv", LIMIT)
+def test_defective_dataset_reads_all_rows_with_empty_product_kept_empty(data_dir):
+  result = extract(data_dir / "sales_defective.csv", LIMIT)
 
   assert result.rows_in == 1000
   assert (result.rows["product"] == "").sum() == 2

@@ -1,8 +1,9 @@
 import uuid
+from pathlib import Path
 
 import pytest
 
-from source.config.settings import load_settings
+from source.config.settings import BYTES_PER_MB, DEFAULT_MAX_INPUT_MB, load_settings
 from source.storage.connect import connect, ensure_schema
 
 
@@ -33,3 +34,13 @@ def make_run(conn):
     conn.execute("DELETE FROM sales WHERE loaded_by_run = %s", (run_id,))
     conn.execute("DELETE FROM rejected_records WHERE run_id = %s", (run_id,))
     conn.execute("DELETE FROM etl_runs WHERE run_id = %s", (run_id,))
+
+
+@pytest.fixture(scope="session")
+def data_dir():
+  return Path(__file__).parents[1] / "data"
+
+
+@pytest.fixture(scope="session")
+def size_cap():
+  return int(DEFAULT_MAX_INPUT_MB * BYTES_PER_MB)

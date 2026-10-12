@@ -5,11 +5,12 @@ from pathlib import Path
 from hypothesis import HealthCheck, given, settings
 from hypothesis import strategies as st
 
+from source.config.settings import BYTES_PER_MB, DEFAULT_MAX_INPUT_MB
 from source.ingest.reader import REQUIRED_COLUMNS, extract
 from source.ingest.rules import REASON_CODES, validate
 from source.ingest.shaper import transform
 
-LIMIT = 50 * 1024 * 1024
+LIMIT = int(DEFAULT_MAX_INPUT_MB * BYTES_PER_MB)
 TEXT = st.text(alphabet=st.characters(blacklist_categories=("Cs",)), max_size=12)
 PLAUSIBLE = st.sampled_from(
   [

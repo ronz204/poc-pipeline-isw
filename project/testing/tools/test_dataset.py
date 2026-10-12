@@ -14,9 +14,6 @@ from source.tools.dataset import (
   generate_datasets,
 )
 
-DATA_DIR = Path(__file__).parents[2] / "data"
-LIMIT = 50 * 1024 * 1024
-
 
 @pytest.fixture(scope="module")
 def generated(tmp_path_factory) -> tuple[Path, Path]:
@@ -30,9 +27,9 @@ def test_same_seed_produces_the_same_bytes_every_time(tmp_path, generated):
   assert defective.read_bytes() == generated[1].read_bytes()
 
 
-def test_generator_reproduces_the_committed_datasets_byte_for_byte(generated):
-  assert generated[0].read_bytes() == (DATA_DIR / CLEAN_FILE).read_bytes()
-  assert generated[1].read_bytes() == (DATA_DIR / DEFECTIVE_FILE).read_bytes()
+def test_generator_reproduces_the_committed_datasets_byte_for_byte(generated, data_dir):
+  assert generated[0].read_bytes() == (data_dir / CLEAN_FILE).read_bytes()
+  assert generated[1].read_bytes() == (data_dir / DEFECTIVE_FILE).read_bytes()
 
 
 def test_output_files_are_named_and_created_in_the_given_directory(tmp_path):
@@ -42,9 +39,9 @@ def test_output_files_are_named_and_created_in_the_given_directory(tmp_path):
   assert clean.parent == defective.parent == tmp_path / "nested" / "out"
 
 
-def test_each_dataset_has_one_thousand_rows(generated):
+def test_each_dataset_has_one_thousand_rows(generated, size_cap):
   assert len(clean_rows()) == len(defective_rows()) == 1000
-  assert all(extract(path, LIMIT).rows_in == 1000 for path in generated)
+  assert all(extract(path, size_cap).rows_in == 1000 for path in generated)
 
 
 def test_identifier_ranges_are_disjoint_so_both_files_load_together():
@@ -72,15 +69,15 @@ def test_about_eight_percent_of_clean_rows_have_messy_text():
   assert 50 <= messy <= 110
 
 
-def test_clean_dataset_validates_with_no_rejections(generated):
-  result = validate(extract(generated[0], LIMIT))
+def test_clean_dataset_validates_with_no_rejections(generated, size_cap):
+  result = validate(extract(generated[0], size_cap))
 
   assert result.rejected == ()
   assert len(result.valid) == 1000
 
 
-def test_defective_dataset_yields_exactly_12_rejections_and_988_valid_rows(generated):
-  result = validate(extract(generated[1], LIMIT))
+def test_defective_dataset_yields_exactly_12_rejections_and_988_valid_rows(generated, size_cap):
+  result = validate(extract(generated[1], size_cap))
 
   assert len(result.rejected) == 12
   assert len(result.valid) == 988
@@ -94,8 +91,8 @@ def test_defective_dataset_yields_exactly_12_rejections_and_988_valid_rows(gener
   }
 
 
-def test_each_defect_is_planted_at_its_fixed_position(generated):
-  result = validate(extract(generated[1], LIMIT))
+def test_each_defect_is_planted_at_its_fixed_position(generated, size_cap):
+  result = validate(extract(generated[1], size_cap))
 
   by_record = {rejection.record_number: rejection.reasons for rejection in result.rejected}
   assert by_record == {

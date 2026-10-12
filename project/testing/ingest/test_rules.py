@@ -1,5 +1,4 @@
 from collections import Counter
-from pathlib import Path
 
 import pandas as pd
 import pytest
@@ -7,7 +6,6 @@ import pytest
 from source.ingest.reader import REQUIRED_COLUMNS, Extracted, MalformedRow, extract
 from source.ingest.rules import REASON_CODES, validate
 
-DATA_DIR = Path(__file__).parents[2] / "data"
 GOOD = {
   "transaction_id": "1",
   "product": "Toy Car",
@@ -192,8 +190,8 @@ def test_valid_plus_rejected_equals_input():
   assert len(result.valid) + len(result.rejected) == data.rows_in
 
 
-def test_clean_dataset_has_no_rejections():
-  result = validate(extract(DATA_DIR / "sales_valid.csv", 50 * 1024 * 1024))
+def test_clean_dataset_has_no_rejections(data_dir, size_cap):
+  result = validate(extract(data_dir / "sales_valid.csv", size_cap))
 
   assert result.rejected == ()
   assert len(result.valid) == 1000
@@ -257,8 +255,8 @@ def test_valid_duplicate_free_identifiers_are_all_kept():
   assert len(result.valid) == 5
 
 
-def test_defective_dataset_yields_exactly_its_12_planted_rejections():
-  result = validate(extract(DATA_DIR / "sales_defective.csv", 50 * 1024 * 1024))
+def test_defective_dataset_yields_exactly_its_12_planted_rejections(data_dir, size_cap):
+  result = validate(extract(data_dir / "sales_defective.csv", size_cap))
 
   breakdown = Counter(code for rejection in result.rejected for code in rejection.reasons)
   assert breakdown == {

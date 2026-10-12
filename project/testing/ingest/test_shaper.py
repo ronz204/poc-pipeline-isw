@@ -1,6 +1,5 @@
 from datetime import date
 from decimal import Decimal
-from pathlib import Path
 
 import pandas as pd
 import pytest
@@ -9,7 +8,6 @@ from source.ingest.reader import REQUIRED_COLUMNS, extract
 from source.ingest.rules import validate
 from source.ingest.shaper import Sale, transform
 
-DATA_DIR = Path(__file__).parents[2] / "data"
 GOOD = {
   "transaction_id": "1",
   "product": "Toy Car",
@@ -146,8 +144,8 @@ def test_rows_keep_their_order():
   assert [sale.transaction_id for sale in transform(frame)] == [5, 3, 9]
 
 
-def test_clean_dataset_transforms_to_exact_totals_and_tidy_text():
-  sales = transform(validate(extract(DATA_DIR / "sales_valid.csv", 50 * 1024 * 1024)).valid)
+def test_clean_dataset_transforms_to_exact_totals_and_tidy_text(data_dir, size_cap):
+  sales = transform(validate(extract(data_dir / "sales_valid.csv", size_cap)).valid)
 
   assert len(sales) == 1000
   assert all(sale.total == sale.quantity * sale.unit_price for sale in sales)
@@ -159,8 +157,8 @@ def test_clean_dataset_transforms_to_exact_totals_and_tidy_text():
   assert (messy.product, messy.category, messy.country) == ("Ballpoint Pens", "Office", "Chile")
 
 
-def test_defective_dataset_transforms_its_988_valid_rows():
-  sales = transform(validate(extract(DATA_DIR / "sales_defective.csv", 50 * 1024 * 1024)).valid)
+def test_defective_dataset_transforms_its_988_valid_rows(data_dir, size_cap):
+  sales = transform(validate(extract(data_dir / "sales_defective.csv", size_cap)).valid)
 
   assert len(sales) == 988
   assert len({sale.transaction_id for sale in sales}) == 988
