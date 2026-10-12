@@ -1,6 +1,6 @@
 import pytest
 
-from source.cli.main import main
+from source.cli import main
 from source.tools.dataset import CLEAN_FILE, DEFECTIVE_FILE
 
 
