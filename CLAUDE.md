@@ -19,8 +19,8 @@ An ETL pipeline that reads sales CSVs, validates every row against declared qual
 | Path | Purpose |
 |---|---|
 | `project/` | The whole application; every tool command runs from here |
-| `project/source/` | The importable package (`source`); no `__init__.py` files |
-| `project/testing/` | Tests |
+| `project/source/` | The importable package (`source`), grouped by pipeline stage into `config`, `ingest`, `storage`, `output`, `engine`, `tools`, and `cli`; no `__init__.py` files |
+| `project/testing/` | Tests; one subfolder per source package, shared fixtures in a single conftest |
 | `project/data/` | Synthetic input CSVs |
 | `project/docker/` | One subfolder per Compose service; currently the database service |
 | `project/compose.yml` | Root Compose file; includes the database service and defines the pipeline service |
@@ -38,8 +38,12 @@ Run from `project/`.
 | Install dependencies | `uv sync` |
 | Start the database | `docker compose up -d` |
 | Stop and reset the database | `docker compose down -v` |
+| Run the tests (database must be up) | `uv run --env-file .env --env-file docker/database/.env pytest` |
+| Lint | `uv run ruff check .` |
+| Run the pipeline on a CSV | `uv run --env-file .env --env-file docker/database/.env piper run data/sales_valid.csv` |
+| Generate the synthetic datasets | `uv run piper generate --output data` |
 
-Test, lint, and pipeline-run commands are not defined yet; they arrive with the first dependencies and source code.
+The `piper` command exits `1` when the run ends `FAILED` and `0` otherwise.
 
 ## Permissions
 
