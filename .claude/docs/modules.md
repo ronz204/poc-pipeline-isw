@@ -28,11 +28,11 @@ What each pipeline component does, step by step, and the data it exchanges. Why 
 
 **Flow.**
 1. Refuse the file if it exceeds the maximum input size.
-2. Read every column as string, keep empty strings as empty (no NA coercion), tolerate a UTF-8 byte-order mark, and keep blank lines as rows so record numbering stays aligned.
+2. Read the file with a standard CSV reader rather than a dataframe parser, because a dataframe parser errors on rows with too many fields and pads short ones, which would break the `wrong_column_count` rejection. Every cell stays text: empty strings stay empty and words like `NA` are not coerced to nulls. A UTF-8 byte-order mark is tolerated. A blank line stays a row of empty fields, so record numbering stays aligned and the row is rejected with every `missing_<field>` code.
 3. Fail with a schema error if a required column is missing. Extra columns are ignored and reported through a log event.
 4. Rows whose column count differs from the header become rejections (`wrong_column_count`, the only code they carry) rather than aborting the run or being dropped.
 
-**Data shape.** A table of strings with the seven required columns. The record number of a row is its position plus two (the header is line one); it matches the physical file line unless quoted fields span lines.
+**Data shape.** A table of strings with the seven required columns, plus the wrong-column-count rows kept apart with their record number and original values. The record number of a row is its position plus two (the header is line one); it matches the physical file line unless quoted fields span lines.
 
 ## Validate
 

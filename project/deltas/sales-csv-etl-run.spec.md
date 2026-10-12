@@ -43,6 +43,7 @@ Read from environment variables. Database parameters are passed to the driver in
 
 - Refuse a file above the size cap before reading it.
 - Read every column as text: empty strings stay empty, a UTF-8 byte-order mark is tolerated, blank lines stay as rows so numbering stays aligned.
+- A blank line is a row of empty fields: it is rejected with every `missing_<field>` code, not with `wrong_column_count`.
 - The seven required columns are transaction identifier, product, category, quantity, unit price, transaction date, country. A missing required column fails the run. Extra columns are ignored and reported through a log event (column names only).
 - The record number of a row is its position plus two (the header is line one).
 - A row whose column count differs from the header is always a rejection with `wrong_column_count`: it never aborts the run and is never dropped. Its fields cannot be mapped reliably to columns, so it carries only that code, and its original values are kept in the rejected record.
