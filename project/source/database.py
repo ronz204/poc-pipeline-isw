@@ -4,11 +4,14 @@ import psycopg
 
 from source.settings import Settings
 
+CONNECT_TIMEOUT_SECONDS = 5
 SCHEMA_FILE = Path(__file__).with_name("schema.sql")
 
 
 def connect(settings: Settings) -> psycopg.Connection:
-  return psycopg.connect(**settings.connection_params(), autocommit=True)
+  return psycopg.connect(
+    **settings.connection_params(), autocommit=True, connect_timeout=CONNECT_TIMEOUT_SECONDS
+  )
 
 
 def ensure_schema(conn: psycopg.Connection) -> None:
