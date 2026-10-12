@@ -1,56 +1,90 @@
-<!--
-Template for a project's ROADMAP.md — a linear, step-by-step progress tracker.
-Copy this file into a project's root and fill it in with that project's real
-steps and tasks. Delete this guidance comment once filled.
-
-Mechanics:
-- Each step is one ordered phase of the project, broken into concrete tasks.
-- A step's % is always checked-tasks / total-tasks for that step — never
-  hand-typed. Recompute it whenever a task is checked or added.
-- Overall progress at the top is checked-tasks / total-tasks across every
-  step combined — same rule, no separate estimate.
-- Never mark a step "Done" while it still has an unchecked task under it —
-  split the step instead of rounding up.
-- Keep steps linear and sequential (the order they actually happen in), not
-  a dependency graph — this format is for perceived progress, not scheduling.
--->
-
 # Roadmap
 
-<One sentence: what this roadmap tracks — this project's build progress, not a changelog or a decision log.>
+Linear build progress of the Piper ETL pipeline, from project skeleton to delivered evidence. It tracks what has been built, not a changelog or a decision log.
 
 ---
 
 ## Overview
 
-**Overall progress: `<checked>` / `<total>` tasks — `<percent>`%**
+**Overall progress: 3 / 39 tasks — 8%**
 
 | # | Step | Status | Progress |
 |---|---|---|---|
-| 1 | [`<Step 1 name>`](#1--step-1-name) | 🔲 Not started | 0/`<n>` — 0% |
-| 2 | [`<Step 2 name>`](#2--step-2-name) | 🔲 Not started | 0/`<n>` — 0% |
-| 3 | [`<Step 3 name>`](#3--step-3-name) | 🔲 Not started | 0/`<n>` — 0% |
+| 1 | [Knowledge base and project skeleton](#1--knowledge-base-and-project-skeleton) | 🔄 In progress | 3/4 — 75% |
+| 2 | [Specify the pipeline run slice](#2--specify-the-pipeline-run-slice) | 🔲 Not started | 0/3 — 0% |
+| 3 | [Dependencies, schema, and configuration](#3--dependencies-schema-and-configuration) | 🔲 Not started | 0/5 — 0% |
+| 4 | [Validation and transformation](#4--validation-and-transformation) | 🔲 Not started | 0/8 — 0% |
+| 5 | [Load, reconciliation, and orchestration](#5--load-reconciliation-and-orchestration) | 🔲 Not started | 0/8 — 0% |
+| 6 | [Containers and CI](#6--containers-and-ci) | 🔲 Not started | 0/5 — 0% |
+| 7 | [Evidence and delivery](#7--evidence-and-delivery) | 🔲 Not started | 0/6 — 0% |
 
 Status legend: 🔲 Not started · 🔄 In progress · ✅ Done (only once every task under it is checked).
 
 ---
 
-## 1 — `<Step 1 name>`
+## 1 — Knowledge base and project skeleton
 
-<!-- Optional one-liner: what this step actually accomplishes. -->
+Requirements and decisions captured, knowledge base bootstrapped, and the project files ready to build on.
 
-- [ ] `<Task>`
-- [ ] `<Task>`
+- [x] Capture requirements, design decisions, and the security baseline
+- [x] Bootstrap `CLAUDE.md`, the reference docs, and the convention rules
+- [x] Rename the uv defaults in `pyproject.toml` (project name, command, build backend, tool settings)
+- [ ] Fill the ignore files and git attributes
 
-## 2 — `<Step 2 name>`
+## 2 — Specify the pipeline run slice
 
-- [ ] `<Task>`
-- [ ] `<Task>`
+One contract for the whole run: validate, quarantine, load, reconcile, audit.
 
-## 3 — `<Step 3 name>`
+- [ ] Interview and write the `etl-run` spec (intent, scope, invariants)
+- [ ] Record the open questions and deferred decisions in the spec
+- [ ] Check the spec against the reference docs and resolve any conflict
 
-- [ ] `<Task>`
-- [ ] `<Task>`
+## 3 — Dependencies, schema, and configuration
+
+- [ ] Add runtime and dev dependencies with uv and commit `uv.lock`
+- [ ] Write both env sample files and the database Compose service with its healthcheck
+- [ ] Write the SQL schema and the schema bootstrap
+- [ ] Implement settings loading from environment variables
+- [ ] Confirm the database starts healthy and the schema applies twice without error
+
+## 4 — Validation and transformation
+
+- [ ] Extract: text-only CSV reading (byte-order mark, blank lines, size cap, missing columns)
+- [ ] Validation rules as named checks covering every reason code
+- [ ] Duplicate detection: first occurrence wins, identifier normalized without leading zeros
+- [ ] Transformation with exact decimal arithmetic and whitespace-only title casing
+- [ ] Deterministic dataset generator: clean file and defective file with planted defects
+- [ ] Unit tests: one per rule and per boundary case
+- [ ] Property test: valid plus rejected equals input for any input
+- [ ] Confirm the defective dataset yields exactly 12 rejections and 988 valid rows
+
+## 5 — Load, reconciliation, and orchestration
+
+- [ ] Structured logging with the run identifier bound once
+- [ ] Run audit: `RUNNING` row first, final update in every case
+- [ ] Quarantine persistence and the rejected CSV with formula neutralization
+- [ ] Idempotent load with per-row affected counts
+- [ ] Reconciliation against database state, rolling back on mismatch
+- [ ] Reject-rate threshold failing the run before anything is loaded
+- [ ] Run report (JSON and Markdown summary) and the command line with exit code
+- [ ] Integration tests on real PostgreSQL: valid, invalid, idempotent, threshold, missing column, missing file, database down
+
+## 6 — Containers and CI
+
+- [ ] `Dockerfile`: pinned uv, non-root user, cached dependency layer
+- [ ] Root Compose file with the `etl` profile and env files
+- [ ] Build the image and run both datasets through Compose
+- [ ] CI workflow: lint, tests with a required database, end-to-end run, job summary, artifact upload
+- [ ] Green workflow run on GitHub
+
+## 7 — Evidence and delivery
+
+- [ ] Write the README runbook
+- [ ] Run the demo end to end and record the real counts
+- [ ] Verify each done criterion: re-run is a no-op, threshold failure loads nothing, a broken rule fails the tests
+- [ ] Collect the numbered screenshots
+- [ ] Document limitations and manual steps honestly
+- [ ] Verify a fresh clone follows the README commands from scratch
 
 ---
 
