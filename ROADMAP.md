@@ -6,7 +6,7 @@ Linear build progress of the Piper ETL pipeline, from project skeleton to delive
 
 ## Overview
 
-**Overall progress: 28 / 39 tasks — 72%**
+**Overall progress: 31 / 39 tasks — 79%**
 
 | # | Step | Status | Progress |
 |---|---|---|---|
@@ -15,7 +15,7 @@ Linear build progress of the Piper ETL pipeline, from project skeleton to delive
 | 3 | [Dependencies, schema, and configuration](#3--dependencies-schema-and-configuration) | ✅ Done | 5/5 — 100% |
 | 4 | [Validation and transformation](#4--validation-and-transformation) | ✅ Done | 8/8 — 100% |
 | 5 | [Load, reconciliation, and orchestration](#5--load-reconciliation-and-orchestration) | ✅ Done | 8/8 — 100% |
-| 6 | [Containers and CI](#6--containers-and-ci) | 🔲 Not started | 0/5 — 0% |
+| 6 | [Containers and CI](#6--containers-and-ci) | 🔄 In progress | 3/5 — 60% |
 | 7 | [Evidence and delivery](#7--evidence-and-delivery) | 🔲 Not started | 0/6 — 0% |
 
 Status legend: 🔲 Not started · 🔄 In progress · ✅ Done (only once every task under it is checked).
@@ -71,9 +71,9 @@ One contract for the whole run: validate, quarantine, load, reconcile, audit.
 
 ## 6 — Containers and CI
 
-- [ ] `Dockerfile`: pinned uv, non-root user, cached dependency layer
-- [ ] Root Compose file with the `etl` profile and env files
-- [ ] Build the image and run both datasets through Compose
+- [x] `Dockerfile`: pinned uv, non-root user, cached dependency layer
+- [x] Root Compose file with the `etl` profile and env files
+- [x] Build the image and run both datasets through Compose
 - [ ] CI workflow: lint, tests with a required database, end-to-end run, job summary, artifact upload
 - [ ] Green workflow run on GitHub
 
