@@ -6,7 +6,7 @@ Linear build progress of the Piper ETL pipeline, from project skeleton to delive
 
 ## Overview
 
-**Overall progress: 32 / 39 tasks — 82%**
+**Overall progress: 33 / 39 tasks — 85%**
 
 | # | Step | Status | Progress |
 |---|---|---|---|
@@ -16,7 +16,7 @@ Linear build progress of the Piper ETL pipeline, from project skeleton to delive
 | 4 | [Validation and transformation](#4--validation-and-transformation) | ✅ Done | 8/8 — 100% |
 | 5 | [Load, reconciliation, and orchestration](#5--load-reconciliation-and-orchestration) | ✅ Done | 8/8 — 100% |
 | 6 | [Containers and CI](#6--containers-and-ci) | 🔄 In progress | 4/5 — 80% |
-| 7 | [Evidence and delivery](#7--evidence-and-delivery) | 🔲 Not started | 0/6 — 0% |
+| 7 | [Evidence and delivery](#7--evidence-and-delivery) | 🔄 In progress | 1/6 — 17% |
 
 Status legend: 🔲 Not started · 🔄 In progress · ✅ Done (only once every task under it is checked).
 
@@ -79,7 +79,7 @@ One contract for the whole run: validate, quarantine, load, reconcile, audit.
 
 ## 7 — Evidence and delivery
 
-- [ ] Write the README runbook
+- [x] Write the README runbook
 - [ ] Run the demo end to end and record the real counts
 - [ ] Verify each done criterion: re-run is a no-op, threshold failure loads nothing, a broken rule fails the tests
 - [ ] Collect the numbered screenshots
