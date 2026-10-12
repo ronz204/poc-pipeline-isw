@@ -271,3 +271,63 @@ def test_defective_dataset_yields_exactly_its_12_planted_rejections():
   }
   assert len(result.rejected) == 12
   assert len(result.valid) == 988
+
+
+CODE_TRIGGERS = {
+  "missing_transaction_id": {"transaction_id": ""},
+  "invalid_transaction_id": {"transaction_id": "abc"},
+  "missing_product": {"product": " "},
+  "missing_category": {"category": ""},
+  "missing_quantity": {"quantity": ""},
+  "invalid_quantity": {"quantity": "0"},
+  "missing_unit_price": {"unit_price": ""},
+  "invalid_unit_price": {"unit_price": "1.234"},
+  "non_positive_unit_price": {"unit_price": "0.00"},
+  "missing_transaction_date": {"transaction_date": ""},
+  "invalid_transaction_date": {"transaction_date": "2025-02-30"},
+  "missing_country": {"country": ""},
+}
+
+
+def test_every_reason_code_has_a_triggering_example():
+  triggered = {code for overrides in CODE_TRIGGERS.values() for code in reasons_of(**overrides)}
+  triggered |= {r for rejection in validate(ids_extracted("1", "1")).rejected for r in rejection.reasons}
+  triggered |= {
+    reason
+    for rejection in validate(extracted(malformed=[MalformedRow(2, ("x",))])).rejected
+    for reason in rejection.reasons
+  }
+
+  assert triggered == set(REASON_CODES)
+
+
+@pytest.mark.parametrize(("code", "overrides"), CODE_TRIGGERS.items())
+def test_each_trigger_example_produces_its_own_code(code, overrides):
+  assert code in reasons_of(**overrides)
+
+
+def test_one_short_and_one_long_row_are_rejected_and_the_rest_load(tmp_path):
+  header = ",".join(REQUIRED_COLUMNS)
+  good = ",".join(GOOD.values())
+  path = tmp_path / "ragged.csv"
+  path.write_text(
+    f"{header}\n{good}\n1,short\n{good.replace('1,', '2,', 1)}\n{good},extra\n", encoding="utf-8"
+  )
+
+  result = validate(extract(path, 1024 * 1024))
+
+  assert [(r.record_number, r.reasons) for r in result.rejected] == [
+    (3, ("wrong_column_count",)),
+    (5, ("wrong_column_count",)),
+  ]
+  assert len(result.valid) == 2
+
+
+def test_header_only_file_validates_to_nothing(tmp_path):
+  path = tmp_path / "empty.csv"
+  path.write_text(",".join(REQUIRED_COLUMNS) + "\n", encoding="utf-8")
+
+  result = validate(extract(path, 1024))
+
+  assert result.rejected == ()
+  assert result.valid.empty
