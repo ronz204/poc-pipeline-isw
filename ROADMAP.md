@@ -6,13 +6,13 @@ Linear build progress of the Piper ETL pipeline, from project skeleton to delive
 
 ## Overview
 
-**Overall progress: 7 / 39 tasks — 18%**
+**Overall progress: 12 / 39 tasks — 31%**
 
 | # | Step | Status | Progress |
 |---|---|---|---|
 | 1 | [Knowledge base and project skeleton](#1--knowledge-base-and-project-skeleton) | ✅ Done | 4/4 — 100% |
 | 2 | [Specify the pipeline run slice](#2--specify-the-pipeline-run-slice) | ✅ Done | 3/3 — 100% |
-| 3 | [Dependencies, schema, and configuration](#3--dependencies-schema-and-configuration) | 🔲 Not started | 0/5 — 0% |
+| 3 | [Dependencies, schema, and configuration](#3--dependencies-schema-and-configuration) | ✅ Done | 5/5 — 100% |
 | 4 | [Validation and transformation](#4--validation-and-transformation) | 🔲 Not started | 0/8 — 0% |
 | 5 | [Load, reconciliation, and orchestration](#5--load-reconciliation-and-orchestration) | 🔲 Not started | 0/8 — 0% |
 | 6 | [Containers and CI](#6--containers-and-ci) | 🔲 Not started | 0/5 — 0% |
@@ -41,11 +41,11 @@ One contract for the whole run: validate, quarantine, load, reconcile, audit.
 
 ## 3 — Dependencies, schema, and configuration
 
-- [ ] Add runtime and dev dependencies with uv and commit `uv.lock`
-- [ ] Write both env sample files and the database Compose service with its healthcheck
-- [ ] Write the SQL schema and the schema bootstrap
-- [ ] Implement settings loading from environment variables
-- [ ] Confirm the database starts healthy and the schema applies twice without error
+- [x] Add runtime and dev dependencies with uv and commit `uv.lock`
+- [x] Write both env sample files and the database Compose service with its healthcheck
+- [x] Write the SQL schema and the schema bootstrap
+- [x] Implement settings loading from environment variables
+- [x] Confirm the database starts healthy and the schema applies twice without error
 
 ## 4 — Validation and transformation
 
