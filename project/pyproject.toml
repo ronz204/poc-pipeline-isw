@@ -1,0 +1,32 @@
+[project]
+name = "piper"
+version = "0.1.0"
+description = "ETL pipeline with DataOps practices: validation, quarantine, idempotent load, and per-run audit"
+authors = [
+    { name = "roney ruiz", email = "roneyruizrojas@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+piper = "source.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.12.1,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "source"
+module-root = ""
+namespace = true
+
+[tool.pytest.ini_options]
+testpaths = ["testing"]
+addopts = "-ra"
+markers = ["integration: needs a running PostgreSQL (see POSTGRES_* variables)"]
+
+[tool.ruff]
+line-length = 110
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]
