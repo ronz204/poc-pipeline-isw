@@ -16,7 +16,7 @@ What each pipeline component does, step by step, and the data it exchanges. Why 
 
 | Setting | Default | Meaning |
 |---|---|---|
-| host / port | `localhost` / `5432` | Database endpoint |
+| host / port | `127.0.0.1` / `5432` | Database endpoint |
 | user / password / database | none (required) | Database credentials |
 | reports directory / logs directory | `reports` / `logs` | Per-run output locations |
 | reject-rate threshold | `0.2` | Share of rejected rows above which a run fails |

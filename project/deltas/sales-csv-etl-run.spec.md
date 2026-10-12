@@ -33,7 +33,7 @@ Read from environment variables. Database parameters are passed to the driver in
 
 | Setting | Default | Meaning |
 |---|---|---|
-| host / port | `localhost` / `5432` | Database endpoint |
+| host / port | `127.0.0.1` / `5432` | Database endpoint |
 | user / password / database | none (required) | Database credentials |
 | reports directory / logs directory | `reports` / `logs` | Per-run output locations |
 | reject-rate threshold | `0.2` | A run fails when the reject rate is strictly above it |

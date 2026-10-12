@@ -268,7 +268,7 @@ Dos archivos `.sample`, cada uno con un dueño, para no repetir credenciales:
 | `docker/database/.env` | `POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_DB` | Servicio `database` **y** servicio `etl` (vía `env_file`) |
 | `.env` | `DB_PORT` (puerto publicado en el host), `MAX_REJECT_RATE`, `MAX_INPUT_MB` | Compose (interpolación) y servicio `etl` |
 
-La aplicación arma la conexión desde `POSTGRES_HOST` (default `localhost`; en Compose vale `database`), `POSTGRES_PORT` (default `5432`; en Compose vale `5432` fijo, es el puerto interno), `POSTGRES_USER`, `POSTGRES_PASSWORD` y `POSTGRES_DB`, pasándolos como parámetros separados a psycopg. Así no hay `DATABASE_URL` y no hace falta codificar caracteres especiales en la clave.
+La aplicación arma la conexión desde `POSTGRES_HOST` (default `127.0.0.1`; en Compose vale `database`), `POSTGRES_PORT` (default `5432`; en Compose vale `5432` fijo, es el puerto interno), `POSTGRES_USER`, `POSTGRES_PASSWORD` y `POSTGRES_DB`, pasándolos como parámetros separados a psycopg. Así no hay `DATABASE_URL` y no hace falta codificar caracteres especiales en la clave.
 
 | Variable | Default | Uso |
 |---|---|---|
@@ -408,7 +408,7 @@ jobs:
           --health-timeout 5s
           --health-retries 10
     env:
-      POSTGRES_HOST: localhost
+      POSTGRES_HOST: 127.0.0.1
       POSTGRES_USER: piper
       POSTGRES_PASSWORD: piper
       POSTGRES_DB: piper
@@ -469,7 +469,7 @@ docker compose exec database psql -U piper -d piper -c "SELECT record_number, re
 
 # --- Opción B: desarrollo local con uv (desde project/) ---
 uv sync --locked
-export POSTGRES_HOST=localhost POSTGRES_USER=piper POSTGRES_PASSWORD=piper POSTGRES_DB=piper   # o los valores de docker/database/.env
+export POSTGRES_HOST=127.0.0.1 POSTGRES_USER=piper POSTGRES_PASSWORD=piper POSTGRES_DB=piper   # o los valores de docker/database/.env
 uv run ruff check .
 uv run pytest -v                                       # necesita la BD arriba (docker compose up -d)
 uv run piper run data/sales_valid.csv
