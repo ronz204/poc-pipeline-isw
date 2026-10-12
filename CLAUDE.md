@@ -19,7 +19,7 @@ An ETL pipeline that reads sales CSVs, validates every row against declared qual
 | Path | Purpose |
 |---|---|
 | `project/` | The whole application; every tool command runs from here |
-| `project/source/` | The importable package (`source`), grouped by pipeline stage into `config`, `ingest`, `storage`, `output`, `engine`, `tools`, and `cli`; no `__init__.py` files |
+| `project/source/` | The importable package (`source`), grouped by pipeline stage into `config`, `ingest`, `storage`, `output`, `engine`, and `tools`, plus the `cli` module; no `__init__.py` files |
 | `project/testing/` | Tests; one subfolder per source package, shared fixtures in a single conftest |
 | `project/data/` | Synthetic input CSVs |
 | `project/docker/` | One subfolder per Compose service; currently the database service |

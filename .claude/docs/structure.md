@@ -42,7 +42,7 @@ Order of a run: ensure schema, record the run as `RUNNING`, extract, validate, q
 
 The package is grouped by pipeline stage, and the test tree mirrors it.
 
-| Package | Responsibility |
+| Package or module | Responsibility |
 |---|---|
 | `config` | Settings loaded from environment variables |
 | `ingest` | Reading the CSV as text, the validation rules, and the transformation of valid rows |
@@ -50,7 +50,7 @@ The package is grouped by pipeline stage, and the test tree mirrors it.
 | `output` | Evidence a run produces: the structured logger, the JSON and Markdown report, and the rejected-rows CSV |
 | `engine` | The run itself: status types and the shared run result, the audit lifecycle, reconciliation, and the staged runner |
 | `tools` | The deterministic synthetic dataset generator |
-| `cli` | The installed command and its two subcommands, run and generate |
+| `cli` (single module) | The installed command and its two subcommands, run and generate |
 
 Dependencies point inward: `cli` calls `engine`, which composes `ingest`, `storage`, and `output`; `config` and the run-result types are shared by all. One object, the run result, is both the audit record and the report, so the two cannot drift apart.
 
