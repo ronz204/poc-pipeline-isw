@@ -36,7 +36,7 @@ They are built together because the point is not any one of them: a reproducible
 
 ## Risks
 
-- Several pieces are unverified until executed: the image build, the Compose run path, the CI workflow, and whether the CSV reader can surface ragged rows as rejections.
+- Several pieces are unverified until executed: the image build, the Compose run path, the CI workflow.
 - Translating the validation library's failure reports into per-row reason codes may prove more awkward than plain pandas masks; the fallback is to drop the library.
 - pandas 3 changed text dtype and copy behavior; the suite must run on the locked version from the first day.
 - A non-root container user may lack write permission on mounted output directories on some hosts.

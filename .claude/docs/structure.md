@@ -66,7 +66,6 @@ Baseline considerations that do not apply: authentication and authorization (loc
 
 ## Open architecture decisions
 
-- **Ragged rows:** whether the CSV reader can hand rows with a wrong column count to validation as rejections. If not, such a file fails the run with a clear error.
 - **Validation mapping:** whether translating pandera failures into per-row reason codes stays simpler than equivalent vectorized masks. If it does not, the rules move to plain pandas masks and the dependency is dropped.
 
 ---

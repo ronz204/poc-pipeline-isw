@@ -30,7 +30,7 @@ What each pipeline component does, step by step, and the data it exchanges. Why 
 1. Refuse the file if it exceeds the maximum input size.
 2. Read every column as string, keep empty strings as empty (no NA coercion), tolerate a UTF-8 byte-order mark, and keep blank lines as rows so record numbering stays aligned.
 3. Fail with a schema error if a required column is missing. Extra columns are ignored and reported through a log event.
-4. Rows whose column count differs from the header are meant to become rejections rather than abort the run; if the reader cannot support that, the run fails with a clear error rather than dropping the row.
+4. Rows whose column count differs from the header become rejections (`wrong_column_count`, the only code they carry) rather than aborting the run or being dropped.
 
 **Data shape.** A table of strings with the seven required columns. The record number of a row is its position plus two (the header is line one); it matches the physical file line unless quoted fields span lines.
 
@@ -52,8 +52,8 @@ What each pipeline component does, step by step, and the data it exchanges. Why 
 | `missing_<field>` | Required field empty or whitespace only (all seven fields) |
 | `invalid_transaction_id` | Not a positive integer of at most 18 ASCII digits |
 | `invalid_quantity` | Not an integer between 1 and 9999 |
-| `invalid_unit_price` | Not a decimal with at most 2 decimals and 7 integer digits |
-| `non_positive_unit_price` | Price is zero or negative |
+| `invalid_unit_price` | Not a decimal with an optional sign, at most 2 decimals and 7 integer digits |
+| `non_positive_unit_price` | Format-valid price that is zero or negative |
 | `invalid_transaction_date` | Not a real calendar date in `YYYY-MM-DD` |
 | `duplicate_transaction_id` | Identifier already appeared earlier in the file |
 
