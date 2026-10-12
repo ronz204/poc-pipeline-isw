@@ -6,7 +6,7 @@ Linear build progress of the Piper ETL pipeline, from project skeleton to delive
 
 ## Overview
 
-**Overall progress: 20 / 39 tasks — 51%**
+**Overall progress: 28 / 39 tasks — 72%**
 
 | # | Step | Status | Progress |
 |---|---|---|---|
@@ -14,7 +14,7 @@ Linear build progress of the Piper ETL pipeline, from project skeleton to delive
 | 2 | [Specify the pipeline run slice](#2--specify-the-pipeline-run-slice) | ✅ Done | 3/3 — 100% |
 | 3 | [Dependencies, schema, and configuration](#3--dependencies-schema-and-configuration) | ✅ Done | 5/5 — 100% |
 | 4 | [Validation and transformation](#4--validation-and-transformation) | ✅ Done | 8/8 — 100% |
-| 5 | [Load, reconciliation, and orchestration](#5--load-reconciliation-and-orchestration) | 🔲 Not started | 0/8 — 0% |
+| 5 | [Load, reconciliation, and orchestration](#5--load-reconciliation-and-orchestration) | ✅ Done | 8/8 — 100% |
 | 6 | [Containers and CI](#6--containers-and-ci) | 🔲 Not started | 0/5 — 0% |
 | 7 | [Evidence and delivery](#7--evidence-and-delivery) | 🔲 Not started | 0/6 — 0% |
 
@@ -60,14 +60,14 @@ One contract for the whole run: validate, quarantine, load, reconcile, audit.
 
 ## 5 — Load, reconciliation, and orchestration
 
-- [ ] Structured logging with the run identifier bound once
-- [ ] Run audit: `RUNNING` row first, final update in every case
-- [ ] Quarantine persistence and the rejected CSV with formula neutralization
-- [ ] Idempotent load with per-row affected counts
-- [ ] Reconciliation against database state, rolling back on mismatch
-- [ ] Reject-rate threshold failing the run before anything is loaded
-- [ ] Run report (JSON and Markdown summary) and the command line with exit code
-- [ ] Integration tests on real PostgreSQL: valid, invalid, idempotent, threshold, missing column, missing file, database down
+- [x] Structured logging with the run identifier bound once
+- [x] Run audit: `RUNNING` row first, final update in every case
+- [x] Quarantine persistence and the rejected CSV with formula neutralization
+- [x] Idempotent load with per-row affected counts
+- [x] Reconciliation against database state, rolling back on mismatch
+- [x] Reject-rate threshold failing the run before anything is loaded
+- [x] Run report (JSON and Markdown summary) and the command line with exit code
+- [x] Integration tests on real PostgreSQL: valid, invalid, idempotent, threshold, missing column, missing file, database down
 
 ## 6 — Containers and CI
 
