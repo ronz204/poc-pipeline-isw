@@ -1,8 +1,6 @@
 ---
 paths:
-  - "*/cmd/**"
-  - "*/source/**"
-  - "*/drizzle/**"
+  - "project/**/*.py"
 ---
 
 # Code Language Conventions
