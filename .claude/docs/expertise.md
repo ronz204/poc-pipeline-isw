@@ -32,7 +32,7 @@ Type inference in CSV readers turns `007` into `7`, empty strings into NA, and m
 
 ## Declared validation with lazy evaluation
 
-A schema of named checks separates what is valid from how failures are reported. Evaluating lazily collects every failing check for every row instead of stopping at the first, which is what allows one row to carry several reason codes. A check that is a boolean test over a whole column returns one result per row; the check's name, not its implementation, becomes the reason code. Format checks must tolerate empty values, otherwise an empty field would be reported both as missing and as malformed.
+A schema of named checks separates what is valid from how failures are reported. Evaluating lazily collects every failing check for every row instead of stopping at the first, which is what allows one row to carry several reason codes. A check that is a boolean test over a whole column returns one result per row; the check's name, not its implementation, becomes the reason code. Format checks do not skip empty values: an empty field fails both its missing check and, where one exists, its format check, so the quarantine record shows every rule the value violates. A check that only makes sense for well-formed values, such as positivity of a price, returns a pass for malformed ones so the row gets one precise code instead of two overlapping ones.
 
 ## Property-based testing of the accounting invariant
 
