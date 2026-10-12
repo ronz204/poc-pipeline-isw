@@ -16,19 +16,17 @@ UPDATE_RUN = """
 """
 
 
-def insert_run(conn: psycopg.Connection, run_id: str, source_file: str, started_at: datetime) -> None:
-  conn.execute(INSERT_RUN, (run_id, source_file, RUNNING, started_at))
+def insert_run(conn: psycopg.Connection, result: RunResult, started_at: datetime) -> None:
+  conn.execute(INSERT_RUN, (result.run_id, result.source_file, RUNNING, started_at))
 
 
-def finish_run(
-  conn: psycopg.Connection, run_id: str, result: RunResult, finished_at: datetime, duration_ms: int
-) -> None:
+def finish_run(conn: psycopg.Connection, result: RunResult, finished_at: datetime) -> None:
   conn.execute(
     UPDATE_RUN,
     (
       result.status,
       finished_at,
-      duration_ms,
+      result.duration_ms,
       result.rows_in,
       result.rows_valid,
       result.rows_rejected,
@@ -36,6 +34,6 @@ def finish_run(
       result.rows_skipped_existing,
       Jsonb(result.rejection_breakdown),
       result.error,
-      run_id,
+      result.run_id,
     ),
   )

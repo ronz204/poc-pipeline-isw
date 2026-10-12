@@ -6,6 +6,7 @@ from pathlib import Path
 from source.config.settings import ConfigError, load_settings
 from source.engine.runner import run_pipeline
 from source.engine.status import FAILED
+from source.output.report import to_markdown
 from source.tools.dataset import generate_datasets
 
 DEFAULT_DATA_DIR = Path("data")
@@ -35,9 +36,9 @@ def _parser() -> argparse.ArgumentParser:
 
 
 def _run(args: argparse.Namespace) -> int:
-  report = run_pipeline(args.csv, load_settings())
-  print(report.to_markdown())
-  return 1 if report.status == FAILED else 0
+  result = run_pipeline(args.csv, load_settings())
+  print(to_markdown(result))
+  return 1 if result.status == FAILED else 0
 
 
 def _generate(args: argparse.Namespace) -> int:

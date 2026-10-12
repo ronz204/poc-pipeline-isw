@@ -19,44 +19,42 @@ from source.ingest.rules import validate
 from source.ingest.shaper import transform
 from source.output.exports import write_rejected_csv
 from source.output.logger import run_logger
-from source.output.report import Report
+from source.output.report import write_json
 from source.storage.connect import connect, ensure_schema
 from source.storage.rejects import persist_rejections
 from source.storage.sales import insert_sales
 
 
-def run_pipeline(source: Path, settings: Settings) -> Report:
-  run_id = _new_run_id()
-  result = RunResult()
+def run_pipeline(source: Path, settings: Settings) -> RunResult:
+  result = RunResult(run_id=_new_run_id(), source_file=source.as_posix())
   clock = perf_counter()
   log = None
   with ExitStack() as stack:
     try:
       _require_writable(settings.reports_dir, "reports")
       _require_writable(settings.logs_dir, "logs")
-      log = stack.enter_context(run_logger(run_id, settings.logs_dir))
-      log.info("run_started", source_file=source.as_posix())
-      _execute(source, settings, run_id, result, log)
+      log = stack.enter_context(run_logger(result.run_id, settings.logs_dir))
+      log.info("run_started", source_file=result.source_file)
+      _execute(source, settings, result, log)
     except Exception as exc:
       result.status = FAILED
       result.error = failure_message(exc)
-    report = Report.from_result(run_id, source.as_posix(), result, round((perf_counter() - clock) * 1000))
-    report.write_json(settings.reports_dir)
+    if result.duration_ms is None:
+      result.duration_ms = round((perf_counter() - clock) * 1000)
+    write_json(result, settings.reports_dir)
     if log is not None:
-      _log_outcome(log, report)
-  return report
+      _log_outcome(log, result)
+  return result
 
 
 def reject_rate_exceeded(rows_rejected: int, rows_in: int, threshold: float) -> bool:
   return Decimal(rows_rejected) > Decimal(str(threshold)) * rows_in
 
 
-def _execute(
-  source: Path, settings: Settings, run_id: str, result: RunResult, log: structlog.stdlib.BoundLogger
-) -> None:
+def _execute(source: Path, settings: Settings, result: RunResult, log: structlog.stdlib.BoundLogger) -> None:
   with closing(_connect(settings)) as conn:
     ensure_schema(conn)
-    with audited_run(conn, run_id, source.as_posix(), result):
+    with audited_run(conn, result):
       try:
         extracted = extract(source, settings.max_input_bytes)
       except ExtractError as exc:
@@ -76,8 +74,8 @@ def _execute(
       log.info("validate_done", rows_valid=result.rows_valid, rows_rejected=result.rows_rejected)
 
       if validation.rejected:
-        persist_rejections(conn, run_id, validation.rejected)
-        write_rejected_csv(settings.reports_dir, run_id, validation.rejected)
+        persist_rejections(conn, result.run_id, validation.rejected)
+        write_rejected_csv(settings.reports_dir, result.run_id, validation.rejected)
         log.warning("rows_rejected", rejection_breakdown=result.rejection_breakdown)
 
       if reject_rate_exceeded(result.rows_rejected, result.rows_in, settings.max_reject_rate):
@@ -89,11 +87,11 @@ def _execute(
       sales = transform(validation.valid)
       log.info("transform_done", rows=len(sales))
       with conn.transaction():
-        counts = insert_sales(conn, run_id, sales)
+        counts = insert_sales(conn, result.run_id, sales)
         log.info("load_done", rows_loaded=counts.loaded, rows_skipped_existing=counts.skipped_existing)
         reconcile(
           conn,
-          run_id,
+          result.run_id,
           rows_in=result.rows_in,
           rows_valid=result.rows_valid,
           rows_rejected=result.rows_rejected,
@@ -124,7 +122,7 @@ def _require_writable(directory: Path, label: str) -> None:
     raise RunError(f"{label} directory is not writable: {directory}") from None
 
 
-def _log_outcome(log: structlog.stdlib.BoundLogger, report: Report) -> None:
+def _log_outcome(log: structlog.stdlib.BoundLogger, report: RunResult) -> None:
   fields = {
     "status": report.status,
     "rows_in": report.rows_in,

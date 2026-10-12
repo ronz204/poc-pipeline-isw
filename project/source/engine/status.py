@@ -16,6 +16,8 @@ def failure_message(exc: BaseException) -> str:
 
 @dataclass
 class RunResult:
+  run_id: str
+  source_file: str
   status: str = RUNNING
   rows_in: int | None = None
   rows_valid: int | None = None
@@ -24,4 +26,5 @@ class RunResult:
   rows_skipped_existing: int | None = None
   rejection_breakdown: dict[str, int] = field(default_factory=dict)
   reconciled: bool = False
+  duration_ms: int | None = None
   error: str | None = None
