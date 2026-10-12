@@ -1,1 +1,11 @@
 name: piper
+
+include:
+  - path: docker/database/compose.yml
+    env_file: docker/database/.env
+
+volumes:
+  piper-data:
+
+networks:
+  piper-network:
